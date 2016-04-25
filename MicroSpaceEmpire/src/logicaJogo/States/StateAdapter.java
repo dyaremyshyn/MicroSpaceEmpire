@@ -5,10 +5,33 @@
  */
 package logicaJogo.States;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class StateAdapter {
+public abstract class StateAdapter implements IStates , Serializable {
+    
+    /*private JogoDados jogo;
+
+    public EstadoAdapter(JogoDados j) {
+        this.jogo = j;
+    }
+
+    public JogoDados getJogo() {
+        return jogo;
+    }
+*/
+    
+    public IStates PrepararJogo( ){return this;}
+    public IStates Explorar_atacar(){return this;}
+    public IStates Conquistar(){return this;}
+    public IStates Passar(){return this;}
+    public IStates Trocar_recursos(){return this;}
+    public IStates Aumentar_Força_Militar(){return this;}
+    public IStates Comprar_Tecnologia(){return this;}
+    public IStates Terminar(){return this;}
+    
     
 }

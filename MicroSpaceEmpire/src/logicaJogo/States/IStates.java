@@ -11,4 +11,13 @@ package logicaJogo.States;
  */
 public interface IStates {
     
+    IStates PrepararJogo();
+    IStates Explorar_atacar();
+    IStates Conquistar();
+    IStates Passar();
+    IStates Trocar_recursos();
+    IStates Aumentar_Força_Militar();
+    IStates Comprar_Tecnologia();
+    IStates Terminar();
+    
 }
