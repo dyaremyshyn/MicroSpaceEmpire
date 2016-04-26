@@ -9,6 +9,6 @@ package logicaJogo;
  *
  * @author Dmytro Yaremyshyn
  */
-public class FimJogo {
+public class Dado {
     
 }

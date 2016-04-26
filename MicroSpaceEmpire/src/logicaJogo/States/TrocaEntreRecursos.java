@@ -9,6 +9,6 @@ package logicaJogo.States;
  *
  * @author Dmytro Yaremyshyn
  */
-public class EscolheTrocaFase2 {
+public class TrocaEntreRecursos {
     
 }

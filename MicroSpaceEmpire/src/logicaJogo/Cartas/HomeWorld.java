@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logicaJogo.States;
+package logicaJogo.Cartas;
 
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class AguardaEscolhaFase1 {
+public class HomeWorld extends Carta{
+
+    public HomeWorld() {
+        super("Starting System", "Home World", 1, 1, 0, 0);
+    }
     
 }

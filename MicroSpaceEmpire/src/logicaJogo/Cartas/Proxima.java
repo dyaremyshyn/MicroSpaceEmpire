@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logicaJogo.States;
+package logicaJogo.Cartas;
 
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class EscolheAumentarFMComprarT {
+public class Proxima extends Carta{
+
+    public Proxima() {
+        super("Near System", "Proxima", 1, 0, 6, 1);
+    }
     
 }

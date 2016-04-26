@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logicaJogo;
+package logicaJogo.States;
 
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class PreparacaoJogo {
+public class ConstruirFM_DescobrirTecnologia {
     
 }
