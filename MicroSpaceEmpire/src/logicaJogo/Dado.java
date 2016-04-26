@@ -11,35 +11,12 @@ package logicaJogo;
  */
 public class Dado {
     
-    private int minimo;
-    private int maximo;
+    private final int minimo;
+    private final int maximo;
     
-    
-    Dado(){setMinimo(1);setMaximo(6);};
+    Dado(){minimo = 1; maximo = 6;}
     
     public int LancaDado(){
         return (int)(Math.random()*maximo) + minimo;
     }
-
-    
-    //set's e get's //////////////////////////////////////////
-   
-    public int getMinimo() {
-        return minimo;
-    }
-
-    public int getMaximo() {
-        return maximo;
-    }
-
-    public void setMinimo(int minimo) {
-        this.minimo = minimo;
-    }
-
-    public void setMaximo(int maximo) {
-        this.maximo = maximo;
-    }
-    
-    
-    
 }
