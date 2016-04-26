@@ -24,13 +24,28 @@ public abstract class StateAdapter implements IStates , Serializable {
     }
 */
     
+    @Override
     public IStates PrepararJogo( ){return this;}
+    
+    @Override
     public IStates Explorar_atacar(){return this;}
+    
+    @Override
     public IStates Conquistar(){return this;}
+    
+    @Override
     public IStates Passar(){return this;}
+    
+    @Override
     public IStates Trocar_recursos(){return this;}
+    
+    @Override
     public IStates Aumentar_Força_Militar(){return this;}
+    
+    @Override
     public IStates Comprar_Tecnologia(){return this;}
+    
+    @Override
     public IStates Terminar(){return this;}
     
     
