@@ -5,10 +5,29 @@
  */
 package logicaJogo.States;
 
+import logicaJogo.JogoDados;
+
+
+
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class AguardaInicio {
-    
+
+public class AguardaInicio extends StateAdapter
+{ 
+  
+    public AguardaInicio(JogoDados j) 
+    {
+        super(j);
+    }
+
+    @Override
+    public IStates PrepararJogo() {
+        return super.PrepararJogo(); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
+
+   
 }

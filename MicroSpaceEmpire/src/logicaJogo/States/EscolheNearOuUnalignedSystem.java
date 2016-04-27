@@ -9,19 +9,19 @@ import logicaJogo.JogoDados;
 
 /**
  *
- * @author Dmytro Yaremyshyn
+ * @author Sergio
  */
-public class EscolheUnalignedSystem extends StateAdapter
+public class EscolheNearOuUnalignedSystem extends StateAdapter
 {
     
-    public EscolheUnalignedSystem(JogoDados j) 
+    public EscolheNearOuUnalignedSystem(JogoDados j) 
     {
         super(j);
     }
 
     @Override
-    public IStates Conquistar(int alvo) {
-        return super.Conquistar(alvo); //To change body of generated methods, choose Tools | Templates.
+    public IStates Explorar_atacar(int TipoSistema) {
+        return super.Explorar_atacar(TipoSistema); //To change body of generated methods, choose Tools | Templates.
     }
     
     

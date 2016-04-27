@@ -5,6 +5,9 @@
  */
 package microspaceempire;
 
+import logicaJogo.Jogo;
+import ui_text.TextUserInterface;
+
 /**
  *
  * @author Dmytro Yaremyshyn
@@ -15,8 +18,8 @@ public class MicroSpaceEmpire {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        //isto não é apenas um teste
+        TextUserInterface iuTexto = new TextUserInterface(new Jogo());
+        iuTexto.corre();
     }
     
 }

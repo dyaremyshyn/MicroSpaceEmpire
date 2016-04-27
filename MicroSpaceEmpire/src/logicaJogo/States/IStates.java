@@ -12,12 +12,16 @@ package logicaJogo.States;
 public interface IStates {
     
     IStates PrepararJogo();
-    IStates Explorar_atacar();
-    IStates Conquistar();
+    IStates Explorar_atacar(int TipoSistema);
+    IStates Conquistar(int alvo);
     IStates Passar();
-    IStates Trocar_recursos();
+    IStates Trocar_recursos(int TipoDeTroca);
     IStates Aumentar_Força_Militar();
-    IStates Comprar_Tecnologia();
+    IStates Comprar_Tecnologia(int TecnologiaEscolhida);
     IStates Terminar();
+    IStates EscolheExplorar_atacar();
+    IStates EscolheConquistar();
+    IStates Cancelar();
+    IStates EscolheDescobrirTecnologia();
     
 }
