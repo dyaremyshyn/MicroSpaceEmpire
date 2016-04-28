@@ -21,17 +21,17 @@ public class ExplorarAtacar_Conquistar_Passar extends StateAdapter
 
     @Override
     public IStates Passar() {
-        return super.Passar(); //To change body of generated methods, choose Tools | Templates.
+        return new TrocaEntreRecursos(getJogo());
     }
 
     @Override
     public IStates EscolheExplorar_atacar() {
-        return super.EscolheExplorar_atacar(); //To change body of generated methods, choose Tools | Templates.
+        return new EscolheNearOuUnalignedSystem(getJogo());
     }
 
     @Override
     public IStates EscolheConquistar() {
-        return super.EscolheConquistar(); //To change body of generated methods, choose Tools | Templates.
+        return new EscolheUnalignedSystem(getJogo());
     }
 
     @Override

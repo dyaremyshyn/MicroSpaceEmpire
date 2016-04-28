@@ -23,8 +23,14 @@ public class AguardaInicio extends StateAdapter
     }
 
     @Override
-    public IStates PrepararJogo() {
-        return super.PrepararJogo(); //To change body of generated methods, choose Tools | Templates.
+    public IStates PrepararJogo() 
+    {
+        if(getJogo().iniciar())
+        {
+            return new ExplorarAtacar_Conquistar_Passar(getJogo());
+        }
+        
+        return this;
     }
 
    

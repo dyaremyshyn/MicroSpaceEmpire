@@ -34,18 +34,113 @@ public class TextUserInterface {
     }
 
     public void iuAguardaInicio() 
-    {
-        
+    {              
+        System.out.println("\n=== AGUARDA INICIO ===\n");
+              
+        while (true) 
+        {
+            System.out.println("\n0 - Comecar jogo\n1 - Recarregar jogo(nao funcional)\\n2 - Sair");
+            char c = ' ';
+            Scanner sc = new Scanner(System.in);
+            c = sc.next().charAt(0);
+            
+            if ((c == '0')) 
+            {               
+                System.out.println("Comecar jogo");
+                jogo.PrepararJogo();
+                return;
+            }
+         
+            if ((c == '1')) 
+            {
+               System.out.println("Recarregar partida");
+                try 
+                {
+                    //JogoMaqEstados outro = recarregar_jogo();
+                   // jogo = outro;
+                } catch (Exception e) 
+                    {
+                        System.out.println("ERRO ao ler ficheiro" + e);
+                    }
+                
+                return;
+            }
+            if ((c == '2'))
+            {
+                sair = true;
+                return;
+            }
+        }
     }
 
     public void iuExplorarAtacar_Conquistar_Passar() 
     {
+        System.out.println("\n=== Explorar-Atacar/Conquistar ===\n");
         
+        while (true) 
+        {
+            System.out.println("\n0 - Explorar-Atacar(nao funcional)\n1 - Conquistar(nao funcional)\\n2 - Passar");
+            
+            char c = ' ';
+            Scanner sc = new Scanner(System.in);
+            c = sc.next().charAt(0);
+            
+            if ((c == '0')) 
+            {
+                System.out.println("*Explorar-Atacar*");
+                jogo.EscolheExplorar_atacar();
+                return;
+            }
+         
+            if ((c == '1')) 
+            { 
+                System.out.println("*Conquistar*");
+                jogo.EscolheConquistar();
+                return;
+            }
+            
+            if ((c == '2'))
+            {
+                System.out.println("*Passar*");
+                jogo.Passar();
+                return;
+            }
+        }
     }
 
     public void iuEscolheNearOuUnalignedSystem() 
     {
-       
+       System.out.println("\n=== Escolher entre Near ou Unaligned  ===\n");
+        
+        while (true) 
+        {
+            System.out.println("\n0 - Near (nao funcional)\n1 - Unaligned System (nao funcional)");
+            
+            char c = ' ';
+            Scanner sc = new Scanner(System.in);
+            c = sc.next().charAt(0);
+            
+            if ((c == '0')) 
+            {
+                System.out.println("*Explorar-Atacar*");
+                jogo.EscolheExplorar_atacar();
+                return;
+            }
+         
+            if ((c == '1')) 
+            { 
+                System.out.println("*Conquistar*");
+                jogo.EscolheConquistar();
+                return;
+            }
+            
+            if ((c == '2'))
+            {
+                System.out.println("*Passar*");
+                jogo.Passar();
+                return;
+            }
+        }
     }
     
     public void iuEscolheUnalignedSystem() 
