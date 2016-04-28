@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package logicaJogo;
 
 import logicaJogo.Cartas.Carta;
@@ -12,6 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import logicaJogo.Cartas.*;
+import logicaJogo.Eventos.Evento;
 
 /**
  *
@@ -28,6 +25,10 @@ public class JogoDados implements Serializable {
     private int forcaMilitar;
     private int producaoMetal;
     private int producaoRiq;
+    private Dado dado;
+    private int currentYear;
+    private List<Evento> eventos;
+    private Evento currentEvento;
     
     JogoDados(){
        imperio = new ArrayList<>();
@@ -41,6 +42,7 @@ public class JogoDados implements Serializable {
        forcaMilitar=0;
        producaoMetal=0;
        producaoRiq=0;
+       currentYear=1;
     }
 
     public boolean iniciar(){
@@ -81,6 +83,10 @@ public class JogoDados implements Serializable {
         Collections.shuffle(distantSystem);
     }
 
+    public Dado getDado() {
+        return dado;
+    }
+    
     public int getPontuacao() {
         return pontuacao;
     }
@@ -121,7 +127,7 @@ public class JogoDados implements Serializable {
         this.forcaMilitar = forcaMilitar;
     }
     
-     public void setImperio(Carta e) {
+    public void setImperio(Carta e) {
         imperio.add(e);
     }
 
@@ -129,7 +135,7 @@ public class JogoDados implements Serializable {
         porConquistar.add(e);
     }
     
-      public void setProducaoMetal(int producaoMetal) {
+    public void setProducaoMetal(int producaoMetal) {
         this.producaoMetal = producaoMetal;
     }
 
@@ -137,5 +143,8 @@ public class JogoDados implements Serializable {
         this.producaoRiq = producaoRiq;
     }
 
+    public void setDado(Dado dado) {
+        this.dado = dado;
+    }
     
 }

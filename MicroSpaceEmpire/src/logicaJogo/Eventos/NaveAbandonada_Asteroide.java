@@ -5,21 +5,18 @@
  */
 package logicaJogo.Eventos;
 
-import logicaJogo.Eventos.Evento;
-
 /**
  *
- * @author Sergio
+ * @author Dmytro Yaremyshyn
  */
-public class Greve extends Evento{
-
-    public Greve() {
-        super("Greve");
+public class NaveAbandonada_Asteroide extends Evento{
+    public NaveAbandonada_Asteroide(){
+        super("Nave Abandonada/Asteroide");
     }
     
     @Override
     public void year1(){
-    
+        
     }
     
     @Override

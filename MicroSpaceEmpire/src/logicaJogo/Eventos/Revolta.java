@@ -5,26 +5,23 @@
  */
 package logicaJogo.Eventos;
 
-import logicaJogo.Eventos.Evento;
-
 /**
  *
- * @author Sergio
+ * @author Dmytro Yaremyshyn
  */
-public class Greve extends Evento{
+public class Revolta extends Evento{
 
-    public Greve() {
-        super("Greve");
+    public Revolta() {
+        super("Revolta");
     }
+    
     
     @Override
     public void year1(){
-    
+        
     }
-    
     @Override
     public void year2(){
         
     }
-    
 }
