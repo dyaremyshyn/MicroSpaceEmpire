@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ui_text;
 
 
@@ -45,7 +41,7 @@ public class TextUserInterface implements Constantes_UI
               
         while (true) 
         {
-            System.out.println("\n0 - Comecar jogo\n1 - Recarregar jogo(nao funcional)\n2 - Sair");
+            System.out.println("\n0 - Comecar jogo\n1 - Recarregar jogo(nao usar ainda)\n2 - Sair");
             char c = ' ';
             Scanner sc = new Scanner(System.in);
             c = sc.next().charAt(0);
@@ -85,7 +81,7 @@ public class TextUserInterface implements Constantes_UI
         
         while (true) 
         {
-            System.out.println("\n0 - Explorar-Atacar(nao funcional)\n1 - Conquistar(nao funcional)\n2 - Passar\n3 - Guardar");
+            System.out.println("\n0 - Explorar-Atacar(nao funcional)\n1 - Conquistar(nao funcional)\n2 - Passar\n3 - Guardar(nao usar ainda)");
             
             char c = ' ';
             Scanner sc = new Scanner(System.in);
@@ -144,22 +140,15 @@ public class TextUserInterface implements Constantes_UI
             
             if ((c == '0')) 
             {
-                System.out.println("*Explorar-Atacar*");
-                jogo.EscolheExplorar_atacar();
+                System.out.println("*Near*");
+                jogo.Explorar_atacar(1);
                 return;
             }
          
             if ((c == '1')) 
             { 
-                System.out.println("*Conquistar*");
-                jogo.EscolheConquistar();
-                return;
-            }
-            
-            if ((c == '2'))
-            {
-                System.out.println("*Passar*");
-                jogo.Passar();
+                System.out.println("*Unaligned*");
+                jogo.Explorar_atacar(2);
                 return;
             }
         }
@@ -172,7 +161,30 @@ public class TextUserInterface implements Constantes_UI
     
     public void iuTrocaEntreRecursos() 
     {
-       
+       System.out.println("\n=== Escolher entre Near ou Unaligned  ===\n");
+        
+        while (true) 
+        {
+            System.out.println("\n0 - 1 Metal por 2 Riqueza (nao funcional)\n1 - 2 Metal por 1 Riqueza (nao funcional)");
+            
+            char c = ' ';
+            Scanner sc = new Scanner(System.in);
+            c = sc.next().charAt(0);
+            
+            if ((c == '0')) 
+            {
+                System.out.println("*1 Metal por 2 Riqueza*");
+                jogo.Trocar_recursos(1);
+                return;
+            }
+         
+            if ((c == '1')) 
+            { 
+                System.out.println("*2 Metal por 1 Riqueza*");
+                jogo.Trocar_recursos(2);
+                return;
+            }
+        }
     }
     
     public void iuConstruirFM_DescobrirTecnologia() 
