@@ -8,6 +8,8 @@ package logicaJogo;
 import logicaJogo.Cartas.Carta;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import logicaJogo.Cartas.*;
 
@@ -24,28 +26,40 @@ public class JogoDados implements Serializable {
     private int metal;
     private int riqueza;
     private int forcaMilitar;
+    private int producaoMetal;
+    private int producaoRiq;
     
     JogoDados(){
-        
-        iniciar();
-    }
-    
-    public void iniciar(){
        imperio = new ArrayList<>();
        nearSystem = new ArrayList<>();
        distantSystem = new ArrayList<>();
-       
-       imperio.add(new HomeWorld());
-       
-       iniciaNearSystem();
-       iniciaDistantSystem();
+       //iniciar();
        
        pontuacao=0;
        metal=0;
        riqueza=0;
        forcaMilitar=0;
+       producaoMetal=0;
+       producaoRiq=0;
+    }
+
+    public boolean iniciar(){
+       imperio.add(new HomeWorld());
+       
+       iniciaNearSystem();
+       iniciaDistantSystem();
+       
+       atualizaRecursos();
+       
+       return true;
     }
     
+    public void atualizaRecursos(){
+         for(int i=0;i<imperio.size();i++){
+           setProducaoMetal(getProducaoMetal() + imperio.get(i).getMetal());
+           setProducaoRiq(getProducaoRiq()+imperio.get(i).getRiqueza());
+       }
+    }
 
     public void iniciaNearSystem() {
         nearSystem.add(new Wolf359());
@@ -55,21 +69,16 @@ public class JogoDados implements Serializable {
         nearSystem.add(new TauCeti());
         nearSystem.add(new Procyon());
         nearSystem.add(new Sirius());
+        
+        Collections.shuffle(nearSystem);
     }
 
     public void iniciaDistantSystem() {
         distantSystem.add(new Canopus());
         distantSystem.add(new Polaris());
         distantSystem.add(new GalaxysEdge());
-    }
-    
-
-    public void setImperio(Carta e) {
-        imperio.add(e);
-    }
-
-    public void setPorConquistar(Carta e) {
-        porConquistar.add(e);
+        
+        Collections.shuffle(distantSystem);
     }
 
     public int getPontuacao() {
@@ -86,6 +95,14 @@ public class JogoDados implements Serializable {
 
     public int getForcaMilitar() {
         return forcaMilitar;
+    }
+    
+    public int getProducaoMetal() {
+        return producaoMetal;
+    }
+
+    public int getProducaoRiq() {
+        return producaoRiq;
     }
 
     public void setPontuacao(int pontuacao) {
@@ -104,6 +121,21 @@ public class JogoDados implements Serializable {
         this.forcaMilitar = forcaMilitar;
     }
     
+     public void setImperio(Carta e) {
+        imperio.add(e);
+    }
+
+    public void setPorConquistar(Carta e) {
+        porConquistar.add(e);
+    }
     
+      public void setProducaoMetal(int producaoMetal) {
+        this.producaoMetal = producaoMetal;
+    }
+
+    public void setProducaoRiq(int producaoRiq) {
+        this.producaoRiq = producaoRiq;
+    }
+
     
 }

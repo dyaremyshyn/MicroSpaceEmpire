@@ -14,5 +14,10 @@ public class HomeWorld extends Carta{
     public HomeWorld() {
         super("Starting System", "Home World", 1, 1, 0, 0);
     }
+   
+    @Override
+    public String toString() {
+        return getNome() + "\n" + getTipoSistema() + "\n" +"+"+ getMetal() +" Metal" + "\n" +"+"+ getRiqueza()+ " Wealth"+"\n";
+    }
     
 }

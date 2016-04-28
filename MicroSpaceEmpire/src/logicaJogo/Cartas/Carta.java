@@ -74,6 +74,9 @@ public class Carta {
         this.pontosVitoria = pontosVitoria;
     }
     
-    
+    @Override
+    public String toString(){
+        return nome + "\n" + tipoSistema + "\n" +"Resistance: " + resistencia + "\n" + ((metal>0)?"+"+metal+" Metal":((riqueza>0)?"+"+riqueza+" Wealth":"")) + "\n" + pontosVitoria + ((pontosVitoria>1)? " Victory Points":" Victory Point")+"\n";
+    }
     
 }

@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package logicaJogo;
+package logicaJogo.Eventos;
+
+import java.io.Serializable;
 
 /**
  *
  * @author Sergio
  */
-public class Greve extends Evento{
+public class Evento implements Serializable {
     
 }
