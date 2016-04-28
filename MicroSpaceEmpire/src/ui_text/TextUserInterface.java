@@ -6,6 +6,12 @@
 package ui_text;
 
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
 import logicaJogo.Jogo;
 import logicaJogo.States.AguardaInicio;
 import logicaJogo.States.ConstruirFM_DescobrirTecnologia;
@@ -17,13 +23,13 @@ import logicaJogo.States.Fim;
 import logicaJogo.States.IStates;
 import logicaJogo.States.TrocaEntreRecursos;
 
-
 import java.util.Scanner;
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class TextUserInterface {
+public class TextUserInterface implements Constantes_UI
+{
     
     private Jogo jogo;
     private boolean sair = false;
@@ -56,8 +62,8 @@ public class TextUserInterface {
                System.out.println("Recarregar partida");
                 try 
                 {
-                    //JogoMaqEstados outro = recarregar_jogo();
-                   // jogo = outro;
+                    Jogo outro = recarregar_jogo();
+                    jogo = outro;
                 } catch (Exception e) 
                     {
                         System.out.println("ERRO ao ler ficheiro" + e);
@@ -79,7 +85,7 @@ public class TextUserInterface {
         
         while (true) 
         {
-            System.out.println("\n0 - Explorar-Atacar(nao funcional)\n1 - Conquistar(nao funcional)\n2 - Passar");
+            System.out.println("\n0 - Explorar-Atacar(nao funcional)\n1 - Conquistar(nao funcional)\n2 - Passar\n3 - Guardar");
             
             char c = ' ';
             Scanner sc = new Scanner(System.in);
@@ -105,6 +111,22 @@ public class TextUserInterface {
                 jogo.Passar();
                 return;
             }
+            
+            if (c == '3') 
+            {
+                System.out.println("*Guardar*");
+                
+                if (guardar_partida()) 
+                {
+                    System.out.println("\nJOGO GUARDADO");
+                } else
+                    {
+                        System.out.println("\nJOGO NAO GUARDADO");
+                    }
+                
+                return;
+           }
+            
         }
     }
 
@@ -201,57 +223,47 @@ public class TextUserInterface {
                                         }
         }
     }
-
     
-    
-    
-    /*
-    
-        JogoMaqEstados recarregar_jogo() throws IOException, ClassNotFoundException {
-        JogoMaqEstados outro = null;
+    Jogo recarregar_jogo() throws IOException, ClassNotFoundException 
+    {      
+        Jogo outro = null;
         ObjectInputStream in = null;
-        String nomeFicheiro = "jogo_guardado";
-        try {
+
+        try 
+        {
             in = new ObjectInputStream(new FileInputStream(nomeFicheiro));
-            outro = (JogoMaqEstados) in.readObject();
+            outro = (Jogo) in.readObject();
             return outro;
         } finally {
             if (in != null) {
                 in.close();
             }
         }
-
     }
 
     public boolean guardar_partida() 
     {
+        ObjectOutputStream out = null;   
 
-        ObjectOutputStream out = null;
-        String nomeFicheiro = "jogo_guardado";
-
-        try {
+        try 
+        {
             out = new ObjectOutputStream(new FileOutputStream(nomeFicheiro));
-
             out.writeObject(jogo);
 
             return true;
-        } catch (IOException e) {
-            return false;
-        } finally {
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
+        } catch (IOException e) 
+            {
+                return false;
+            } finally 
+                {
+                    if (out != null) 
+                    {
+                        try 
+                        {
+                            out.close();
+                        } catch (IOException e) {}
+                    }
                 }
-            }
-        }
     }
-    
-    */
-    
-    
-    
-    
-    
     
 }
