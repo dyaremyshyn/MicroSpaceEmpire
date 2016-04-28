@@ -5,11 +5,13 @@
  */
 package logicaJogo.Cartas;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class Carta {
+public class Carta implements Serializable{
     private String tipoSistema;
     private String nome;
     private int metal;

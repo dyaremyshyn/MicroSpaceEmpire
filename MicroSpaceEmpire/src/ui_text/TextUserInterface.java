@@ -39,7 +39,7 @@ public class TextUserInterface {
               
         while (true) 
         {
-            System.out.println("\n0 - Comecar jogo\n1 - Recarregar jogo(nao funcional)\\n2 - Sair");
+            System.out.println("\n0 - Comecar jogo\n1 - Recarregar jogo(nao funcional)\n2 - Sair");
             char c = ' ';
             Scanner sc = new Scanner(System.in);
             c = sc.next().charAt(0);
@@ -79,7 +79,7 @@ public class TextUserInterface {
         
         while (true) 
         {
-            System.out.println("\n0 - Explorar-Atacar(nao funcional)\n1 - Conquistar(nao funcional)\\n2 - Passar");
+            System.out.println("\n0 - Explorar-Atacar(nao funcional)\n1 - Conquistar(nao funcional)\n2 - Passar");
             
             char c = ' ';
             Scanner sc = new Scanner(System.in);
@@ -165,7 +165,7 @@ public class TextUserInterface {
 
     public void iuFim()
     {
-    
+    System.out.println("*Fim*");
     }
     
     public void corre() 

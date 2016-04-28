@@ -20,25 +20,26 @@ public class ExplorarAtacar_Conquistar_Passar extends StateAdapter
     }
 
     @Override
-    public IStates Passar() {
+    public IStates Passar() 
+    {
         return new TrocaEntreRecursos(getJogo());
     }
 
     @Override
-    public IStates EscolheExplorar_atacar() {
+    public IStates EscolheExplorar_atacar()
+    {
         return new EscolheNearOuUnalignedSystem(getJogo());
     }
 
     @Override
-    public IStates EscolheConquistar() {
+    public IStates EscolheConquistar() 
+    {
         return new EscolheUnalignedSystem(getJogo());
     }
 
     @Override
-    public IStates Terminar() {
+    public IStates Terminar() 
+    {
         return new Fim(getJogo());
-    }
-    
-    
-    
+    }    
 }

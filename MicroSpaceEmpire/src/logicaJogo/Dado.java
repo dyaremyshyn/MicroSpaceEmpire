@@ -5,11 +5,13 @@
  */
 package logicaJogo;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class Dado {
+public class Dado implements Serializable{
     
     private final int minimo;
     private final int maximo;
