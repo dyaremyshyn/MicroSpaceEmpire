@@ -12,17 +12,28 @@ public class EscolheTecnologiaComprar extends StateAdapter
     
     public EscolheTecnologiaComprar(JogoDados j) 
     {
-        super(j);
+        super(j);      
     }
 
     @Override
     public IStates Comprar_Tecnologia(int TecnologiaEscolhida) {
-        return super.Comprar_Tecnologia(TecnologiaEscolhida); //To change body of generated methods, choose Tools | Templates.
+        
+        /* 
+            if(DescobrirTecnologia(int TecnologiaEscolhida))
+            { 
+            return new ConstruirFM_DescobrirTecnologia(getJogo());           
+            }      
+        */ 
+            
+        
+         return this;
+       
     }
     
     @Override
-    public IStates Cancelar() {
-        return super.Cancelar(); //To change body of generated methods, choose Tools | Templates.
+    public IStates Cancelar() 
+    {
+        return new ConstruirFM_DescobrirTecnologia(getJogo()); 
     }
     
 }

@@ -16,13 +16,30 @@ public class TrocaEntreRecursos extends StateAdapter
     }
 
     @Override
-    public IStates Trocar_recursos(int TipoDeTroca) {
-        return super.Trocar_recursos(TipoDeTroca); //To change body of generated methods, choose Tools | Templates.
+    public IStates Trocar_recursos(int TipoDeTroca) 
+    {
+        if(TipoDeTroca == 1) //2 de metal por 1 de riqueza
+       {
+        //if(getJogo().TrocaMetalPorRiqueza())
+        //{
+          return new ConstruirFM_DescobrirTecnologia(getJogo()); //retorna se a troca se verificar pois so é permitido a troca 1 vez por turno
+      //  }
+        // return  this ;     
+                
+       }else if (TipoDeTroca == 2)//2 de riqueza por 1 de metal
+            {
+                //if(getJogo().TrocaRiquezaPorMetal())
+               // {
+                return new ConstruirFM_DescobrirTecnologia(getJogo());
+               // }
+            }
+   
+        return  this ; 
     }
     
     @Override
     public IStates Passar() {
-        return super.Passar(); //To change body of generated methods, choose Tools | Templates.
+        return new ConstruirFM_DescobrirTecnologia(getJogo());
     }
     
     

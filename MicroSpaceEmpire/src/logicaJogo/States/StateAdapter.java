@@ -11,6 +11,7 @@ public abstract class StateAdapter implements IStates , Serializable
     
     private JogoDados jogo;
 
+
     public StateAdapter(JogoDados j) 
     {
         this.jogo = j;
