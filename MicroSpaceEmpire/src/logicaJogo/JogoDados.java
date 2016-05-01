@@ -30,6 +30,10 @@ public class JogoDados implements Serializable {
     private List<Evento> eventos;
     private Evento currentEvento;
     
+    //variaveis de bloqueio:
+    private int bloqueio_DTecnologia;
+    private int bloqueio_AFmilitar;
+    
     JogoDados(){
        imperio = new ArrayList<>();
        nearSystem = new ArrayList<>();
@@ -52,6 +56,8 @@ public class JogoDados implements Serializable {
        iniciaDistantSystem();
        
        atualizaRecursos();
+       
+       zeraVariaveisDeVerificação();
        
        return true;
     }
@@ -146,5 +152,52 @@ public class JogoDados implements Serializable {
     public void setDado(Dado dado) {
         this.dado = dado;
     }
+
+    public int getBloqueio_DTecnologia() {
+        return bloqueio_DTecnologia;
+    }
+
+    public int getBloqueio_AFmilitar() {
+        return bloqueio_AFmilitar;
+    }
+
+    public void setBloqueio_DTecnologia(int bloqueio_DTecnologia) {
+        this.bloqueio_DTecnologia = bloqueio_DTecnologia;
+    }
+
+    public void setBloqueio_AFmilitar(int bloqueio_AFmilitar) {
+        this.bloqueio_AFmilitar = bloqueio_AFmilitar;
+    }
+    
+    
+    //funções 
+    
+    public boolean TrocaMetalPorRiqueza()
+    {
+     return true;
+    }
+
+    public boolean TrocaRiquezaPorMetal()
+    {
+     return true;
+    }
+
+    public boolean aumenta_FMilitar()
+    {
+     return true;
+    }
+
+    public boolean DescobrirTecnologia(int x)
+    {
+     return true;
+    }
+
+    public void zeraVariaveisDeVerificação()
+    {
+    bloqueio_DTecnologia = 0;
+    bloqueio_AFmilitar = 0;
+    }
+    
+    
     
 }
