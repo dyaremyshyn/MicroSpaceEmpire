@@ -64,6 +64,7 @@ public class JogoDados implements Serializable {
        
        iniciaNearSystem();
        iniciaDistantSystem();
+       iniciaTecnologia();
        
        atualizaRecursos();
        
