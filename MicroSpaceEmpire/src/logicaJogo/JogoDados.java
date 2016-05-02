@@ -9,12 +9,17 @@ import java.util.Collections;
 import java.util.List;
 import logicaJogo.Cartas.*;
 import logicaJogo.Eventos.Evento;
+import logicaJogo.Tecnologias.CapitalShips;
+import logicaJogo.Tecnologias.ForwardStarbases;
+import logicaJogo.Tecnologias.HyperTelevision;
+import logicaJogo.Tecnologias.InterspeciesCommerce;
+import logicaJogo.Tecnologias.InterstellarBanking;
+import logicaJogo.Tecnologias.InterstellarDiplomacy;
+import logicaJogo.Tecnologias.PlanetaryDefenses;
+import logicaJogo.Tecnologias.RobotWorkers;
 import logicaJogo.Tecnologias.Tecnologia;
 
-/**
- *
- * @author Sergio
- */
+
 public class JogoDados implements Serializable {
     private List<Carta> nearSystem;
     private List<Carta> distantSystem;
@@ -51,6 +56,7 @@ public class JogoDados implements Serializable {
        producaoMetal=0;
        producaoRiq=0;
        currentYear=1;
+       limiteForcaMilitar = 3;
     }
 
     public boolean iniciar(){
@@ -73,6 +79,25 @@ public class JogoDados implements Serializable {
        }
     }
 
+    public void iniciaTecnologia(){
+        tecnologias.add(new CapitalShips());
+        tecnologias.add(new ForwardStarbases());
+        tecnologias.add(new RobotWorkers());
+        tecnologias.add(new PlanetaryDefenses());
+        tecnologias.add(new HyperTelevision());
+        tecnologias.add(new InterstellarDiplomacy());
+        tecnologias.add(new InterspeciesCommerce());
+        tecnologias.add(new InterstellarBanking());
+    }
+    
+    public Tecnologia getTecnologiaAleatoria(int i){
+        return tecnologias.get(i);
+    }
+    
+    public void adicionaTecnologiaAdquirida(Tecnologia t){
+        tecnologiasAdquiridas.add(t);
+    }
+    
     public void iniciaNearSystem() {
         nearSystem.add(new Wolf359());
         nearSystem.add(new Proxima());
