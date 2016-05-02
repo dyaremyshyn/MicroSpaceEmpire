@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.List;
 import logicaJogo.Cartas.*;
 import logicaJogo.Eventos.Evento;
+import logicaJogo.Tecnologias.Tecnologia;
 
 /**
  *
@@ -29,6 +30,9 @@ public class JogoDados implements Serializable {
     private int currentYear;
     private List<Evento> eventos;
     private Evento currentEvento;
+    private int limiteForcaMilitar;
+    private List<Tecnologia> tecnologias;
+    private List<Tecnologia> tecnologiasAdquiridas;
     
     //variaveis de bloqueio:
     private int bloqueio_DTecnologia;
@@ -168,6 +172,15 @@ public class JogoDados implements Serializable {
     public void setBloqueio_AFmilitar(int bloqueio_AFmilitar) {
         this.bloqueio_AFmilitar = bloqueio_AFmilitar;
     }
+
+    public int getLimiteForcaMilitar() {
+        return limiteForcaMilitar;
+    }
+
+    public void setLimiteForcaMilitar(int limiteForcaMilitar) {
+        this.limiteForcaMilitar = limiteForcaMilitar;
+    }
+   
     
     
     //funções 
