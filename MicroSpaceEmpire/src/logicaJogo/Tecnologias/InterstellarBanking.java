@@ -17,7 +17,7 @@ public class InterstellarBanking extends Tecnologia{
     }
     
     public void fazAcao(){
-        
+        //getJogo().setLimArmazem(5);
     }
     
     @Override

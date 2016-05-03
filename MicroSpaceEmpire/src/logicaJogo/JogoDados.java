@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import logicaJogo.Cartas.*;
 import logicaJogo.Eventos.Evento;
 import logicaJogo.Tecnologias.CapitalShips;
@@ -39,6 +40,7 @@ public class JogoDados implements Serializable {
     private int limiteRecursos;
     private List<Tecnologia> tecnologias;
     private List<Tecnologia> tecnologiasAdquiridas;
+    
     
     //variaveis de bloqueio;
     private int bloqueio_DTecnologia;
@@ -80,31 +82,54 @@ public class JogoDados implements Serializable {
     }
     
     
-    public void viraCartaNearSystem(){
+    public boolean viraCartaNearSystem(){
         if(!nearSystem.isEmpty()){
             Dado d=new Dado();
             if(nearSystem.get(0).getResistencia() < (d.LancaDado()+forcaMilitar)){  //se a resistencia do sistema for menor que a força militar + o lançar do dado
                 imperio.add(nearSystem.get(0));                                     //significa que conquistamos esse sistema e vai pertencer ao nosso imperio
+                nearSystem.remove(0);
+                return true;
             }
             else{
                 porConquistar.add(nearSystem.get(0));                               //senão vai para o grupo de sistemas que já exploramos mas não conquistamos
+                nearSystem.remove(0);                                                   //remove do baralho a carta explorada 
+                return false;
             }
-            nearSystem.remove(0);                                                   //remove do baralho a carta explorada 
         }
+        return false;
     }
     
-     public void viraCartaUnalignedSystem(){
+     public boolean viraCartaUnalignedSystem(){
         if(!distantSystem.isEmpty()){
             Dado d=new Dado();
             if(distantSystem.get(0).getResistencia() < (d.LancaDado()+forcaMilitar)){  //se a resistencia do sistema for menor que a força militar + o lançar do dado
                 imperio.add(distantSystem.get(0));                                     //significa que conquistamos esse sistema e vai pertencer ao nosso imperio
+                distantSystem.remove(0);
+                return true;
             }
             else{
                 porConquistar.add(distantSystem.get(0));                               //senão vai para o grupo de sistemas que já exploramos mas não conquistamos
+                distantSystem.remove(0);                                                   //remove do baralho a carta explorada 
+                return false;
             }
-            distantSystem.remove(0);                                                   //remove do baralho a carta explorada 
         }
+        return false;
     }
+     
+     public boolean conquistaSistema(int alvo){
+        if(!porConquistar.isEmpty()){ 
+            if(porConquistar.size()>=alvo){
+                Dado d= new Dado();
+                if(porConquistar.get(alvo).getResistencia() < (d.LancaDado()+forcaMilitar)){  //se a resistencia do sistema for menor que a força militar + o lançar do dado
+                    imperio.add(porConquistar.get(0));                                     //significa que conquistamos esse sistema e vai pertencer ao nosso imperio
+                    porConquistar.remove(0);
+                    return true;
+                }
+            }
+            else return false;
+        }
+        return false;
+     }
     
     public void atualizaRecursos(){
         for(int i=0;i<imperio.size();i++){
@@ -113,11 +138,30 @@ public class JogoDados implements Serializable {
         }
         
     }
-
-    public void recolheRecursos(){
-        setMetal(getMetal()+producaoMetal);
-        setRiqueza(getRiqueza()+producaoRiq);
+    
+    public void getLimiteArmazem(){
+        for(int i=0;i<tecnologiasAdquiridas.size();i++)
+            if(tecnologiasAdquiridas.get(i).getNome().equals("Interstellar Banking"))
+                setLimiteRecursos(Constantes.LIM_C_TEC);
+        
+        setLimiteRecursos(Constantes.LIM_S_TEC);
+                
     }
+    
+    public void recolheRecursos(){
+        if(limiteRecursos > getMetal())
+            setMetal(getMetal()+producaoMetal);
+        else if(limiteRecursos > getRiqueza()){
+            setRiqueza(getRiqueza()+producaoRiq);
+        }
+    }
+    
+    public boolean verificaPorConquistar(){
+        if(porConquistar.isEmpty())
+            return false;
+        else return true;
+    }
+    
     
     public void iniciaTecnologia(){
         tecnologias.add(new InterspeciesCommerce());
@@ -280,7 +324,30 @@ public class JogoDados implements Serializable {
     public void setLimiteForcaMilitar(int limiteForcaMilitar) {
         this.limiteForcaMilitar = limiteForcaMilitar;
     }
+
+    public void setLimiteRecursos(int limiteRecursos) {
+        this.limiteRecursos = limiteRecursos;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 41 * hash + Objects.hashCode(this.tecnologiasAdquiridas);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if(!(obj instanceof Tecnologia))
+            return false;
+        return true;
+    }
    
+    
+    
     
     
     //funções 

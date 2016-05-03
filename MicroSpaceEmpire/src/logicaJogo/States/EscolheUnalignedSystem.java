@@ -17,7 +17,9 @@ public class EscolheUnalignedSystem extends StateAdapter
 
     @Override
     public IStates Conquistar(int alvo) {
-        return super.Conquistar(alvo); //To change body of generated methods, choose Tools | Templates.
+        getJogo().conquistaSistema(alvo);
+           
+        return new TrocaEntreRecursos(getJogo());
     }
     
     

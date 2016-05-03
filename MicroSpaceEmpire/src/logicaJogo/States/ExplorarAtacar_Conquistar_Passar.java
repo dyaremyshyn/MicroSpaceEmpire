@@ -30,7 +30,9 @@ public class ExplorarAtacar_Conquistar_Passar extends StateAdapter
     @Override
     public IStates EscolheConquistar() 
     {
-        return new EscolheUnalignedSystem(getJogo());
+        if(getJogo().verificaPorConquistar())
+            return new EscolheUnalignedSystem(getJogo());
+        else return this;
     }
 
     @Override
