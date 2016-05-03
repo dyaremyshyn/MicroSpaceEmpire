@@ -388,7 +388,10 @@ public class JogoDados implements Serializable {
     }
     
     public String Painel_jogo() 
-    {
+    {   //ahahahahahaha
+        //Dmytro nao faças isso :O
+        //ahahahahahaha
+        //Dmytro nao faças isso :O
         return  "=== SISTEMA ===\n" 
                 + "Planetas por conquistar: \n"
                 + CriaDados_PlanetasPorConquistar()
