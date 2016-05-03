@@ -39,7 +39,7 @@ public class JogoDados implements Serializable {
     private List<Tecnologia> tecnologias;
     private List<Tecnologia> tecnologiasAdquiridas;
     
-    //variaveis de bloqueio:
+    //variaveis de bloqueio;
     private int bloqueio_DTecnologia;
     private int bloqueio_AFmilitar;
     
