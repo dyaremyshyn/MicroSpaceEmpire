@@ -79,6 +79,20 @@ public class JogoDados implements Serializable {
        return true;
     }
     
+    
+    public void viraCartaNearSystem(){
+        if(!nearSystem.isEmpty()){
+            Dado d=new Dado();
+            if(nearSystem.get(0).getResistencia() < (d.LancaDado()+forcaMilitar)){  //se a resistencia do sistema for menor que a força militar + o lançar do dado
+                imperio.add(nearSystem.get(0));                                     //significa que conquistamos esse sistema e vai pertencer ao nosso imperio
+            }
+            else{
+                porConquistar.add(nearSystem.get(0));                               //senão vai para o grupo de sistemas que já exploramos mas não conquistamos
+            }
+            nearSystem.remove(0);                                                   //remove do baralho a carta explorada 
+        }
+    }
+    
     public void atualizaRecursos(){
          for(int i=0;i<imperio.size();i++){
            setProducaoMetal(getProducaoMetal() + imperio.get(i).getMetal());
