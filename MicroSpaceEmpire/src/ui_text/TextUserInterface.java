@@ -181,7 +181,7 @@ public class TextUserInterface implements Constantes_UI
             Scanner sc = new Scanner(System.in);
             c = sc.nextInt();
             
-            jogo.Conquistar(c);  //
+            jogo.Conquistar(c);  
             
                           
         return;     

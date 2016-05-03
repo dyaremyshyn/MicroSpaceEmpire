@@ -57,8 +57,8 @@ public class JogoDados implements Serializable {
        
        pontuacao=0;
        turno = 0;
-       metal=0;
-       riqueza=0;
+       metal=10;
+       riqueza=10;
        forcaMilitar=0;
        producaoMetal=0;
        producaoRiq=0;
@@ -131,10 +131,12 @@ public class JogoDados implements Serializable {
         return false;
      }
     
-    public void atualizaRecursos(){
-        for(int i=0;i<imperio.size();i++){
-           setProducaoMetal(getProducaoMetal() + imperio.get(i).getMetal());
-           setProducaoRiq(getProducaoRiq()+imperio.get(i).getRiqueza());
+    public void atualizaRecursos()
+    {
+        for(int i=0;i<imperio.size();i++)
+        {  
+            setProducaoRiq(getProducaoRiq() + imperio.get(i).getRiqueza());
+            setProducaoMetal(getProducaoMetal() + imperio.get(i).getMetal());         
         }
         
     }
@@ -404,7 +406,64 @@ public class JogoDados implements Serializable {
     bloqueio_DTecnologia = 0;
     bloqueio_AFmilitar = 0;
     }
-
+    
+    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Parte Do FIM
+    public int SomaPontosVitoria()
+    {
+    int pontos = 0;
+    
+    pontos+=SomaPontosImperio();
+    pontos+=SomaPontosTecnologia();
+    
+    if( ForamViradasTodasCartasSistema()) //saber se foram viradas todas as cartas dos sistemas
+        pontos+=1;
+    
+    if(ForamAdequiridasTodasAsTecnologias()) //saber se tem todas as tecnologias
+        pontos+=1;    
+    
+    if(ForamConquistadasTodasAsCartas()) //11 cartas totais para conquistar
+       pontos+=3;
+    
+    
+    return pontos;
+    }
+    
+    public int SomaPontosImperio()
+    {
+    int pontos = 0;
+    
+    for(int i=0;i<imperio.size();i++)
+    {
+        if("Near System".equals(imperio.get(i).getTipoSistema()))
+        {
+        pontos+=imperio.get(i).getPontosVitoria();
+        }
+    }
+  
+    return pontos;
+    }
+    
+    public int SomaPontosTecnologia()
+    {
+    return tecnologiasAdquiridas.size();
+    }
+    
+    public boolean ForamViradasTodasCartasSistema()
+    {
+    return nearSystem.isEmpty() && distantSystem.isEmpty();
+    }
+    
+    public boolean ForamAdequiridasTodasAsTecnologias()
+    {
+    return tecnologias.isEmpty();
+    }
+    
+    public boolean ForamConquistadasTodasAsCartas()
+    {
+    return (imperio.size() == 11);
+    }
+    //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    
     public String CriaDados_Imperio()
     {
     String estrutura = "";
@@ -441,7 +500,7 @@ public class JogoDados implements Serializable {
     return estrutura;   
     }
     
-    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::INTERFACES
     //mostra informações para o utilizador
     public String Painel_tecnologiasADescobrir()
     {
@@ -502,8 +561,14 @@ public class JogoDados implements Serializable {
     public String Painel_final()
     {
     String estrutura = "";
-    estrutura+=   "\n--------------------------------------------------------------"
-                + "\n Pontuação: " + pontuacao
+    estrutura+=   "\n--------------------------------------------------------------"                
+                + "\n Imperio: " + SomaPontosImperio()
+                + "\n Tecnologias: " + SomaPontosTecnologia()
+                + (ForamAdequiridasTodasAsTecnologias()? " \n (bónus científico)":"")
+                + (ForamViradasTodasCartasSistema()? " \n (bónus de exploração)":"")
+                + (ForamConquistadasTodasAsCartas()? " \n (bónus de exploração)":"")
+                + "\n--------------------------------------------------------------"
+                + "\n PONTUAÇÂO TOTAL: " + SomaPontosVitoria()
                 + "\n--------------------------------------------------------------"
                 + "\n";
     
@@ -519,8 +584,7 @@ public class JogoDados implements Serializable {
                 + "\n=== PAINEL DE INFORMAÇÔES ===\n" 
                 + "\n Ano:" + currentYear
                 + "\n Turno: " + turno
-                + "\n Evento actual: " + currentEvento
-               // + "\n Pontuacao actual: " + pontuacao 
+                + "\n Evento actual: " + currentEvento               
                 + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
                 + "\n imperio: \n" + CriaDados_Imperio() 
                 + "\n forcaMilitar=" + forcaMilitar

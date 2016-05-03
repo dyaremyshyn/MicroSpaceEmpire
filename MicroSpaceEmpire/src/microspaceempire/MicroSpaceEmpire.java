@@ -15,6 +15,5 @@ public class MicroSpaceEmpire
     {
         TextUserInterface iuTexto = new TextUserInterface(new Jogo());
         iuTexto.corre();
-    }
-    
+    }   
 }
