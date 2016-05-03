@@ -34,8 +34,9 @@ public class Jogo implements Serializable
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      // funcoes de consulta dos dados
     
-     public String Painel_jogo() {
-        return dados.Painel_jogo();
+    public String Painel_jogo() 
+    {
+    return dados.Painel_jogo();
     }
     
     public String Painel_tecnologiasADescobrir()
@@ -47,12 +48,21 @@ public class Jogo implements Serializable
     {
     return dados.Painel_recursos();
     }
+
+    public String Painel_final()
+    {
+    return dados.Painel_final();
+    }
     
-     public String Painel_final()
-     {
-     return dados.Painel_final();
-     }
+     public String Painel_recurso_riqueza()
+    {
+    return dados.Painel_recurso_riqueza();
+    }
     
+    public String Painel_Conquistar()
+    {
+    return dados.Painel_Conquistar();
+    }
     
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     // funcoes delegadas no estado corrente 

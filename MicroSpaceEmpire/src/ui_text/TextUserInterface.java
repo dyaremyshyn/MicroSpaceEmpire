@@ -168,7 +168,23 @@ public class TextUserInterface implements Constantes_UI
     
     public void iuEscolheUnalignedSystem() 
     {
-       
+      
+               System.out.println("\n=== Escolhe sistema a conquistar  ===\n");
+        
+       while (true) 
+        {   
+            System.out.println(jogo.Painel_Conquistar());
+            System.out.print("\nEscolha: ");
+            
+            int c ;
+            Scanner sc = new Scanner(System.in);
+            c = sc.nextInt();
+            
+            jogo.Conquistar(c);  //
+            
+                          
+        return;     
+        }
     }
     
     public void iuTrocaEntreRecursos() 
@@ -281,8 +297,7 @@ public class TextUserInterface implements Constantes_UI
             c = sc.next().charAt(0);
             
             if ((c == '0')) 
-            {               
-                
+            {                              
                 TextUserInterface iuTexto = new TextUserInterface(new Jogo());
                 iuTexto.corre();
             }

@@ -409,6 +409,29 @@ public class JogoDados implements Serializable {
     return estrutura;
     }
     
+    public String Painel_recurso_riqueza()
+    {
+    String estrutura = "";
+    estrutura+=   "\n--------------------------------------------------------------"
+                + "\n riqueza: " + riqueza                             
+                + "\n--------------------------------------------------------------"
+                + "\n";
+    
+    return estrutura;
+    }
+    
+    public String Painel_Conquistar()
+    {
+    String estrutura = "";
+    
+        for(int i= 0;i < porConquistar.size();i++)
+        {
+        estrutura+= i + " " +porConquistar.get(i);
+        }
+        
+    return estrutura;  
+    }
+    
     public String Painel_final()
     {
     String estrutura = "";
