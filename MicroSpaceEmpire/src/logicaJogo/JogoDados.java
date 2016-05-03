@@ -55,8 +55,8 @@ public class JogoDados implements Serializable {
        
        pontuacao=0;
        turno = 0;
-       metal=0;
-       riqueza=0;
+       metal=5;
+       riqueza=5;
        forcaMilitar=0;
        producaoMetal=0;
        producaoRiq=0;
