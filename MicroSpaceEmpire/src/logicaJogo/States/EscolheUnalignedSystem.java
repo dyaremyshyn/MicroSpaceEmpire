@@ -17,8 +17,8 @@ public class EscolheUnalignedSystem extends StateAdapter
 
     @Override
     public IStates Conquistar(int alvo) {
+        
         getJogo().conquistaSistema(alvo);
-           
         return new TrocaEntreRecursos(getJogo());
     }
     

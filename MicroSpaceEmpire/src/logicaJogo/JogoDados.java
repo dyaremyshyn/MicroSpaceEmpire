@@ -120,8 +120,8 @@ public class JogoDados implements Serializable {
         if(!porConquistar.isEmpty()){ 
             if(porConquistar.size()>=alvo){
                 Dado d= new Dado();
-                if(porConquistar.get(alvo).getResistencia() < (d.LancaDado()+forcaMilitar)){  //se a resistencia do sistema for menor que a força militar + o lançar do dado
-                    imperio.add(porConquistar.get(0));                                     //significa que conquistamos esse sistema e vai pertencer ao nosso imperio
+                if(porConquistar.get(alvo).getResistencia() < (d.LancaDado()+forcaMilitar)){  
+                    imperio.add(porConquistar.get(0));                                     
                     porConquistar.remove(0);
                     return true;
                 }
