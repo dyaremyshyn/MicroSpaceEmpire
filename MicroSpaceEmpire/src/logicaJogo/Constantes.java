@@ -7,8 +7,8 @@ package logicaJogo;
  */
 public interface Constantes {
 
-    public static final int LIM_C_CAPITALSHIPS = 5;
-    public static final int LIM_S_CAPITALSHIPS = 3;
+    public static final int LIM_C_T = 5;
+    public static final int LIM_S_T = 3;
     
     
 }
