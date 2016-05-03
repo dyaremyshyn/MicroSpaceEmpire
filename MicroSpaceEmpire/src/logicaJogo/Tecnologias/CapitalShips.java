@@ -20,4 +20,10 @@ public class CapitalShips extends Tecnologia implements Constantes{
     public int fazAcao(){
         return Constantes.LIM_C_CAPITALSHIPS;
     }
+    
+    @Override
+    public String Descricao()
+    {
+     return " aumenta limite de força militar de 3 para 5";
+    }
 }

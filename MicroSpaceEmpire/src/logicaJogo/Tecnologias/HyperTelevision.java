@@ -20,4 +20,9 @@ public class HyperTelevision extends Tecnologia{
         
     }
     
+    @Override
+    public String Descricao()
+    {
+     return " acrescentar uma unidade de resistência durante o evento de Revolta";
+    }
 }

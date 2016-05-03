@@ -18,4 +18,10 @@ public class ForwardStarbases extends Tecnologia{
     public Boolean fazAcao(){
         return true;
     }
+    
+    @Override
+    public String Descricao()
+    {
+     return " necessaria para explorar ou conquistar sistemas distantes";
+    }
 }
