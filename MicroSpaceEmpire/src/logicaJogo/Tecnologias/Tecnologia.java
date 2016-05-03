@@ -30,6 +30,14 @@ public class Tecnologia implements Serializable{
     public int getGeracao() {
         return geracao;
     }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getCusto() {
+        return custo;
+    }     
     
     public String Descricao()
     {

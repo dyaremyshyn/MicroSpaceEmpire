@@ -214,7 +214,7 @@ public class TextUserInterface implements Constantes_UI
         
         while (true) 
         {
-            System.out.println("\n0 - Aumentar força militar (nao funcional)\n1 - Descobrir tecnologia (nao funcional)\n2 - Passar");
+            System.out.println("\n0 - Aumentar força militar ( 1 de metal e 1 de riqueza )\n1 - Descobrir tecnologia \n2 - Passar");
             System.out.print("\nEscolha: ");
             
             char c = ' ';
@@ -273,7 +273,7 @@ public class TextUserInterface implements Constantes_UI
      while (true) 
         {
             System.out.println(jogo.Painel_final());
-            System.out.println("0 - Recomeçar \n1 - Acabar");
+            System.out.println("0 - Recomeçar \n1 - Sair do jogo");
             System.out.print("\nEscolha: ");
             
             char c = ' ';

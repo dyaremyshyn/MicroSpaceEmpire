@@ -36,6 +36,7 @@ public class JogoDados implements Serializable {
     private List<Evento> eventos;
     private Evento currentEvento;
     private int limiteForcaMilitar;
+    private int limiteRecursos;
     private List<Tecnologia> tecnologias;
     private List<Tecnologia> tecnologiasAdquiridas;
     
@@ -61,6 +62,7 @@ public class JogoDados implements Serializable {
        producaoRiq=0;
        currentYear=1;
        limiteForcaMilitar = 3;
+       limiteRecursos = 3;
     }
 
     public boolean iniciar(){
@@ -262,12 +264,39 @@ public class JogoDados implements Serializable {
 
     public boolean aumenta_FMilitar()
     {
-     return true;
+        if(!(forcaMilitar == limiteForcaMilitar)) //caso ja tenha a força militar ao maximo (nao faz nada)
+        {       
+           if(metal >= 1 &&  riqueza >= 1)//caso se verifique é possivel a compra
+           {
+           //remove recursos    
+           metal-=1;
+           riqueza-=1;
+           //aumenta força militar
+           forcaMilitar+=1;
+           
+           return true;    
+           } 
+        }  
+        
+    return false;
     }
 
     public boolean DescobrirTecnologia(int x)
     {
-     return true;
+        if(x <= tecnologias.size())//caso o numero indicado nao seja indicativo de uma tecnologia , nao fazer nada
+        { 
+        
+            if(riqueza >= tecnologias.get(x).getCusto())
+            {
+            riqueza-= tecnologias.get(x).getCusto();            
+            tecnologiasAdquiridas.add(tecnologias.get(x));
+            tecnologias.remove(x);
+            return true;
+            }
+        
+        return false;
+        }
+    return false;
     }
 
     public void zeraVariaveisDeVerificação()
@@ -304,7 +333,7 @@ public class JogoDados implements Serializable {
     {
     String estrutura = "";
     
-        for(int i= 0;i< porConquistar.size();i++)
+        for(int i= 0;i < porConquistar.size();i++)
         {
         estrutura+= porConquistar.get(i);
         }
@@ -312,7 +341,8 @@ public class JogoDados implements Serializable {
     return estrutura;   
     }
     
-    
+    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    //mostra informações para o utilizador
     public String Painel_tecnologiasADescobrir()
     {
     String estrutura = "";
