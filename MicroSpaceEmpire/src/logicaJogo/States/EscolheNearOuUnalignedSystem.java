@@ -20,11 +20,11 @@ public class EscolheNearOuUnalignedSystem extends StateAdapter
     {
        if(TipoSistema == 1)
        {
-           //getJogo().viraCartaNearSystem();
+           getJogo().viraCartaNearSystem();
            
        }else if (TipoSistema == 2)
             {
-                    
+                getJogo().viraCartaUnalignedSystem();
             }
        
        return new TrocaEntreRecursos(getJogo()); 

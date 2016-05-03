@@ -79,24 +79,6 @@ public class JogoDados implements Serializable {
        return true;
     }
     
-    public void seraDesta(){
-        /*
-        7
-        7
-        7
-        7
-        7
-        7
-        7
-        7
-        7
-        7
-        7
-        7
-        7
-        */
-    }
-  
     
     public void viraCartaNearSystem(){
         if(!nearSystem.isEmpty()){
@@ -111,13 +93,32 @@ public class JogoDados implements Serializable {
         }
     }
     
+     public void viraCartaUnalignedSystem(){
+        if(!distantSystem.isEmpty()){
+            Dado d=new Dado();
+            if(distantSystem.get(0).getResistencia() < (d.LancaDado()+forcaMilitar)){  //se a resistencia do sistema for menor que a força militar + o lançar do dado
+                imperio.add(distantSystem.get(0));                                     //significa que conquistamos esse sistema e vai pertencer ao nosso imperio
+            }
+            else{
+                porConquistar.add(distantSystem.get(0));                               //senão vai para o grupo de sistemas que já exploramos mas não conquistamos
+            }
+            distantSystem.remove(0);                                                   //remove do baralho a carta explorada 
+        }
+    }
+    
     public void atualizaRecursos(){
-         for(int i=0;i<imperio.size();i++){
+        for(int i=0;i<imperio.size();i++){
            setProducaoMetal(getProducaoMetal() + imperio.get(i).getMetal());
            setProducaoRiq(getProducaoRiq()+imperio.get(i).getRiqueza());
-       }
+        }
+        
     }
 
+    public void recolheRecursos(){
+        setMetal(producaoMetal);
+        setRiqueza(producaoRiq);
+    }
+    
     public void iniciaTecnologia(){
         tecnologias.add(new InterspeciesCommerce());
         tecnologias.add(new CapitalShips());

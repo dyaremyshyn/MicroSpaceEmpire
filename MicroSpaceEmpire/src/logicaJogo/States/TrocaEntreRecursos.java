@@ -13,6 +13,7 @@ public class TrocaEntreRecursos extends StateAdapter
     public TrocaEntreRecursos(JogoDados j) 
     {
         super(j);
+        getJogo().recolheRecursos();
     }
 
     @Override
