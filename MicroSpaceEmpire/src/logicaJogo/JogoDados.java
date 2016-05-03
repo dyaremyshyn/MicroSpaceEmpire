@@ -404,7 +404,7 @@ public class JogoDados implements Serializable {
     
     public String Painel_jogo() 
     {
-        
+        //o sergio quer estoirar com isto, ajudem-me por favor!!! 
         
         return  "=== SISTEMA ===\n" 
                 + "Planetas por conquistar: \n"
