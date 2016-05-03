@@ -421,7 +421,33 @@ public class JogoDados implements Serializable {
     
     public String Painel_jogo() 
     {
-
+    /*j
+        j
+        j
+        j
+        j
+        j
+        j
+        jj
+        j
+        j
+        j
+        j
+        j
+        j
+        j
+        j
+        j
+        j
+        j
+        j
+        j
+        j
+        j
+        j
+        j
+        
+        */
         return  "=== SISTEMA ===\n" 
                 + "Planetas por conquistar: \n"
                 + CriaDados_PlanetasPorConquistar()
@@ -443,7 +469,5 @@ public class JogoDados implements Serializable {
                 + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"                               
                 + "\n Tecnologias adquiridas: "  + CriaDados_TecnologiasAdquiridas()
                 + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::";
-    }
-    
-    //vamos a isso :O    
+    } 
 }
