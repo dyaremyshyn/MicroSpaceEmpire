@@ -115,8 +115,8 @@ public class JogoDados implements Serializable {
     }
 
     public void recolheRecursos(){
-        setMetal(producaoMetal);
-        setRiqueza(producaoRiq);
+        setMetal(getMetal()+producaoMetal);
+        setRiqueza(getRiqueza()+producaoRiq);
     }
     
     public void iniciaTecnologia(){
