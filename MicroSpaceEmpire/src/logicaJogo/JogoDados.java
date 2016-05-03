@@ -79,6 +79,7 @@ public class JogoDados implements Serializable {
        return true;
     }
     
+  
     
     public void viraCartaNearSystem(){
         if(!nearSystem.isEmpty()){
