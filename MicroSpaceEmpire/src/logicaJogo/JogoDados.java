@@ -70,6 +70,8 @@ public class JogoDados implements Serializable {
        iniciaDistantSystem();
        iniciaTecnologia();
        
+       //evento.remove((Math) random num )
+       
        atualizaRecursos();
        
        zeraVariaveisDeVerificação();
@@ -93,11 +95,24 @@ public class JogoDados implements Serializable {
         tecnologias.add(new PlanetaryDefenses());        
         tecnologias.add(new InterstellarDiplomacy());        
         tecnologias.add(new InterstellarBanking());
+        
+        Collections.shuffle(tecnologias);
     }
     
-    /*public Tecnologia getTecnologiaAleatoria(int i){
-        return tecnologias.get(i);
-    }*/
+    public boolean aplicaEventoAleatorio(){
+        if(!eventos.isEmpty()){
+            Evento e;
+            int i= (int)(Math.random()*eventos.size()) + 0;
+            e = eventos.get(i);
+            eventos.remove(i);
+            if(currentYear==1)
+                e.year1();
+            else e.year2();
+            
+            return true;
+        }
+        return false;
+    }
     
     public void adicionaTecnologiaAdquirida(Tecnologia t){
         tecnologiasAdquiridas.add(t);
