@@ -99,7 +99,7 @@ public class Jogo implements Serializable
 
     public void EscolheExplorar_atacar() 
     {
-        setStates(estado.Terminar());
+        setStates(estado.EscolheExplorar_atacar());
     }
 
     public void EscolheConquistar() 
