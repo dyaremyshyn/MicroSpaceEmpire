@@ -79,6 +79,23 @@ public class JogoDados implements Serializable {
        return true;
     }
     
+    public void seraDesta(){
+        /*
+        7
+        7
+        7
+        7
+        7
+        7
+        7
+        7
+        7
+        7
+        7
+        7
+        7
+        */
+    }
   
     
     public void viraCartaNearSystem(){
