@@ -18,4 +18,10 @@ public class RobotWorkers extends Tecnologia{
     public void fazAcao(){
         
     }
+    
+    @Override
+    public String Descricao()
+    {
+     return " durante o eveto Greve permite recolher metade dos recursos";
+    }
 }

@@ -17,18 +17,23 @@ public class Tecnologia implements Serializable{
     private int custo;
     
     public Tecnologia(String n , int geracao, int custo){
-        nome=n;
+        nome = n;
         this.geracao = geracao;
         this.custo = custo;
     }
 
     @Override
     public String toString() {
-        return " ->  Custo: " + custo + " " + nome + "\n";
+        return " ->  Custo: " + custo + " " + nome + " descrição: " + Descricao() + "\n";
     }
 
     public int getGeracao() {
         return geracao;
+    }
+    
+    public String Descricao()
+    {
+    return "";
     }
     
     
