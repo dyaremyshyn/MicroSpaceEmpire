@@ -9,16 +9,15 @@ package logicaJogo.Eventos;
  *
  * @author Dmytro Yaremyshyn
  */
-public class Invasao extends Evento{
+public class Strike extends Evento{
 
-    public Invasao() {
-        super("Invasão");
+    public Strike() {
+        super("Strike");
     }
-    
     
     @Override
     public void year1(){
-        
+    
     }
     
     @Override

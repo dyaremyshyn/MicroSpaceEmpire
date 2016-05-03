@@ -9,17 +9,17 @@ package logicaJogo.Eventos;
  *
  * @author Dmytro Yaremyshyn
  */
-public class Revolta extends Evento{
+public class LargeInvasionForce extends Evento{
 
-    public Revolta() {
-        super("Revolta");
+    public LargeInvasionForce() {
+        super("Large Invasion Force");
     }
-    
     
     @Override
     public void year1(){
-        
+    
     }
+    
     @Override
     public void year2(){
         

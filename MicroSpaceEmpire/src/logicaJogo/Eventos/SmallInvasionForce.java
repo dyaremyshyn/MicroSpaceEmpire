@@ -9,14 +9,15 @@ package logicaJogo.Eventos;
  *
  * @author Dmytro Yaremyshyn
  */
-public class NaveAbandonada_Asteroide extends Evento{
-    public NaveAbandonada_Asteroide(){
-        super("Nave Abandonada/Asteroide");
+public class SmallInvasionForce extends Evento{
+
+    public SmallInvasionForce() {
+        super("Small Invasion Force");
     }
     
     @Override
     public void year1(){
-        
+    
     }
     
     @Override

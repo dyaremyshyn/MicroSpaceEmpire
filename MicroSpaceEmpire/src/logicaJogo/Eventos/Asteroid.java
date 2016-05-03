@@ -9,16 +9,16 @@ package logicaJogo.Eventos;
  *
  * @author Dmytro Yaremyshyn
  */
-public class SemEvento extends Evento{
-
-    public SemEvento() {
-        super("Sem Evento");
+public class Asteroid  extends Evento{
+     public Asteroid() {
+        super("Asteroid");
     }
     
     @Override
     public void year1(){
-        
+    
     }
+    
     @Override
     public void year2(){
         
