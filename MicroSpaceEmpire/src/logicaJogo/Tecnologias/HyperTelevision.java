@@ -12,7 +12,7 @@ package logicaJogo.Tecnologias;
 public class HyperTelevision extends Tecnologia{
 
     public HyperTelevision() {
-        super("Hyper Television");
+        super("Hyper Television",1,3);
     }
     
     

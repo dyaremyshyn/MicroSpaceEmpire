@@ -12,7 +12,7 @@ package logicaJogo.Tecnologias;
 public class InterstellarDiplomacy extends Tecnologia{
 
     public InterstellarDiplomacy() {
-        super("Interstellar Diplomacy");
+        super("Interstellar Diplomacy",2,5);
     }
     
     

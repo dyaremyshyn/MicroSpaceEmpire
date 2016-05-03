@@ -4,7 +4,6 @@ package logicaJogo;
 import logicaJogo.Cartas.Carta;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import logicaJogo.Cartas.*;
@@ -31,6 +30,7 @@ public class JogoDados implements Serializable {
     private int forcaMilitar;
     private int producaoMetal;
     private int producaoRiq;
+    private int turno;
     private Dado dado;
     private int currentYear;
     private List<Evento> eventos;
@@ -47,9 +47,13 @@ public class JogoDados implements Serializable {
        imperio = new ArrayList<>();
        nearSystem = new ArrayList<>();
        distantSystem = new ArrayList<>();
-       //iniciar();
+       porConquistar = new ArrayList<>();
+       tecnologias = new ArrayList<>();  
+       tecnologiasAdquiridas = new ArrayList<>();
+       eventos = new ArrayList<>();
        
        pontuacao=0;
+       turno = 0;
        metal=0;
        riqueza=0;
        forcaMilitar=0;
@@ -61,7 +65,7 @@ public class JogoDados implements Serializable {
 
     public boolean iniciar(){
        imperio.add(new HomeWorld());
-       
+     
        iniciaNearSystem();
        iniciaDistantSystem();
        iniciaTecnologia();
@@ -81,19 +85,19 @@ public class JogoDados implements Serializable {
     }
 
     public void iniciaTecnologia(){
-        tecnologias.add(new CapitalShips());
-        tecnologias.add(new ForwardStarbases());
-        tecnologias.add(new RobotWorkers());
-        tecnologias.add(new PlanetaryDefenses());
-        tecnologias.add(new HyperTelevision());
-        tecnologias.add(new InterstellarDiplomacy());
         tecnologias.add(new InterspeciesCommerce());
+        tecnologias.add(new CapitalShips());
+        tecnologias.add(new RobotWorkers());
+        tecnologias.add(new HyperTelevision());
+        tecnologias.add(new ForwardStarbases());        
+        tecnologias.add(new PlanetaryDefenses());        
+        tecnologias.add(new InterstellarDiplomacy());        
         tecnologias.add(new InterstellarBanking());
     }
     
-    public Tecnologia getTecnologiaAleatoria(int i){
+    /*public Tecnologia getTecnologiaAleatoria(int i){
         return tecnologias.get(i);
-    }
+    }*/
     
     public void adicionaTecnologiaAdquirida(Tecnologia t){
         tecnologiasAdquiridas.add(t);
@@ -117,6 +121,18 @@ public class JogoDados implements Serializable {
         distantSystem.add(new GalaxysEdge());
         
         Collections.shuffle(distantSystem);
+    }
+
+    public int getTurno() {
+        return turno;
+    }
+
+    public int getCurrentYear() {
+        return currentYear;
+    }
+
+    public Evento getCurrentEvento() {
+        return currentEvento;
     }
 
     public Dado getDado() {
@@ -147,6 +163,18 @@ public class JogoDados implements Serializable {
         return producaoRiq;
     }
 
+    public void setTurno(int turno) {
+        this.turno = turno;
+    }
+
+    public void setCurrentYear(int currentYear) {
+        this.currentYear = currentYear;
+    }
+
+    public void setCurrentEvento(Evento currentEvento) {
+        this.currentEvento = currentEvento;
+    }
+ 
     public void setPontuacao(int pontuacao) {
         this.pontuacao = pontuacao;
     }
@@ -235,6 +263,112 @@ public class JogoDados implements Serializable {
     {
     bloqueio_DTecnologia = 0;
     bloqueio_AFmilitar = 0;
+    }
+
+    public String CriaDados_Imperio()
+    {
+    String estrutura = "";
+    
+        for(int i= 0;i< imperio.size();i++)
+        {
+        estrutura+= imperio.get(i);
+        }
+        
+    return estrutura;
+    }
+    
+    public String CriaDados_TecnologiasAdquiridas()
+    {
+     String estrutura = "";
+    
+        for(int i= 0;i< tecnologiasAdquiridas.size();i++)
+        {
+        estrutura+= tecnologiasAdquiridas.get(i);
+        }
+        
+    return estrutura;    
+    }
+    
+    public String CriaDados_PlanetasPorConquistar()
+    {
+    String estrutura = "";
+    
+        for(int i= 0;i< porConquistar.size();i++)
+        {
+        estrutura+= porConquistar.get(i);
+        }
+        
+    return estrutura;   
+    }
+    
+    
+    public String Painel_tecnologiasADescobrir()
+    {
+    String estrutura = "";
+   
+    estrutura+= "\n ===Primeira geração=== \n";        
+       for(int i= 0;i< tecnologias.size();i++)
+       {             
+           if(tecnologias.get(i).getGeracao() == 1)
+           estrutura+= i + " " + tecnologias.get(i);
+       }
+       
+    estrutura+= "\n ===Segunda geração=== \n";
+       for(int i= 0;i< tecnologias.size();i++)
+       {           
+           if(tecnologias.get(i).getGeracao() == 2)
+           estrutura+= i + " " + tecnologias.get(i);
+       }
+
+    return estrutura;
+    }
+    
+    public String Painel_recursos()
+    {
+    String estrutura = "";
+    estrutura+=   "\n--------------------------------------------------------------"
+                + "\n riqueza: " + riqueza               
+                + "\n metal: " + metal
+                + "\n--------------------------------------------------------------"
+                + "\n";
+    
+    return estrutura;
+    }
+    
+    public String Painel_final()
+    {
+    String estrutura = "";
+    estrutura+=   "\n--------------------------------------------------------------"
+                + "\n Pontuação: " + pontuacao
+                + "\n--------------------------------------------------------------"
+                + "\n";
+    
+    return estrutura;
+    }
+    
+    public String Painel_jogo() 
+    {
+        return  "=== SISTEMA ===\n" 
+                + "Planetas por conquistar: \n"
+                + CriaDados_PlanetasPorConquistar()
+                + "\n******************************************************************"
+                + "\n=== PAINEL DE INFORMAÇÔES ===\n" 
+                + "\n Ano:" + currentYear
+                + "\n Turno: " + turno
+                + "\n Evento actual: " + currentEvento
+               // + "\n Pontuacao actual: " + pontuacao 
+                + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
+                + "\n imperio: \n" + CriaDados_Imperio() 
+                + "\n forcaMilitar=" + forcaMilitar
+                + "\n--------------------------------------------------------------"
+                + "\n riqueza: " + riqueza               
+                + "\n metal: " + metal
+                + "\n--------------------------------------------------------------"
+                + "\n producao de metal: " + producaoMetal 
+                + "\n producao de riquesa: " + producaoRiq              
+                + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"                               
+                + "\n Tecnologias adquiridas: "  + CriaDados_TecnologiasAdquiridas()
+                + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::";
     }
     
     

@@ -5,14 +5,31 @@
  */
 package logicaJogo.Tecnologias;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class Tecnologia {
-    String nome;
+public class Tecnologia implements Serializable{
+    private String nome;
+    private int geracao;
+    private int custo;
     
-    public Tecnologia(String n){
+    public Tecnologia(String n , int geracao, int custo){
         nome=n;
+        this.geracao = geracao;
+        this.custo = custo;
     }
+
+    @Override
+    public String toString() {
+        return " ->  Custo: " + custo + " " + nome + "\n";
+    }
+
+    public int getGeracao() {
+        return geracao;
+    }
+    
+    
 }

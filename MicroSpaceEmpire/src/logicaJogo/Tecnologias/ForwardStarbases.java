@@ -12,7 +12,7 @@ package logicaJogo.Tecnologias;
 public class ForwardStarbases extends Tecnologia{
 
     public ForwardStarbases() {
-        super("Forward Starbases");
+        super("Forward Starbases",2,4);
     }
    
     public Boolean fazAcao(){

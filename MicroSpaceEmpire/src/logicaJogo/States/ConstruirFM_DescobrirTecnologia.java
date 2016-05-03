@@ -14,34 +14,39 @@ public class ConstruirFM_DescobrirTecnologia extends StateAdapter
     public ConstruirFM_DescobrirTecnologia(JogoDados j) 
     {     
         super(j);        
-    }
-    
+    }    
     
     @Override
-    public IStates EscolheDescobrirTecnologia() {
-        
-       /* if(getJogo().getbloqueio_DTecnologia() == 0)
+    public IStates EscolheDescobrirTecnologia() 
+    {       
+        if(getJogo().getBloqueio_DTecnologia() == 0) // se 0 é porque ainda pode efectuar compra
         {
            return new EscolheTecnologiaComprar(getJogo());
-        }*/
-       return new EscolheTecnologiaComprar(getJogo()); //tirar depois
+        }
+        
+    return this;
     }
 
     @Override
-    public IStates Aumentar_Força_Militar() {
-       
-       /* if(getJogo().getbloqueio_AFmilitar() == 0)
+    public IStates Aumentar_Força_Militar() 
+    {      
+        if(getJogo().getBloqueio_AFmilitar() == 0)
         {
-            if(getJogo().aumenta_FMilitar())
-            {
-            bloqueio_AFmilitar = 1; //bloqueia
-            }       
-        }*/ 
-        return this;  
+        getJogo().aumenta_FMilitar();                   
+        getJogo().setBloqueio_AFmilitar(1); //bloqueia
+        }
+        
+    return this;  
     }
 
     @Override
-    public IStates Passar() {//duvida::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    public IStates Passar() {//duvida::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::              
+        //funções autonomas 
+        
+        
+        
+        
+        getJogo().zeraVariaveisDeVerificação(); //volta a por as variaveis de bloqueio a 0
         return new ExplorarAtacar_Conquistar_Passar(getJogo());
     } 
 }

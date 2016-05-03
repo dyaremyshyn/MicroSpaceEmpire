@@ -4,16 +4,17 @@
  * and open the template in the editor.
  */
 package logicaJogo.Tecnologias;
-import logicaJogo.*;
+
+import logicaJogo.Constantes;
 
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class CapitalShips extends Tecnologia{
+public class CapitalShips extends Tecnologia implements Constantes{
 
     public CapitalShips() {
-        super("Capital Ships");
+        super("Capital Ships",1,3);
     }
     
     public int fazAcao(){

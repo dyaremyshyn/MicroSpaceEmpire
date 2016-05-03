@@ -42,6 +42,8 @@ public class TextUserInterface implements Constantes_UI
         while (true) 
         {
             System.out.println("\n0 - Comecar jogo\n1 - Recarregar jogo(nao usar ainda)\n2 - Sair");
+            System.out.print("\nEscolha: ");
+            
             char c = ' ';
             Scanner sc = new Scanner(System.in);
             c = sc.next().charAt(0);
@@ -79,9 +81,11 @@ public class TextUserInterface implements Constantes_UI
     {
         System.out.println("\n=== Explorar-Atacar/Conquistar ===\n");
         
+      
         while (true) 
-        {
-            System.out.println("\n0 - Explorar-Atacar(nao funcional)\n1 - Conquistar(nao funcional)\n2 - Passar\n3 - Guardar(nao usar ainda)");
+        {   System.out.println(jogo.Painel_jogo());
+            System.out.println("\n0 - Explorar-Atacar(nao funcional)\n1 - Conquistar(nao funcional)\n2 - Passar\n3 - Guardar(nao usar ainda)\n4 - Terminar");
+            System.out.print("\nEscolha: ");
             
             char c = ' ';
             Scanner sc = new Scanner(System.in);
@@ -123,6 +127,13 @@ public class TextUserInterface implements Constantes_UI
                 return;
            }
             
+            if ((c == '4'))
+            {
+                System.out.println("*Terminar*");
+                jogo.Terminar();
+                return;
+            }
+            
         }
     }
 
@@ -133,6 +144,7 @@ public class TextUserInterface implements Constantes_UI
         while (true) 
         {
             System.out.println("\n0 - Near (nao funcional)\n1 - Unaligned System (nao funcional)");
+            System.out.print("\nEscolha: ");
             
             char c = ' ';
             Scanner sc = new Scanner(System.in);
@@ -161,11 +173,13 @@ public class TextUserInterface implements Constantes_UI
     
     public void iuTrocaEntreRecursos() 
     {
-       System.out.println("\n=== Escolher entre Near ou Unaligned  ===\n");
-        
+       System.out.println("\n=== Troca entre recursos  ===");
+       
+       
         while (true) 
-        {
-            System.out.println("\n0 - 1 Metal por 2 Riqueza (nao funcional)\n1 - 2 Metal por 1 Riqueza (nao funcional)");
+        {   System.out.println(jogo.Painel_recursos());
+            System.out.println("0 - 1 Metal por 2 Riqueza (nao funcional)\n1 - 2 Metal por 1 Riqueza (nao funcional)\n2 - Passar");
+            System.out.print("\nEscolha: ");
             
             char c = ' ';
             Scanner sc = new Scanner(System.in);
@@ -184,22 +198,101 @@ public class TextUserInterface implements Constantes_UI
                 jogo.Trocar_recursos(2);
                 return;
             }
+            
+            if ((c == '2')) 
+            { 
+                System.out.println("*Passa*");
+                jogo.Passar();
+                return;
+            }
         }
     }
     
     public void iuConstruirFM_DescobrirTecnologia() 
     {
-       
+    System.out.println("\n=== Construir Força militar ou comprar tecnologia  ===\n");
+        
+        while (true) 
+        {
+            System.out.println("\n0 - Aumentar força militar (nao funcional)\n1 - Descobrir tecnologia (nao funcional)\n2 - Passar");
+            System.out.print("\nEscolha: ");
+            
+            char c = ' ';
+            Scanner sc = new Scanner(System.in);
+            c = sc.next().charAt(0);
+            
+            if ((c == '0')) 
+            {
+                System.out.println("*Aumentar força militar*");
+                jogo.Aumentar_Força_Militar();
+                return;
+            }
+         
+            if ((c == '1')) 
+            { 
+                System.out.println("*Descobrir tecnologia*");
+                jogo.EscolheDescobrirTecnologia();
+                return;
+            }
+            
+            if ((c == '2')) 
+            { 
+                System.out.println("*Passa*");
+                jogo.Passar();
+                return;
+            }
+        }
     }
     
     public void iuEscolheTecnologiaComprar() 
     {
-       
+        System.out.println("\n=== Escolhe tecnologia  ===\n");
+        
+       while (true) 
+        {   
+            System.out.println(jogo.Painel_tecnologiasADescobrir());
+            System.out.println("\nEscolha uma tecnologia ou -1 para cancelar: ");
+            
+            int c ;
+            Scanner sc = new Scanner(System.in);
+            c = sc.nextInt();
+            
+            if(c == -1)
+            {
+            jogo.Cancelar();
+            }else{jogo.Comprar_Tecnologia(c);}
+            
+                          
+        return;     
+        }
     }
 
     public void iuFim()
     {
     System.out.println("*Fim*");
+     while (true) 
+        {
+            System.out.println(jogo.Painel_final());
+            System.out.println("0 - Recomeçar \n1 - Acabar");
+            System.out.print("\nEscolha: ");
+            
+            char c = ' ';
+            Scanner sc = new Scanner(System.in);
+            c = sc.next().charAt(0);
+            
+            if ((c == '0')) 
+            {               
+                
+                TextUserInterface iuTexto = new TextUserInterface(new Jogo());
+                iuTexto.corre();
+            }
+         
+            if ((c == '1')) 
+            { 
+               sair = true;
+               return;
+            }                     
+        }    
     }
     
     public void corre() 

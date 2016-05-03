@@ -17,7 +17,11 @@ public class HomeWorld extends Carta{
    
     @Override
     public String toString() {
-        return getNome() + "\n" + getTipoSistema() + "\n" +"+"+ getMetal() +" Metal" + "\n" +"+"+ getRiqueza()+ " Wealth"+"\n";
+        return " -> " + getNome() +
+               " | " + getTipoSistema() +
+               " | " + "+" + getMetal() + " Metal" +
+               " | " + "+" + getRiqueza() + " Wealth" +
+               "\n";
     }
     
 }

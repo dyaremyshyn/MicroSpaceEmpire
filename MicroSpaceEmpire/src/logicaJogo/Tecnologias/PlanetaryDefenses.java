@@ -12,7 +12,7 @@ package logicaJogo.Tecnologias;
 public class PlanetaryDefenses extends Tecnologia {
 
     public PlanetaryDefenses() {
-        super("Planetary Defenses");
+        super("Planetary Defenses",2,4);
     }
     
     

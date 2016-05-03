@@ -16,18 +16,15 @@ public class EscolheTecnologiaComprar extends StateAdapter
     }
 
     @Override
-    public IStates Comprar_Tecnologia(int TecnologiaEscolhida) {
-        
-        /* 
-            if(DescobrirTecnologia(int TecnologiaEscolhida))
+    public IStates Comprar_Tecnologia(int TecnologiaEscolhida) 
+    {       
+            if(getJogo().DescobrirTecnologia(TecnologiaEscolhida)) //caso deia para comprar a tecnologia passa(true)
             { 
+            getJogo().setBloqueio_DTecnologia(1);//bloqueia
             return new ConstruirFM_DescobrirTecnologia(getJogo());           
             }      
-        */ 
-            
-        
-         return this;
-       
+               
+    return this;      
     }
     
     @Override

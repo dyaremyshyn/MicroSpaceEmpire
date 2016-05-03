@@ -26,7 +26,7 @@ public class AguardaInicio extends StateAdapter
             return new ExplorarAtacar_Conquistar_Passar(getJogo());
         }
         
-        return this;
+    return this;
     }
 
    

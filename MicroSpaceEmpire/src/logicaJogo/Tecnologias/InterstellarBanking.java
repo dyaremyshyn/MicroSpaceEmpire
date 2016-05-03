@@ -13,7 +13,7 @@ import logicaJogo.*;
 public class InterstellarBanking extends Tecnologia{
 
     public InterstellarBanking() {
-        super("Interstellar Banking");
+        super("Interstellar Banking",2,3);
     }
     
     public void fazAcao(){

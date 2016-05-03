@@ -21,4 +21,11 @@ public class Evento implements Serializable {
     public void year1(){}
     
     public void year2(){}
+
+    @Override
+    public String toString() {
+        return " -> " + nome + "\n";
+    }
+    
+    
 }

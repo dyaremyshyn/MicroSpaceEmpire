@@ -34,13 +34,24 @@ public class Jogo implements Serializable
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
      // funcoes de consulta dos dados
     
+     public String Painel_jogo() {
+        return dados.Painel_jogo();
+    }
     
+    public String Painel_tecnologiasADescobrir()
+    {
+    return dados.Painel_tecnologiasADescobrir();
+    }
     
+    public String Painel_recursos()
+    {
+    return dados.Painel_recursos();
+    }
     
-    
-    
-    
-    
+     public String Painel_final()
+     {
+     return dados.Painel_final();
+     }
     
     
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
