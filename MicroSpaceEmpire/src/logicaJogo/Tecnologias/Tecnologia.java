@@ -24,7 +24,7 @@ public class Tecnologia implements Serializable{
 
     @Override
     public String toString() {
-        return " ->  Custo: " + custo + " " + nome + " descrição: " + Descricao() + "\n";
+        return " ->  Custo: " + custo + " | " + nome + " | " + " descrição: " + Descricao() + "\n";
     }
 
     public int getGeracao() {
