@@ -20,4 +20,9 @@ public class PlanetaryDefenses extends Tecnologia {
         
     }
     
+    @Override
+    public String Descricao()
+    {
+     return " acrescenta uma unidade de resistência durante um evento de invasão";
+    }
 }

@@ -19,4 +19,10 @@ public class InterstellarDiplomacy extends Tecnologia{
     public void fazAcao(){
         
     }
+    
+    @Override
+    public String Descricao()
+    {
+     return " no proximo turno pode explorar-atacar ou reconquistar com 100% sucesso sem lançar o dado";
+    }
 }
