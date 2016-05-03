@@ -18,6 +18,6 @@ public class CapitalShips extends Tecnologia implements Constantes{
     }
     
     public int fazAcao(){
-        return Constantes.LIM_C_T;
+        return Constantes.LIM_C_CAPITALSHIPS;
     }
 }
