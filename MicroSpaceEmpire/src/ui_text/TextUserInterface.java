@@ -174,6 +174,7 @@ public class TextUserInterface implements Constantes_UI
        while (true) 
         {   
             System.out.println(jogo.Painel_Conquistar());
+            
             System.out.print("\nEscolha: ");
             
             int c ;
