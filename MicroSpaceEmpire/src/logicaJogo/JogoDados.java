@@ -431,7 +431,7 @@ public class JogoDados implements Serializable {
     
     public void recolheRecursos()
     {        
-        if("Revolt".equals(currentEvento.getNome())) //caso o evento corrente for Greve
+        if("Strike".equals(currentEvento.getNome())) //caso o evento corrente for Greve
         {
             if(AdequiriuT_RobotWorkers()) // caso adquiriu esta tecnologia recebe metade
             {
@@ -858,6 +858,7 @@ public class JogoDados implements Serializable {
                 + "\n--------------------------------------------------------------------------------------------------------------------------------"
                 + "\n Riqueza: " + riqueza               
                 + "\n Metal: " + metal
+                + "\n"
                 + "\n Limite de recursos: " + limiteRecursos
                 + "\n Limite de força militar: " + limiteForcaMilitar                
                 + "\n--------------------------------------------------------------------------------------------------------------------------------"

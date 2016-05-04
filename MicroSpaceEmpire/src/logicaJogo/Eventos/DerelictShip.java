@@ -14,7 +14,7 @@ import logicaJogo.JogoDados;
 public class DerelictShip extends Evento{
 
     public DerelictShip() {
-        super("DerelictShip");
+        super("Derelict Ship");
     }
     
     @Override
