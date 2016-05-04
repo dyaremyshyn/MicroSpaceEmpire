@@ -56,9 +56,9 @@ public class JogoDados implements Serializable {
        eventos = new ArrayList<>();
        
        pontuacao=0;
-       turno = 0;
-       metal=10;
-       riqueza=10;
+       turno = 1;
+       metal=3;
+       riqueza=3;
        forcaMilitar=0;
        producaoMetal=0;
        producaoRiq=0;
@@ -81,6 +81,10 @@ public class JogoDados implements Serializable {
        return true;
     }
     
+    public void avancaTurno()
+    {
+    turno+=1;
+    }
     
     public boolean viraCartaNearSystem(){
         if(!nearSystem.isEmpty()){
@@ -356,12 +360,34 @@ public class JogoDados implements Serializable {
     
     public boolean TrocaMetalPorRiqueza()
     {
-     return true;
+       
+        if(riqueza < limiteRecursos)//verifica se o jogador ja nao tem o recurso no maximo
+        { 
+            if(metal >= 2) //verificar se tem recursos para a troca
+            {
+            metal-=2;
+            riqueza+=1;
+            return true;
+            }
+        }
+    
+    return false;         
     }
 
     public boolean TrocaRiquezaPorMetal()
     {
-     return true;
+        
+     if(metal < limiteRecursos)//verifica se o jogador ja nao tem o recurso no maximo
+        { 
+            if(riqueza >= 2) //verificar se tem recursos para a troca
+            {
+            riqueza-=2;
+            metal+=1;
+            return true;
+            }
+        }
+    
+    return false; 
     }
 
     public boolean aumenta_FMilitar()
@@ -407,6 +433,25 @@ public class JogoDados implements Serializable {
     bloqueio_AFmilitar = 0;
     }
     
+    public boolean AdequiriuT_ForwardStarbases()
+    {
+        for(int i = 0;i < tecnologiasAdquiridas.size();i++)
+        {
+            if("Forward Starbases".equals(tecnologiasAdquiridas.get(i).getNome()))
+                return true;
+        }
+    return false;
+    }
+   
+    public boolean AdequiriuT_InterspeciesComerce()
+    {
+        for(int i = 0;i < tecnologiasAdquiridas.size();i++)
+        {
+            if("Interspecies Commerce".equals(tecnologiasAdquiridas.get(i).getNome()))
+                return true;
+        }
+    return false;
+    }
     //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Parte Do FIM
     public int SomaPontosVitoria()
     {
@@ -505,8 +550,10 @@ public class JogoDados implements Serializable {
     public String Painel_tecnologiasADescobrir()
     {
     String estrutura = "";
-   
-    estrutura+= "\n ===Primeira geração=== \n";        
+    
+    estrutura+= " riqueza: " + riqueza 
+                + "\n\n ===Primeira geração=== \n";   
+    
        for(int i= 0;i< tecnologias.size();i++)
        {             
            if(tecnologias.get(i).getGeracao() == 1)
@@ -595,7 +642,7 @@ public class JogoDados implements Serializable {
                 + "\n producao de metal: " + producaoMetal 
                 + "\n producao de riquesa: " + producaoRiq              
                 + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"                               
-                + "\n Tecnologias adquiridas: "  + CriaDados_TecnologiasAdquiridas()
+                + "\n Tecnologias adquiridas: \n"  + CriaDados_TecnologiasAdquiridas()
                 + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::";
     } 
 }

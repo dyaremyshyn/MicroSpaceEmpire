@@ -64,6 +64,17 @@ public class Jogo implements Serializable
     return dados.Painel_Conquistar();
     }
     
+    //verificação
+    
+    public boolean AdequiriuT_ForwardStarbases()
+    {
+    return dados.AdequiriuT_ForwardStarbases();
+    }
+    
+    public boolean AdequiriuT_InterspeciesComerce()
+    {
+    return dados.AdequiriuT_InterspeciesComerce();
+    }
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     // funcoes delegadas no estado corrente 
 

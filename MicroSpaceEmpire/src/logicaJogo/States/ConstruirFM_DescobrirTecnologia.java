@@ -42,7 +42,7 @@ public class ConstruirFM_DescobrirTecnologia extends StateAdapter
     @Override
     public IStates Passar() {//duvida::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::              
         //funções autonomas 
-        
+        getJogo().avancaTurno();
         
         
         

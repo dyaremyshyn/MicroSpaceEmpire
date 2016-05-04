@@ -41,8 +41,8 @@ public class TextUserInterface implements Constantes_UI
               
         while (true) 
         {
-            System.out.println("\n0 - Comecar jogo\n1 - Recarregar jogo(nao usar ainda)\n2 - Sair");
-            System.out.print("\nEscolha: ");
+            System.out.println("\n0 - Comecar jogo\n1 - Recarregar jogo\n2 - Sair");
+            System.out.print("\n--> ");
             
             char c = ' ';
             Scanner sc = new Scanner(System.in);
@@ -84,7 +84,7 @@ public class TextUserInterface implements Constantes_UI
       
         while (true) 
         {   System.out.println(jogo.Painel_jogo());
-            System.out.println("\n0 - Explorar-Atacar(nao funcional)\n1 - Conquistar(nao funcional)\n2 - Passar\n3 - Guardar(nao usar ainda)\n4 - Terminar");
+            System.out.println("\n0 - Explorar-Atacar\n1 - Conquistar\n2 - Passar\n3 - Guardar\n4 - Terminar");
             System.out.print("\nEscolha: ");
             
             char c = ' ';
@@ -143,7 +143,7 @@ public class TextUserInterface implements Constantes_UI
         
         while (true) 
         {
-            System.out.println("\n0 - Near (nao funcional)\n1 - Unaligned System (nao funcional)");
+            System.out.println("\n0 - Near " + (jogo.AdequiriuT_ForwardStarbases()?"\n1 - Unaligned System ":"\n? - Unaligned System (deve adquirir Forward Starbases)"));
             System.out.print("\nEscolha: ");
             
             char c = ' ';
@@ -157,7 +157,7 @@ public class TextUserInterface implements Constantes_UI
                 return;
             }
          
-            if ((c == '1')) 
+            if ((c == '1' && jogo.AdequiriuT_ForwardStarbases())) 
             { 
                 System.out.println("*Unaligned*");
                 jogo.Explorar_atacar(2);
@@ -192,37 +192,43 @@ public class TextUserInterface implements Constantes_UI
     {
        System.out.println("\n=== Troca entre recursos  ===");
        
-       
-        while (true) 
-        {   System.out.println(jogo.Painel_recursos());
-            System.out.println("0 - 1 Metal por 2 Riqueza (nao funcional)\n1 - 2 Metal por 1 Riqueza (nao funcional)\n2 - Passar");
-            System.out.print("\nEscolha: ");
-            
-            char c = ' ';
-            Scanner sc = new Scanner(System.in);
-            c = sc.next().charAt(0);
-            
-            if ((c == '0')) 
-            {
-                System.out.println("*1 Metal por 2 Riqueza*");
-                jogo.Trocar_recursos(1);
-                return;
+       if(jogo.AdequiriuT_InterspeciesComerce())
+       {
+            while (true) 
+            {   
+                System.out.println(jogo.Painel_recursos());
+                System.out.println("0 - 2 Riqueza por 1 Metal\n1 - 2 Metal por 1 Riqueza\n2 - Passar");
+                System.out.print("\nEscolha: ");
+
+                char c = ' ';
+                Scanner sc = new Scanner(System.in);
+                c = sc.next().charAt(0);
+
+                if ((c == '0')) 
+                {
+                    System.out.println("*2 Riqueza por 1 Metal*");
+                    jogo.Trocar_recursos(1);
+                    return;
+                }
+
+                if ((c == '1')) 
+                { 
+                    System.out.println("*2 Metal por 1 Riqueza*");
+                    jogo.Trocar_recursos(2);
+                    return;
+                }
+
+                if ((c == '2')) 
+                { 
+                    System.out.println("*Passa*");
+                    jogo.Passar();
+                    return;
+                }
             }
-         
-            if ((c == '1')) 
-            { 
-                System.out.println("*2 Metal por 1 Riqueza*");
-                jogo.Trocar_recursos(2);
-                return;
-            }
-            
-            if ((c == '2')) 
-            { 
-                System.out.println("*Passa*");
-                jogo.Passar();
-                return;
-            }
-        }
+       }else{
+             System.out.println("*Passa*");
+             jogo.Passar(); 
+            }                      
     }
     
     public void iuConstruirFM_DescobrirTecnologia() 
@@ -268,7 +274,7 @@ public class TextUserInterface implements Constantes_UI
        while (true) 
         {   
             System.out.println(jogo.Painel_tecnologiasADescobrir());
-            System.out.println("\nEscolha uma tecnologia ou -1 para cancelar: ");
+            System.out.print("\nEscolha uma tecnologia ou -1 para cancelar: ");
             
             int c ;
             Scanner sc = new Scanner(System.in);

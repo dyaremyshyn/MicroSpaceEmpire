@@ -13,11 +13,7 @@ public class InterspeciesCommerce extends Tecnologia{
 
     public InterspeciesCommerce() {
         super("Interspecies Commerce",1,2);
-    }
-    
-    public void fazAcao(){
-        
-    }
+    }    
     
     @Override
     public String Descricao()
