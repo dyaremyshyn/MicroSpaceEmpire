@@ -6,12 +6,13 @@
 package logicaJogo.Tecnologias;
 
 import java.io.Serializable;
+import logicaJogo.JogoDados;
 
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class Tecnologia implements Serializable{
+public class Tecnologia implements Serializable, Constantes_tecnologias{
     private String nome;
     private int geracao;
     private int custo;
@@ -38,6 +39,10 @@ public class Tecnologia implements Serializable{
     public int getCusto() {
         return custo;
     }     
+    
+    public void FazAccao(JogoDados jogo)
+    {    
+    }
     
     public String Descricao()
     {

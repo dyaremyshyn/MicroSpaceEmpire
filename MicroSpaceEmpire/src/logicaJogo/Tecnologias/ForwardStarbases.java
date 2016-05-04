@@ -14,10 +14,6 @@ public class ForwardStarbases extends Tecnologia{
     public ForwardStarbases() {
         super("Forward Starbases",2,4);
     }
-   
-    public Boolean fazAcao(){
-        return true;
-    }
     
     @Override
     public String Descricao()

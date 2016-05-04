@@ -64,7 +64,7 @@ public class Jogo implements Serializable
     return dados.Painel_Conquistar();
     }
     
-    //verificação
+    //funções de verificação
     
     public boolean AdequiriuT_ForwardStarbases()
     {
@@ -75,6 +75,10 @@ public class Jogo implements Serializable
     {
     return dados.AdequiriuT_InterspeciesComerce();
     }
+    
+    public int getBloqueio_compraDireta() {
+        return dados.getBloqueio_compraDireta();
+    } 
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     // funcoes delegadas no estado corrente 
 

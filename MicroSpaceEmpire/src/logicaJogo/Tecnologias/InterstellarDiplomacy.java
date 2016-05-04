@@ -5,6 +5,8 @@
  */
 package logicaJogo.Tecnologias;
 
+import logicaJogo.JogoDados;
+
 /**
  *
  * @author Dmytro Yaremyshyn
@@ -14,10 +16,11 @@ public class InterstellarDiplomacy extends Tecnologia{
     public InterstellarDiplomacy() {
         super("Interstellar Diplomacy",2,5);
     }
-    
-    
-    public void fazAcao(){
-        
+   
+    @Override
+    public void FazAccao(JogoDados jogo)
+    {       
+        jogo.setBloqueio_compraDireta(1);
     }
     
     @Override

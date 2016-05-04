@@ -14,6 +14,7 @@ public class TrocaEntreRecursos extends StateAdapter
     {
         super(j);
         getJogo().recolheRecursos();
+        getJogo().setBloqueio_compraDireta(0); //
     }
 
     @Override

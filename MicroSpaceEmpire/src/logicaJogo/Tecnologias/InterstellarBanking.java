@@ -16,8 +16,9 @@ public class InterstellarBanking extends Tecnologia{
         super("Interstellar Banking",2,3);
     }
     
-    public void fazAcao(){
-        //getJogo().setLimArmazem(5);
+    @Override
+    public void FazAccao(JogoDados jogo){
+        jogo.setLimiteRecursos(LIM_C_TEC);
     }
     
     @Override

@@ -15,11 +15,6 @@ public class PlanetaryDefenses extends Tecnologia {
         super("Planetary Defenses",2,4);
     }
     
-    
-    public void fazAcao(){
-        
-    }
-    
     @Override
     public String Descricao()
     {

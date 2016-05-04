@@ -14,11 +14,7 @@ public class RobotWorkers extends Tecnologia{
     public RobotWorkers() {
         super("Robot Workers",1,2);
     }
-    
-    public void fazAcao(){
         
-    }
-    
     @Override
     public String Descricao()
     {

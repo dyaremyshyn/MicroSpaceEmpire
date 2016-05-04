@@ -6,19 +6,21 @@
 package logicaJogo.Tecnologias;
 
 import logicaJogo.Constantes;
+import logicaJogo.JogoDados;
 
 /**
  *
  * @author Dmytro Yaremyshyn
  */
-public class CapitalShips extends Tecnologia implements Constantes{
+public class CapitalShips extends Tecnologia{
 
     public CapitalShips() {
         super("Capital Ships",1,3);
     }
     
-    public int fazAcao(){
-        return Constantes.LIM_C_TEC;
+    @Override
+    public void FazAccao(JogoDados jogo){
+        jogo.setLimiteForcaMilitar(LIM_C_TEC);      
     }
     
     @Override

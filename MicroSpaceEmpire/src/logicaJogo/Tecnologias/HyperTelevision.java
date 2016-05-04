@@ -15,11 +15,6 @@ public class HyperTelevision extends Tecnologia{
         super("Hyper Television",1,3);
     }
     
-    
-    public void fazAcao(){
-        
-    }
-    
     @Override
     public String Descricao()
     {
