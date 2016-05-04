@@ -60,8 +60,8 @@ public class JogoDados implements Serializable {
        
        pontuacao=0;
        turno = 1;
-       metal=1;
-       riqueza=1;
+       metal=0;
+       riqueza=0;
        forcaMilitar=0;
        producaoMetal=0;
        producaoRiq=0;
@@ -121,6 +121,7 @@ public class JogoDados implements Serializable {
     }
     
     
+    
     public void iniciaTecnologia(){
         tecnologias.add(new InterspeciesCommerce());
         tecnologias.add(new CapitalShips());
@@ -150,10 +151,7 @@ public class JogoDados implements Serializable {
         
         return false;
     }
-    
-    
-   
-    
+
     public void iniciaNearSystem() {
         nearSystem.add(new Wolf359());
         nearSystem.add(new Proxima());
@@ -503,7 +501,21 @@ public class JogoDados implements Serializable {
         }
     return false;
     }
-
+    
+    //X7:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Funções relacionadas a passagem de ano
+    
+    public void PassaDeAno()
+    {
+    iniciaEventos(); //volta a preencher o array e a baralhar as cartas de eventos 
+    
+    for(int i = 0; i < 2 ;i++) // remove 2 cartas do array
+    {
+    eventos.remove(i);
+    }
+   
+    currentYear = 2; // o ano passa a ser 2    
+    }
+    
     //X01:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Funções de verificação de aquisição de tecnologias
     
     public boolean AdequiriuT_RobotWorkers()
@@ -631,7 +643,7 @@ public class JogoDados implements Serializable {
     return estrutura;   
     }
     
-    //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::INTERFACES
+    //X04:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::INTERFACES
     //mostra informações para o utilizador
     public String Painel_tecnologiasADescobrir()
     {
@@ -733,4 +745,6 @@ public class JogoDados implements Serializable {
                 + "\n Tecnologias adquiridas: \n"  + CriaDados_TecnologiasAdquiridas()
                 + "\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::";
     } 
+    
+    
 }
