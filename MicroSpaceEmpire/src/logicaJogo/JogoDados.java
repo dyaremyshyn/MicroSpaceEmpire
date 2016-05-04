@@ -82,7 +82,7 @@ public class JogoDados implements Serializable {
        iniciaTecnologia();
        iniciaEventos();
        eventos.remove(0);
-       setCurrentEvento(eventos.get(0));
+       //setCurrentEvento(eventos.get(0));
        
        atualizaProducaoRecursos();
        
