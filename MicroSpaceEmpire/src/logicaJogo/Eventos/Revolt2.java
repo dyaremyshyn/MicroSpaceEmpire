@@ -23,7 +23,7 @@ public class Revolt2 extends Evento{
         Carta c =j.escolheSistemaDoImperio();
         if(c!=null){
             if(j.lancaDado()+1<c.getResistencia()){
-                if(j.temHyperTelevision())
+                if(j.AdequiriuT_HyperTelevision())
                     c.setResistencia(c.getResistencia()+1);
             }
             else{
@@ -38,7 +38,7 @@ public class Revolt2 extends Evento{
         Carta c=j.escolheSistemaDoImperio();
         if(c!=null){
             if(j.lancaDado()+1<c.getResistencia()){
-                if(j.temHyperTelevision())
+                if(j.AdequiriuT_HyperTelevision())
                     c.setResistencia(c.getResistencia()+2);
             }
             else{

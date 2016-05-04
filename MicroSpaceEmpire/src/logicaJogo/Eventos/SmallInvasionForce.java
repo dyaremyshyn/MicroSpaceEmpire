@@ -23,7 +23,7 @@ public class SmallInvasionForce extends Evento{
         Carta c=j.ultimoSistemaConquistado();
         if(!c.getNome().equals("Home World")){
             if(j.lancaDado()+1<c.getResistencia()){
-                if(j.temPlanetaryDefenses())
+                if(j.AdequiriuT_PlanetaryDefenses())
                     c.setResistencia(c.getResistencia()+1);
             }
             else{   
@@ -38,7 +38,7 @@ public class SmallInvasionForce extends Evento{
         Carta c=j.ultimoSistemaConquistado();
         if(!c.getNome().equals("Home World")){
             if(j.lancaDado()+2<c.getResistencia()){
-                if(j.temPlanetaryDefenses())
+                if(j.AdequiriuT_PlanetaryDefenses())
                     c.setResistencia(c.getResistencia()+1);
             }
             else{   

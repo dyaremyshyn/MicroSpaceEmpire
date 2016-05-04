@@ -137,19 +137,6 @@ public class JogoDados implements Serializable {
         return d.LancaDado();
     }
     
-    public boolean temHyperTelevision(){
-        for(int i=0;i<tecnologiasAdquiridas.size();i++)
-            if(tecnologiasAdquiridas.get(i).getNome().equals("Hyper Television"))
-                return true;
-        return false;
-    }
-    public boolean temPlanetaryDefenses(){
-        for(int i=0;i<tecnologiasAdquiridas.size();i++)
-            if(tecnologiasAdquiridas.get(i).getNome().equals("Planetary Defenses"))
-                return true;
-        return false;
-    }
-    
     public void retiraSistemaImperio(Carta c){
         for(int i=0;i<imperio.size();i++)
             if(imperio.get(i).getNome().equals(c.getNome())){
@@ -600,6 +587,16 @@ public class JogoDados implements Serializable {
         for(int i = 0;i < tecnologiasAdquiridas.size();i++)
         {
             if("Forward Starbases".equals(tecnologiasAdquiridas.get(i).getNome()))
+                return true;
+        }
+    return false;
+    }
+    
+    public boolean AdequiriuT_PlanetaryDefenses()
+    {
+        for(int i = 0;i < tecnologiasAdquiridas.size();i++)
+        {
+            if("Planetary Defenses".equals(tecnologiasAdquiridas.get(i).getNome()))
                 return true;
         }
     return false;
