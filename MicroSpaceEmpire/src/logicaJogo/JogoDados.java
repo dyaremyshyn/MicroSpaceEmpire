@@ -386,11 +386,14 @@ public class JogoDados implements Serializable {
     
     public void atualizaProducaoRecursos()
     {
+        int r=0,m=0;
         for(int i=0;i<imperio.size();i++)
         {  
-            setProducaoRiq(getProducaoRiq() + imperio.get(i).getRiqueza());
-            setProducaoMetal(getProducaoMetal() + imperio.get(i).getMetal());         
+            r+=imperio.get(i).getRiqueza();
+            m+=imperio.get(i).getMetal();
         }
+        setProducaoRiq(r);
+        setProducaoMetal(m);
         
     }
     
