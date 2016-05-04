@@ -53,6 +53,10 @@ public class ConstruirFM_DescobrirTecnologia extends StateAdapter
         getJogo().PassaDeAno(); //passa de ano
         }
         
+        getJogo().aplicaEventoAleatorio();
+        if(getJogo().verificaRevolta(getJogo().getCurrentEvento()))
+            return new Fim(getJogo());
+        
         getJogo().avancaTurno();       
         getJogo().zeraVariaveisDeVerificação(); //volta a por as variaveis de bloqueio a 0
         

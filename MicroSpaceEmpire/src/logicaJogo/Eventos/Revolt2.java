@@ -15,7 +15,7 @@ import logicaJogo.JogoDados;
 public class Revolt2 extends Evento{
 
     public Revolt2() {
-        super("Revolt2");
+        super("Revolt");
     }
     
     @Override

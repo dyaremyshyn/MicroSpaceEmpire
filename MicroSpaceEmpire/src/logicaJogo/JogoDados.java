@@ -118,24 +118,18 @@ public class JogoDados implements Serializable {
         tecnologias.add(new InterstellarBanking());
     }
     
-    public boolean aplicaEventoAleatorio()
+    public void aplicaEventoAleatorio()
     {
-       /* if(!eventos.isEmpty()){
-            Evento e;
-            int i= (int)(Math.random()*eventos.size());
-            e = eventos.get(i);
-            eventos.remove(i);
-            if(currentYear==1)
-                e.year1();
-            else e.year2();
-            
-            return true;
-        }*/
+        if(currentYear==1){
+            eventos.get(0).year1(this);
+        }
+        else 
+            eventos.get(0).year2(this);
         
-        currentEvento = new Asteroid();
-        
-        return false;
+        currentEvento=eventos.get(0);
+        eventos.remove(0);
     }
+    
     public int lancaDado(){
         Dado d=new Dado();
         return d.LancaDado();
@@ -147,22 +141,38 @@ public class JogoDados implements Serializable {
                 return true;
         return false;
     }
+    public boolean temPlanetaryDefenses(){
+        for(int i=0;i<tecnologiasAdquiridas.size();i++)
+            if(tecnologiasAdquiridas.get(i).getNome().equals("Planetary Defenses"))
+                return true;
+        return false;
+    }
     
     public void retiraSistemaImperio(Carta c){
         for(int i=0;i<imperio.size();i++)
             if(imperio.get(i).getNome().equals(c.getNome())){
-                imperio.remove(i);
                 porConquistar.add(imperio.get(i));
+                imperio.remove(i);
             }
     }
     
-    public boolean tamImperio(){
-        if(imperio.size()>1)
-            return true;
+    public boolean verificaRevolta(Evento e){
+        if(e.getNome().equals("Revolt")){
+            if(currentYear==2){
+                if(imperio.size()==1)
+                    return true;
+            }
+            return false;
+        }
         return false;
     }
+    
+    public Carta ultimoSistemaConquistado(){
+        return imperio.get(imperio.size()-1);
+    }
+    
     public Carta escolheSistemaDoImperio(){
-        if(tamImperio()){
+        if(imperio.size()>1){
             Carta c = imperio.get(1);
             for(int i=2;i<imperio.size();i++){
                 if(c.getResistencia()>=imperio.get(i).getResistencia()){
