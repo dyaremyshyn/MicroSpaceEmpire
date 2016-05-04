@@ -84,6 +84,21 @@ public class Jogo implements Serializable
     public int getBloqueio_compraDireta() {
         return dados.getBloqueio_compraDireta();
     } 
+    
+    public boolean VerificaSeHaSistemasPorConquistar()
+    {
+    return dados.VerificaSeHaSistemasPorConquistar();
+    }
+    
+    public boolean VerificaSeHaSistemasNear()
+    {
+    return dados.VerificaSeHaSistemasNear();
+    }
+    
+    public boolean VerificaSeHaSistemasDistant()
+    {
+    return dados.VerificaSeHaSistemasDistant();
+    }
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     // funcoes delegadas no estado corrente 
 

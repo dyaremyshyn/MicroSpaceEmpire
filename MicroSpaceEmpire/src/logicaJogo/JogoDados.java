@@ -634,17 +634,17 @@ public class JogoDados implements Serializable {
     
     public boolean VerificaSeHaSistemasPorConquistar()
     {
-    return porConquistar.isEmpty();
+    return !porConquistar.isEmpty();
     }
     
     public boolean VerificaSeHaSistemasNear()
     {
-    return nearSystem.isEmpty();
+    return !nearSystem.isEmpty();
     }
     
     public boolean VerificaSeHaSistemasDistant()
     {
-    return distantSystem.isEmpty();
+    return !distantSystem.isEmpty();
     }
     
     //X02:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Funções para apresentar Pontuações no final do jogo

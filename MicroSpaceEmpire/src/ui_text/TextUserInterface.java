@@ -37,7 +37,7 @@ public class TextUserInterface implements Constantes_UI
 
     public void iuAguardaInicio() 
     {              
-    System.out.println("\n\n\n=== AGUARDA INICIO ===\n");
+    System.out.println("\n\n=== AGUARDA INICIO ===\n");
               
         while (true) 
         {
@@ -79,14 +79,14 @@ public class TextUserInterface implements Constantes_UI
 
     public void iuExplorarAtacar_Conquistar_Passar() 
     {   
-    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");                   
-    System.out.println("\n\n\n=== Explorar-Atacar/Conquistar ===\n");
+    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n");                   
+    System.out.println("\n\n=== Explorar-Atacar/Conquistar ===\n");
         
       
         while (true) 
         {   System.out.println(jogo.Painel_jogo());
-            System.out.println(         "\n0 - Explorar-Atacar " + (jogo.getBloqueio_compraDireta() == 1? "(100% sucesso)":"") 
-                               + "\n1 - Conquistar " + (jogo.getBloqueio_compraDireta() == 1? "(100% sucesso)":"") 
+            System.out.println( ((jogo.VerificaSeHaSistemasNear() || (jogo.VerificaSeHaSistemasDistant())? "\n0 - Explorar-Atacar " + (jogo.getBloqueio_compraDireta() == 1?"(100% sucesso)":""):"")) 
+                               + (jogo.VerificaSeHaSistemasPorConquistar()?"\n1 - Conquistar " + (jogo.getBloqueio_compraDireta() == 1? "(100% sucesso)":""):"")
                                + "\n2 - Passar\n3 - Guardar\n4 - Terminar");
             
             System.out.print("\nEscolha: ");
@@ -95,14 +95,14 @@ public class TextUserInterface implements Constantes_UI
             Scanner sc = new Scanner(System.in);
             c = sc.next().charAt(0);
             
-            if ((c == '0')) 
+            if ((c == '0' && (jogo.VerificaSeHaSistemasNear() || jogo.VerificaSeHaSistemasDistant()))) 
             {
                 System.out.println("*Explorar-Atacar*");
                 jogo.EscolheExplorar_atacar();
                 return;
             }
          
-            if ((c == '1')) 
+            if ((c == '1' && jogo.VerificaSeHaSistemasPorConquistar())) 
             { 
                 System.out.println("*Conquistar*");
                 jogo.EscolheConquistar();
@@ -143,12 +143,13 @@ public class TextUserInterface implements Constantes_UI
 
     public void iuEscolheNearOuUnalignedSystem() 
     {
-    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");  
-    System.out.println("\n\n\n=== Escolher entre Near ou Unaligned  ===\n");
+    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n");  
+    System.out.println("\n\n=== Escolher entre Near ou Unaligned  ===\n");
         
         while (true) 
         {
-            System.out.println("\n0 - Near " + (jogo.AdequiriuT_ForwardStarbases()?"\n1 - Unaligned System ":"\n? - Unaligned System (deve adquirir Forward Starbases)"));
+            System.out.println( (jogo.VerificaSeHaSistemasNear()?"\n0 - Near ":"? - Já não há Near Systems")
+                               + (jogo.VerificaSeHaSistemasDistant()? (jogo.AdequiriuT_ForwardStarbases()?"\n1 - Unaligned System ":"\n? - Unaligned System (deve adquirir Forward Starbases)"):"? - Já não há Distant Systems") );
             System.out.print("\nEscolha: ");
             
             char c = ' ';
@@ -173,8 +174,8 @@ public class TextUserInterface implements Constantes_UI
     
     public void iuEscolheUnalignedSystem() 
     {
-    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");  
-    System.out.println("\n\n\n=== Escolhe sistema a conquistar  ===\n");
+    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n");  
+    System.out.println("\n\n=== Escolhe sistema a conquistar  ===\n");
         
        while (true) 
         {   
@@ -195,8 +196,8 @@ public class TextUserInterface implements Constantes_UI
     
     public void iuTrocaEntreRecursos() 
     {  
-    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");  
-    System.out.println("\n\n\n=== Troca entre recursos  ===");
+    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n");  
+    System.out.println("\n\n=== Troca entre recursos  ===");
        
        if(jogo.AdequiriuT_InterspeciesComerce())
        {
@@ -239,8 +240,8 @@ public class TextUserInterface implements Constantes_UI
     
     public void iuConstruirFM_DescobrirTecnologia() 
     {
-    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");  
-    System.out.println("\n\n\n=== Construir Força militar ou comprar tecnologia  ===\n");
+    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n");  
+    System.out.println("\n\n=== Construir Força militar ou comprar tecnologia  ===\n");
         
         while (true) 
         {   
@@ -278,8 +279,8 @@ public class TextUserInterface implements Constantes_UI
     
     public void iuEscolheTecnologiaComprar() 
     {
-    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");  
-    System.out.println("\n\n\n=== Escolhe tecnologia  ===\n");
+    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n");  
+    System.out.println("\n\n=== Escolhe tecnologia  ===\n");
         
        while (true) 
         {   
@@ -302,7 +303,7 @@ public class TextUserInterface implements Constantes_UI
 
     public void iuFim()
     {
-    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");  
+    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n");  
     System.out.println("*Fim*");
      while (true) 
         {
