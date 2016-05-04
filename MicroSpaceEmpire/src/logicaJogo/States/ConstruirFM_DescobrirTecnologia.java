@@ -40,13 +40,22 @@ public class ConstruirFM_DescobrirTecnologia extends StateAdapter
     }
 
     @Override
-    public IStates Passar() {//duvida::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::              
-        //funções autonomas 
-        getJogo().avancaTurno();
+    public IStates Passar() 
+    {         
+   
+        if(getJogo().VerificaSeNaoHaMaisEventos()) //verifica se os eventos ja acabaram
+        {
+            if(getJogo().getCurrentYear() == 2) // caso ja esteja no 2 ano ele sai do jogo
+            {
+             return new Fim(getJogo());
+            }
+            
+        getJogo().PassaDeAno(); //passa de ano
+        }
         
-        
-        
+        getJogo().avancaTurno();       
         getJogo().zeraVariaveisDeVerificação(); //volta a por as variaveis de bloqueio a 0
-        return new ExplorarAtacar_Conquistar_Passar(getJogo());
+        
+    return new ExplorarAtacar_Conquistar_Passar(getJogo());
     } 
 }

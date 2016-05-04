@@ -106,22 +106,7 @@ public class JogoDados implements Serializable {
     {
     turno+=1;
     }
-    
-    /*public void getLimiteArmazem(){
-        for(int i=0;i<tecnologiasAdquiridas.size();i++)
-            if(tecnologiasAdquiridas.get(i).getNome().equals("Interstellar Banking"))
-                setLimiteRecursos(Constantes.LIM_C_TEC);
-        
-        setLimiteRecursos(Constantes.LIM_S_TEC);
-                
-    }*/
-      
-    public boolean verificaPorConquistar(){
-        return !porConquistar.isEmpty();
-    }
-    
-    
-    
+
     public void iniciaTecnologia(){
         tecnologias.add(new InterspeciesCommerce());
         tecnologias.add(new CapitalShips());
@@ -313,19 +298,13 @@ public class JogoDados implements Serializable {
         return true;
     }
    
-    
-    
-    
-    
     //funções 
     public void zeraVariaveisDeVerificação()
     {
     bloqueio_DTecnologia = 0;
     bloqueio_AFmilitar = 0;
     }
-    
-    
-    
+
     //X2, X3, X4:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Funções
     
     public boolean viraCartaNearSystem(){
@@ -390,13 +369,11 @@ public class JogoDados implements Serializable {
         {  
             setProducaoRiq(getProducaoRiq() + imperio.get(i).getRiqueza());
             setProducaoMetal(getProducaoMetal() + imperio.get(i).getMetal());         
-        }
-        
+        }        
     }
     
     public void recolheRecursos()
-    {
-         
+    {        
         if("Revolt".equals(currentEvento.getNome())) //caso o evento corrente for Greve
         {
             if(AdequiriuT_RobotWorkers()) // caso adquiriu esta tecnologia recebe metade
@@ -431,8 +408,7 @@ public class JogoDados implements Serializable {
     } 
     
     public boolean TrocaMetalPorRiqueza()
-    {
-       
+    {     
         if(riqueza < limiteRecursos)//verifica se o jogador ja nao tem o recurso no maximo
         { 
             if(metal >= 2) //verificar se tem recursos para a troca
@@ -441,15 +417,13 @@ public class JogoDados implements Serializable {
             riqueza+=1;
             return true;
             }
-        }
-    
+        }    
     return false;         
     }
 
     public boolean TrocaRiquezaPorMetal()
-    {
-        
-     if(metal < limiteRecursos)//verifica se o jogador ja nao tem o recurso no maximo
+    {      
+        if(metal < limiteRecursos)//verifica se o jogador ja nao tem o recurso no maximo
         { 
             if(riqueza >= 2) //verificar se tem recursos para a troca
             {
@@ -457,8 +431,7 @@ public class JogoDados implements Serializable {
             metal+=1;
             return true;
             }
-        }
-    
+        }   
     return false; 
     }
 
@@ -478,22 +451,52 @@ public class JogoDados implements Serializable {
            
            return true;    
            } 
-        }  
-        
+        }          
     return false;
     }
 
     public boolean DescobrirTecnologia(int x)
     {
         if(x <= tecnologias.size())//caso o numero indicado nao seja indicativo de uma tecnologia , nao fazer nada()
-        { 
-        
+        {        
             if(riqueza >= tecnologias.get(x).getCusto())       //verifica se tem riqueza suficiente para efectuar a compra
             {
-            riqueza-= tecnologias.get(x).getCusto();         // subtrai o custo a riqueza   
-            tecnologias.get(x).FazAccao(this);              // caso a tecnologia tenha accão direta no jogo essa acção é realizada
-            tecnologiasAdquiridas.add(tecnologias.get(x)); //adiciona a tecnologia as adquiridas
-            tecnologias.remove(x);                        //remove a tecnologia do array global delas
+                if(null != tecnologias.get(x).getNome())
+                switch (tecnologias.get(x).getNome()) 
+                {
+                    case "Forward Starbases":
+                        if(AdequiriuT_CapitalShips())
+                        {
+                            compraTecnologia(x);
+                            return true;
+                        }
+                        return false;
+                    case "Planetary Defenses":
+                        if(AdequiriuT_RobotWorkers())
+                        {
+                            compraTecnologia(x);
+                            return true;
+                        }
+                        return false;
+                    case "Interstellar Diplomacy":
+                        if(AdequiriuT_HyperTelevision())
+                        {
+                            compraTecnologia(x);
+                            return true;
+                        }
+                        return false;
+                    case "Interstellar Banking":
+                        if(AdequiriuT_InterspeciesComerce())
+                        {
+                            compraTecnologia(x);
+                            return true;
+                        }
+                        return false;
+                    default:
+                        compraTecnologia(x);
+                        break;
+                }
+
             return true;
             }
         
@@ -502,6 +505,13 @@ public class JogoDados implements Serializable {
     return false;
     }
     
+    public void compraTecnologia(int x)
+    {
+            riqueza-= tecnologias.get(x).getCusto();         // subtrai o custo a riqueza   
+            tecnologias.get(x).FazAccao(this);              // caso a tecnologia tenha accão direta no jogo essa acção é realizada
+            tecnologiasAdquiridas.add(tecnologias.get(x)); //adiciona a tecnologia as adquiridas
+            tecnologias.remove(x);     
+    }
     //X7:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Funções relacionadas a passagem de ano
     
     public void PassaDeAno()
@@ -516,7 +526,7 @@ public class JogoDados implements Serializable {
     currentYear = 2; // o ano passa a ser 2    
     }
     
-    //X01:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Funções de verificação de aquisição de tecnologias
+    //X01:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Funções de verificação de aquisição de tecnologias e verificaçao de arrays empty
     
     public boolean AdequiriuT_RobotWorkers()
     {
@@ -546,6 +556,50 @@ public class JogoDados implements Serializable {
                 return true;
         }
     return false;
+    }
+    
+    public boolean AdequiriuT_CapitalShips()
+    {
+        for(int i = 0;i < tecnologiasAdquiridas.size();i++)
+        {
+            if("Capital Ships".equals(tecnologiasAdquiridas.get(i).getNome()))
+                return true;
+        }
+    return false;
+    }
+    
+    public boolean AdequiriuT_HyperTelevision()
+    {
+        for(int i = 0;i < tecnologiasAdquiridas.size();i++)
+        {
+            if("Hyper Television".equals(tecnologiasAdquiridas.get(i).getNome()))
+                return true;
+        }
+    return false;
+    }
+    
+    public boolean verificaPorConquistar(){
+        return !porConquistar.isEmpty();
+    }
+    
+    public boolean VerificaSeNaoHaMaisEventos()
+    {
+    return eventos.isEmpty();
+    }
+    
+    public boolean VerificaSeHaSistemasPorConquistar()
+    {
+    return porConquistar.isEmpty();
+    }
+    
+    public boolean VerificaSeHaSistemasNear()
+    {
+    return nearSystem.isEmpty();
+    }
+    
+    public boolean VerificaSeHaSistemasDistant()
+    {
+    return distantSystem.isEmpty();
     }
     
     //X02:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Funções para apresentar Pontuações no final do jogo
@@ -667,6 +721,18 @@ public class JogoDados implements Serializable {
     return estrutura;
     }
     
+    public  String Painel_forcaMilitar()
+    {
+    String estrutura = "";
+    estrutura+=   /*"\n--------------------------------------------------------------"
+                + */
+                  " Força militar: " + forcaMilitar
+                + "\n--------------------------------------------------------------"
+                + "\n";
+    
+    return estrutura;
+    }
+    
     public String Painel_recursos()
     {
     String estrutura = "";
@@ -705,15 +771,15 @@ public class JogoDados implements Serializable {
     public String Painel_final()
     {
     String estrutura = "";
-    estrutura+=   "\n--------------------------------------------------------------"                
-                + "\n Imperio: " + SomaPontosImperio()
-                + "\n Tecnologias: " + SomaPontosTecnologia()
+    estrutura+=   "\n----------------------------------------------------------------"                
+                + "\n Pontos do Imperio: " + SomaPontosImperio()
+                + "\n Pontos das Tecnologias: " + SomaPontosTecnologia()
                 + (ForamAdequiridasTodasAsTecnologias()? " \n (bónus científico)":"")
                 + (ForamViradasTodasCartasSistema()? " \n (bónus de exploração)":"")
                 + (ForamConquistadasTodasAsCartas()? " \n (bónus senhor da guerra)":"")
-                + "\n--------------------------------------------------------------"
+                + "\n----------------------------------------------------------------"
                 + "\n PONTUAÇÂO TOTAL: " + SomaPontosVitoria()
-                + "\n--------------------------------------------------------------"
+                + "\n----------------------------------------------------------------"
                 + "\n";
     
     return estrutura;
@@ -724,26 +790,25 @@ public class JogoDados implements Serializable {
         return  "\n=== SISTEMA ===\n" 
                 + "Planetas por conquistar: \n"
                 + CriaDados_PlanetasPorConquistar()
-                + "\n*****************************************************************************************************"
+                + "\n********************************************************************************************************************************"
                 + "\n=== PAINEL DE INFORMAÇÔES ===\n" 
                 + "\n Ano:" + currentYear
                 + "\n Turno: " + turno
                 + "\n Evento actual: " + currentEvento               
-                + "\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
+                + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
                 + "\n Imperio: \n" + CriaDados_Imperio() 
-                + "\n ForcaMilitar: " + forcaMilitar
-                + "\n-----------------------------------------------------------------------------------------------------"
+                + "\n Forca Militar: " + forcaMilitar
+                + "\n--------------------------------------------------------------------------------------------------------------------------------"
                 + "\n Riqueza: " + riqueza               
                 + "\n Metal: " + metal
-                + "\n Limite R: " + limiteRecursos
-                + "\n Limite F: " + limiteForcaMilitar
-                + "\n bloqueio de compra: " + bloqueio_compraDireta
-                + "\n-----------------------------------------------------------------------------------------------------"
-                + "\n Producao de metal: " + producaoMetal 
-                + "\n Producao de riquesa: " + producaoRiq              
-                + "\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"                               
+                + "\n Limite de recursos: " + limiteRecursos
+                + "\n Limite de força militar: " + limiteForcaMilitar                
+                + "\n--------------------------------------------------------------------------------------------------------------------------------"
+                + "\n Produção de metal: " + producaoMetal 
+                + "\n Produção de riqueza: " + producaoRiq              
+                + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"                               
                 + "\n Tecnologias adquiridas: \n"  + CriaDados_TecnologiasAdquiridas()
-                + "\n:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::";
+                + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::";
     } 
     
     

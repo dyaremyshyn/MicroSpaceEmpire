@@ -39,6 +39,11 @@ public class Jogo implements Serializable
     return dados.Painel_jogo();
     }
     
+    public String Painel_forcaMilitar()
+    {
+    return dados.Painel_forcaMilitar();
+    }
+    
     public String Painel_tecnologiasADescobrir()
     {
     return dados.Painel_tecnologiasADescobrir();
