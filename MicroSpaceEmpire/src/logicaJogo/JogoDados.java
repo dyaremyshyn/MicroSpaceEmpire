@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import logicaJogo.Cartas.*;
-import logicaJogo.Eventos.Evento;
+import logicaJogo.Eventos.*;
 import logicaJogo.Tecnologias.CapitalShips;
 import logicaJogo.Tecnologias.ForwardStarbases;
 import logicaJogo.Tecnologias.HyperTelevision;
@@ -60,8 +60,8 @@ public class JogoDados implements Serializable {
        
        pontuacao=0;
        turno = 1;
-       metal=3;
-       riqueza=5;
+       metal=1;
+       riqueza=1;
        forcaMilitar=0;
        producaoMetal=0;
        producaoRiq=0;
@@ -118,10 +118,11 @@ public class JogoDados implements Serializable {
         tecnologias.add(new InterstellarBanking());
     }
     
-    public boolean aplicaEventoAleatorio(){
-        if(!eventos.isEmpty()){
+    public boolean aplicaEventoAleatorio()
+    {
+       /* if(!eventos.isEmpty()){
             Evento e;
-            int i= (int)(Math.random()*eventos.size()) + 0;
+            int i= (int)(Math.random()*eventos.size());
             e = eventos.get(i);
             eventos.remove(i);
             if(currentYear==1)
@@ -129,9 +130,15 @@ public class JogoDados implements Serializable {
             else e.year2();
             
             return true;
-        }
+        }*/
+        
+        currentEvento = new Asteroid();
+        
         return false;
     }
+    
+    
+   
     
     public void iniciaNearSystem() {
         nearSystem.add(new Wolf359());
@@ -375,11 +382,39 @@ public class JogoDados implements Serializable {
         
     }
     
-    public void recolheRecursos(){
-        if(limiteRecursos > getMetal())
-            setMetal(getMetal()+producaoMetal);
-        else if(limiteRecursos > getRiqueza()){
-            setRiqueza(getRiqueza()+producaoRiq);
+    public void recolheRecursos()
+    {
+         
+        if("Revolt".equals(currentEvento.getNome())) //caso o evento corrente for Greve
+        {
+            if(AdequiriuT_RobotWorkers()) // caso adquiriu esta tecnologia recebe metade
+            {
+            metal+=producaoMetal*0.5;
+            }
+            
+            //se nao adquiriu a tecnologia nao recebe recursos
+            
+        }else{ //recolhe os recursos completos
+            
+                if(limiteRecursos > getMetal()) 
+                {
+                setMetal(getMetal() + producaoMetal);                    
+                }
+
+                if(limiteRecursos > getRiqueza())
+                {
+                setRiqueza(getRiqueza() + producaoRiq);
+                }
+             }
+        
+        //caso preencha para la do limite repoe o recurso no seu maximo pré estabelecido pelo limite de recuros corrente
+        if(metal > limiteRecursos) 
+        {
+        metal = limiteRecursos;
+        }
+        if(getRiqueza() > limiteRecursos) 
+        {
+        riqueza = limiteRecursos;
         }
     } 
     

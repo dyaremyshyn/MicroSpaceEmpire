@@ -12,11 +12,18 @@ import java.io.Serializable;
  * @author Sergio
  */
 public class Evento implements Serializable {
+    
     private String nome;
     
     public Evento(String n){
         nome=n;
     }
+
+    public String getNome() {
+        return nome;
+    }
+    
+    
     
     public void year1(){}
     
