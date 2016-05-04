@@ -82,7 +82,7 @@ public class JogoDados implements Serializable {
        iniciaTecnologia();
        iniciaEventos();
        
-       atualizaProduçaoRecursos();
+       atualizaProducaoRecursos();
        
        zeraVariaveisDeVerificação();
        
