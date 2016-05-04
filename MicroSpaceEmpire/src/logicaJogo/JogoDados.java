@@ -81,6 +81,8 @@ public class JogoDados implements Serializable {
        iniciaDistantSystem();
        iniciaTecnologia();
        iniciaEventos();
+       eventos.remove(0);
+       setCurrentEvento(eventos.get(0));
        
        atualizaProducaoRecursos();
        
@@ -186,7 +188,7 @@ public class JogoDados implements Serializable {
             }
             return c;
         }
-        return imperio.get(1);
+        return null;
     }
     
     public void iniciaNearSystem() {

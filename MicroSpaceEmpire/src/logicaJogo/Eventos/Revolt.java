@@ -35,13 +35,15 @@ public class Revolt extends Evento{
     @Override
     public void year2(JogoDados j){
         Carta c=j.escolheSistemaDoImperio();
-        if(j.lancaDado()+1<c.getResistencia()){
-            if(j.temHyperTelevision())
-                c.setResistencia(c.getResistencia()+3);
-        }
-        else{
-            c.setTipoSistema("Distant System");
-            j.retiraSistemaImperio(c);
+        if(c!=null){
+            if(j.lancaDado()+1<c.getResistencia()){
+                if(j.temHyperTelevision())
+                    c.setResistencia(c.getResistencia()+3);
+            }
+            else{
+                c.setTipoSistema("Distant System");
+                j.retiraSistemaImperio(c);
+            }
         }
     }
 }
