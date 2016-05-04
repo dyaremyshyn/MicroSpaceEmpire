@@ -80,12 +80,26 @@ public class JogoDados implements Serializable {
        iniciaNearSystem();
        iniciaDistantSystem();
        iniciaTecnologia();
+       iniciaEventos();
        
-       atualizaRecursos();
+       atualizaProduçaoRecursos();
        
        zeraVariaveisDeVerificação();
        
        return true;
+    }
+    
+    public void iniciaEventos(){
+        eventos.add(new Asteroid());
+        eventos.add(new DerelictShip());
+        eventos.add(new LargeInvasionForce());
+        eventos.add(new PeaceQuiet());
+        eventos.add(new Revolt());
+        eventos.add(new Revolt2());
+        eventos.add(new SmallInvasionForce());
+        eventos.add(new Strike());
+        
+        Collections.shuffle(eventos);
     }
     
     public void avancaTurno()
@@ -372,7 +386,7 @@ public class JogoDados implements Serializable {
     
     //X5:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::Funções gerenciar os recursos
     
-    public void atualizaRecursos()
+    public void atualizaProducaoRecursos()
     {
         for(int i=0;i<imperio.size();i++)
         {  
