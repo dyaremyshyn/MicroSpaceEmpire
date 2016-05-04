@@ -176,6 +176,7 @@ public class JogoDados implements Serializable {
             }
             return c;
         }
+        return imperio.get(1);
     }
     
     public void iniciaNearSystem() {
@@ -409,18 +410,11 @@ public class JogoDados implements Serializable {
         int r=0,m=0;
         for(int i=0;i<imperio.size();i++)
         {  
-<<<<<<< HEAD
-            setProducaoRiq(getProducaoRiq() + imperio.get(i).getRiqueza());
-            setProducaoMetal(getProducaoMetal() + imperio.get(i).getMetal());         
-        }        
-=======
             r+=imperio.get(i).getRiqueza();
             m+=imperio.get(i).getMetal();
         }
         setProducaoRiq(r);
-        setProducaoMetal(m);
-        
->>>>>>> origin/master
+        setProducaoMetal(m);        
     }
     
     public void recolheRecursos()
