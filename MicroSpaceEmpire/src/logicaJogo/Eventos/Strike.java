@@ -5,6 +5,8 @@
  */
 package logicaJogo.Eventos;
 
+import logicaJogo.JogoDados;
+
 /**
  *
  * @author Dmytro Yaremyshyn
@@ -13,15 +15,5 @@ public class Strike extends Evento{
 
     public Strike() {
         super("Strike");
-    }
-    
-    @Override
-    public void year1(){
-    
-    }
-    
-    @Override
-    public void year2(){
-        
     }
 }

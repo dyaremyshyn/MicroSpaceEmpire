@@ -136,7 +136,48 @@ public class JogoDados implements Serializable {
         
         return false;
     }
-
+    public int lancaDado(){
+        Dado d=new Dado();
+        return d.LancaDado();
+    }
+    
+    public boolean temHyperTelevision(){
+        for(int i=0;i<tecnologiasAdquiridas.size();i++)
+            if(tecnologiasAdquiridas.get(i).getNome().equals("Hyper Television"))
+                return true;
+        return false;
+    }
+    
+    public void retiraSistemaImperio(Carta c){
+        for(int i=0;i<imperio.size();i++)
+            if(imperio.get(i).getNome().equals(c.getNome())){
+                imperio.remove(i);
+                porConquistar.add(imperio.get(i));
+            }
+    }
+    
+    public boolean tamImperio(){
+        if(imperio.size()>1)
+            return true;
+        return false;
+    }
+    public Carta escolheSistemaDoImperio(){
+        if(tamImperio()){
+            Carta c = imperio.get(1);
+            for(int i=2;i<imperio.size();i++){
+                if(c.getResistencia()>=imperio.get(i).getResistencia()){
+                    if(c.getResistencia()==imperio.get(i).getResistencia()){
+                        if(((int)(Math.random()*99)+1)>50)
+                            c=imperio.get(i);
+                    }
+                    else
+                        c=imperio.get(i);
+                }
+            }
+            return c;
+        }
+    }
+    
     public void iniciaNearSystem() {
         nearSystem.add(new Wolf359());
         nearSystem.add(new Proxima());

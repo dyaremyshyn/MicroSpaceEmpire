@@ -5,6 +5,8 @@
  */
 package logicaJogo.Eventos;
 
+import logicaJogo.JogoDados;
+
 /**
  *
  * @author Dmytro Yaremyshyn
@@ -16,13 +18,13 @@ public class DerelictShip extends Evento{
     }
     
     @Override
-    public void year1(){
-    
+    public void year1(JogoDados j){
+        j.setMetal(j.getMetal()+1);
     }
     
     @Override
-    public void year2(){
-        
+    public void year2(JogoDados j){
+        j.setMetal(j.getMetal()+1);
     }
     
 }

@@ -5,6 +5,8 @@
  */
 package logicaJogo.Eventos;
 
+import logicaJogo.JogoDados;
+
 /**
  *
  * @author Dmytro Yaremyshyn
@@ -16,12 +18,12 @@ public class LargeInvasionForce extends Evento{
     }
     
     @Override
-    public void year1(){
+    public void year1(JogoDados j){
     
     }
     
     @Override
-    public void year2(){
+    public void year2(JogoDados j){
         
     }
 }

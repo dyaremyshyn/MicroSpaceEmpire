@@ -6,6 +6,7 @@
 package logicaJogo.Eventos;
 
 import java.io.Serializable;
+import logicaJogo.JogoDados;
 
 /**
  *
@@ -25,9 +26,9 @@ public class Evento implements Serializable {
     
     
     
-    public void year1(){}
+    public void year1(JogoDados j){}
     
-    public void year2(){}
+    public void year2(JogoDados j){}
 
     @Override
     public String toString() {
