@@ -26,6 +26,6 @@ public class CapitalShips extends Tecnologia{
     @Override
     public String Descricao()
     {
-     return " aumenta limite de força militar de 3 para 5";
+     return " Aumenta o limite de força militar de 3 para 5";
     }
 }

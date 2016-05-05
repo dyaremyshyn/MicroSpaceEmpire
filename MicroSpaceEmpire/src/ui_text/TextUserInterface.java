@@ -85,7 +85,7 @@ public class TextUserInterface implements Constantes_UI
       
         while (true) 
         {   System.out.println(jogo.Painel_jogo());
-            System.out.println( ((jogo.VerificaSeHaSistemasNear() || (jogo.VerificaSeHaSistemasDistant())? "\n0 - Explorar-Atacar " + (jogo.getBloqueio_compraDireta() == 1?"(100% sucesso)":""):"")) 
+            System.out.println( ((jogo.VerificaSeHaSistemasNear() || (jogo.VerificaSeHaSistemasDistant() && jogo.AdequiriuT_ForwardStarbases()) ? "\n0 - Explorar-Atacar " + (jogo.getBloqueio_compraDireta() == 1?"(100% sucesso)":""):"")) 
                                + (jogo.VerificaSeHaSistemasPorConquistar()?"\n1 - Conquistar " + (jogo.getBloqueio_compraDireta() == 1? "(100% sucesso)":""):"")
                                + "\n2 - Passar\n3 - Guardar\n4 - Terminar");
             
@@ -95,7 +95,7 @@ public class TextUserInterface implements Constantes_UI
             Scanner sc = new Scanner(System.in);
             c = sc.next().charAt(0);
             
-            if ((c == '0' && (jogo.VerificaSeHaSistemasNear() || jogo.VerificaSeHaSistemasDistant()))) 
+            if ((c == '0' && (jogo.VerificaSeHaSistemasNear() || (jogo.VerificaSeHaSistemasDistant() && jogo.AdequiriuT_ForwardStarbases())))) 
             {
                 System.out.println("*Explorar-Atacar*");
                 jogo.EscolheExplorar_atacar();

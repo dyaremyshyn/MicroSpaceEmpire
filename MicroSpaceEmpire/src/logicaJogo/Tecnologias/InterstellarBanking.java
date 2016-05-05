@@ -24,6 +24,6 @@ public class InterstellarBanking extends Tecnologia{
     @Override
     public String Descricao()
     {
-     return " passa limite de armazenamento de metal e de riqueza passam de 3 para 5";
+     return " Limite de armazenamento de metal e de riqueza passam de 3 para 5";
     }
 }

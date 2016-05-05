@@ -18,6 +18,6 @@ public class InterspeciesCommerce extends Tecnologia{
     @Override
     public String Descricao()
     {
-     return " torna possivel as trocas entre metal e riqueza";
+     return " Torna possível as trocas entre metal e riqueza";
     }
 }

@@ -18,6 +18,6 @@ public class ForwardStarbases extends Tecnologia{
     @Override
     public String Descricao()
     {
-     return " necessaria para explorar ou conquistar sistemas distantes";
+     return " Necessaria para explorar ou conquistar sistemas distantes";
     }
 }
