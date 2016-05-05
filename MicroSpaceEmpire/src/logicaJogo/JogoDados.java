@@ -1,6 +1,7 @@
 
 package logicaJogo;
 
+import java.io.IOException;
 import logicaJogo.Cartas.Carta;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -81,8 +82,10 @@ public class JogoDados implements Serializable {
        iniciaDistantSystem();
        iniciaTecnologia();
        iniciaEventos();
+       
+       //aplicaEventoAleatorio();
        eventos.remove(0);
-       //setCurrentEvento(eventos.get(0));
+       
        
        atualizaProducaoRecursos();
        
@@ -122,13 +125,15 @@ public class JogoDados implements Serializable {
     
     public void aplicaEventoAleatorio()
     {
-        if(currentYear==1){
+        if(currentYear==1)
+        {
             eventos.get(0).year1(this);
         }
-        else 
-            eventos.get(0).year2(this);
+        else {
+             eventos.get(0).year2(this);
+             }
         
-        currentEvento=eventos.get(0);
+        currentEvento = eventos.get(0);
         eventos.remove(0);
     }
     
@@ -418,6 +423,8 @@ public class JogoDados implements Serializable {
     
     public void recolheRecursos()
     {        
+        try{
+        
         if("Strike".equals(currentEvento.getNome())) //caso o evento corrente for Greve
         {
             if(AdequiriuT_RobotWorkers()) // caso adquiriu esta tecnologia recebe metade
@@ -439,7 +446,19 @@ public class JogoDados implements Serializable {
                 setRiqueza(getRiqueza() + producaoRiq);
                 }
              }
-        
+        }catch (Exception e)
+                            {  
+
+                                    if(limiteRecursos > getMetal()) 
+                                    {
+                                    setMetal(getMetal() + producaoMetal);                    
+                                    }
+
+                                    if(limiteRecursos > getRiqueza())
+                                    {
+                                    setRiqueza(getRiqueza() + producaoRiq);
+                                    }                    
+                            }
         //caso preencha para la do limite repoe o recurso no seu maximo pré estabelecido pelo limite de recuros corrente
         if(metal > limiteRecursos) 
         {
@@ -848,7 +867,7 @@ public class JogoDados implements Serializable {
                 + "\n=== PAINEL DE INFORMAÇÔES ===\n" 
                 + "\n Ano:" + currentYear
                 + "\n Turno: " + turno
-                + "\n Evento actual: " + currentEvento               
+                + "\n Evento actual: " + ((currentEvento == null)? "nenhum":currentEvento)            
                 + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"
                 + "\n Imperio: \n" + CriaDados_Imperio() 
                 + "\n Forca Militar: " + forcaMilitar

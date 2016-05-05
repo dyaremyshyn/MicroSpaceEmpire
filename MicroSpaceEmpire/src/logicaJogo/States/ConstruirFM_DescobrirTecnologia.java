@@ -54,6 +54,7 @@ public class ConstruirFM_DescobrirTecnologia extends StateAdapter
         }
         
         getJogo().aplicaEventoAleatorio();
+        
         if(getJogo().verificaRevolta(getJogo().getCurrentEvento()))
             return new Fim(getJogo());
         

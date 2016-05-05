@@ -12,8 +12,7 @@ public class ExplorarAtacar_Conquistar_Passar extends StateAdapter
     
     public ExplorarAtacar_Conquistar_Passar(JogoDados j) 
     {
-        super(j);
-        getJogo().aplicaEventoAleatorio();
+        super(j);        
     }
 
     @Override
