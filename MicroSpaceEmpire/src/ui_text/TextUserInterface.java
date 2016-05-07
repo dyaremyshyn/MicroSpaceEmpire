@@ -66,7 +66,7 @@ public class TextUserInterface implements Constantes_UI
                     jogo = outro;
                 } catch (Exception e) 
                     {
-                        System.out.println("ERRO ao ler ficheiro" + e);
+                        System.out.println("*ERRO ao ler ficheiro*" + e);
                     }
                 
                 return;
