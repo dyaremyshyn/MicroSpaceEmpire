@@ -1,13 +1,15 @@
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
+
 
 package microspaceempire;
 
 import logicaJogo.Jogo;
 import ui_text.TextUserInterface;
 
-/**
- *
- * @author Dmytro Yaremyshyn
- */
+
 public class MicroSpaceEmpire 
 {
 

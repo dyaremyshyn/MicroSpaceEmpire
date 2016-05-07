@@ -1,17 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
  */
+
+
 package logicaJogo.Eventos;
 
 import logicaJogo.Cartas.Carta;
 import logicaJogo.JogoDados;
 
-/**
- *
- * @author Dmytro Yaremyshyn
- */
+
 public class LargeInvasionForce extends Evento{
 
     public LargeInvasionForce() {

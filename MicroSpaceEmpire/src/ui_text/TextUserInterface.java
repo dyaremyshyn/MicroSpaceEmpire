@@ -1,6 +1,9 @@
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
 
 package ui_text;
-
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -11,7 +14,7 @@ import java.io.ObjectOutputStream;
 import logicaJogo.Jogo;
 import logicaJogo.States.AguardaInicio;
 import logicaJogo.States.ConstruirFM_DescobrirTecnologia;
-import logicaJogo.States.EscolheNearOuUnalignedSystem;
+import logicaJogo.States.EscolheNearOuDistantSystem;
 import logicaJogo.States.EscolheTecnologiaComprar;
 import logicaJogo.States.EscolheUnalignedSystem;
 import logicaJogo.States.ExplorarAtacar_Conquistar_Passar;
@@ -20,10 +23,8 @@ import logicaJogo.States.IStates;
 import logicaJogo.States.TrocaEntreRecursos;
 
 import java.util.Scanner;
-/**
- *
- * @author Dmytro Yaremyshyn
- */
+
+
 public class TextUserInterface implements Constantes_UI
 {
     
@@ -36,7 +37,8 @@ public class TextUserInterface implements Constantes_UI
     }
 
     public void iuAguardaInicio() 
-    {              
+    {         
+    System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n"); 
     System.out.println("\n\n=== AGUARDA INICIO ===\n");
               
         while (true) 
@@ -50,14 +52,14 @@ public class TextUserInterface implements Constantes_UI
             
             if ((c == '0')) 
             {               
-                System.out.println("Comecar jogo");
+                System.out.println("*Começar jogo*");
                 jogo.PrepararJogo();
                 return;
             }
          
             if ((c == '1')) 
             {
-               System.out.println("Recarregar partida");
+               System.out.println("*Recarregar partida*");
                 try 
                 {
                     Jogo outro = recarregar_jogo();
@@ -122,10 +124,10 @@ public class TextUserInterface implements Constantes_UI
                 
                 if (guardar_partida()) 
                 {
-                    System.out.println("\nJOGO GUARDADO");
+                    System.out.println("\n --> JOGO GUARDADO <--");
                 } else
                     {
-                        System.out.println("\nJOGO NAO GUARDADO");
+                        System.out.println("\n Atenção --> JOGO NAO GUARDADO <--");
                     }
                 
                 return;
@@ -141,15 +143,15 @@ public class TextUserInterface implements Constantes_UI
         }
     }
 
-    public void iuEscolheNearOuUnalignedSystem() 
+    public void iuEscolheNearOuDistantSystem() 
     {
     System.out.print("\n\nHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH\n");  
     System.out.println("\n\n=== Escolher entre Near ou Unaligned  ===\n");
         
         while (true) 
         {
-            System.out.println( (jogo.VerificaSeHaSistemasNear()?"\n0 - Near ":"? - Já não há Near Systems")
-                               + (jogo.VerificaSeHaSistemasDistant()? (jogo.AdequiriuT_ForwardStarbases()?"\n1 - Unaligned System ":"\n? - Unaligned System (deve adquirir Forward Starbases)"):"? - Já não há Distant Systems") );
+            System.out.println( (jogo.VerificaSeHaSistemasNear()?"\n0 - Near System":"? - Já não há Near Systems")
+                               + (jogo.VerificaSeHaSistemasDistant()? (jogo.AdequiriuT_ForwardStarbases()?"\n1 - Distant System ":""):"? - Já não há Distant Systems") );
             System.out.print("\nEscolha: ");
             
             char c = ' ';
@@ -165,7 +167,7 @@ public class TextUserInterface implements Constantes_UI
          
             if ((c == '1' && jogo.AdequiriuT_ForwardStarbases())) 
             { 
-                System.out.println("*Unaligned*");
+                System.out.println("*Distant*");
                 jogo.Explorar_atacar(2);
                 return;
             }
@@ -341,9 +343,9 @@ public class TextUserInterface implements Constantes_UI
             } else if (estado instanceof ExplorarAtacar_Conquistar_Passar) 
                 {
                     iuExplorarAtacar_Conquistar_Passar();
-                } else if (estado instanceof EscolheNearOuUnalignedSystem) 
+                } else if (estado instanceof EscolheNearOuDistantSystem) 
                     {
-                        iuEscolheNearOuUnalignedSystem();
+                        iuEscolheNearOuDistantSystem();
                     }else if (estado instanceof EscolheUnalignedSystem) 
                         {
                             iuEscolheUnalignedSystem();
@@ -399,7 +401,7 @@ public class TextUserInterface implements Constantes_UI
                     {
                         try 
                         {
-                            out.close();
+                          out.close();
                         } catch (IOException e) {}
                     }
                 }

@@ -1,17 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package logicaJogo.Tecnologias;
-
-import logicaJogo.Constantes;
-import logicaJogo.JogoDados;
-
 /**
  *
- * @author Dmytro Yaremyshyn
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
  */
+
+
+package logicaJogo.Tecnologias;
+
+import logicaJogo.JogoDados;
+
+
 public class CapitalShips extends Tecnologia{
 
     public CapitalShips() {

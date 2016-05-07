@@ -1,14 +1,13 @@
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
+
 
 package logicaJogo.States;
 
 import logicaJogo.JogoDados;
 
-
-
-/**
- *
- * @author Dmytro Yaremyshyn
- */
 
 public class AguardaInicio extends StateAdapter
 { 

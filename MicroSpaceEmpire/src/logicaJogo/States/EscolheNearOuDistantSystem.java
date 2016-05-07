@@ -1,16 +1,18 @@
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
+
 
 package logicaJogo.States;
 
 import logicaJogo.JogoDados;
 
-/**
- *
- * @author Sergio
- */
-public class EscolheNearOuUnalignedSystem extends StateAdapter
+
+public class EscolheNearOuDistantSystem extends StateAdapter
 {
     
-    public EscolheNearOuUnalignedSystem(JogoDados j) 
+    public EscolheNearOuDistantSystem(JogoDados j) 
     {
         super(j);
     }
@@ -24,7 +26,7 @@ public class EscolheNearOuUnalignedSystem extends StateAdapter
            
        }else if (TipoSistema == 2)
             {
-                getJogo().viraCartaUnalignedSystem();
+                getJogo().viraCartaDistantSystem();
             }
        
        return new TrocaEntreRecursos(getJogo()); 

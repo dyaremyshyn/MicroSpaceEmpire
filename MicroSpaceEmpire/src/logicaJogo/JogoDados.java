@@ -1,7 +1,11 @@
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
+
 
 package logicaJogo;
 
-import java.io.IOException;
 import logicaJogo.Cartas.Carta;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -370,7 +374,7 @@ public class JogoDados implements Serializable {
         return false;
     }
     
-     public boolean viraCartaUnalignedSystem(){
+     public boolean viraCartaDistantSystem(){
         if(!distantSystem.isEmpty()){
             Dado d=new Dado();
             if( (distantSystem.get(0).getResistencia() < (d.LancaDado()+forcaMilitar) ) || bloqueio_compraDireta == 1 ){  //se a resistencia do sistema for menor que a força militar + o lançar do dado
@@ -702,11 +706,8 @@ public class JogoDados implements Serializable {
     int pontos = 0;
     
     for(int i=0;i<imperio.size();i++)
-    {
-        if("Near System".equals(imperio.get(i).getTipoSistema()))
-        {
-        pontos+=imperio.get(i).getPontosVitoria();
-        }
+    {      
+        pontos+=imperio.get(i).getPontosVitoria();       
     }
   
     return pontos;
@@ -861,8 +862,7 @@ public class JogoDados implements Serializable {
     public String Painel_jogo() 
     {
         return  "\n=== SISTEMA ===\n" 
-                + "Planetas por conquistar: \n"
-                + CriaDados_PlanetasPorConquistar()
+                + "Planetas por conquistar: " + ((porConquistar.isEmpty())? "nenhuns \n":"\n" + CriaDados_PlanetasPorConquistar())                  
                 + "\n********************************************************************************************************************************"
                 + "\n=== PAINEL DE INFORMAÇÔES ===\n" 
                 + "\n Ano:" + currentYear
@@ -881,7 +881,7 @@ public class JogoDados implements Serializable {
                 + "\n Produção de metal: " + producaoMetal 
                 + "\n Produção de riqueza: " + producaoRiq              
                 + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::"                               
-                + "\n Tecnologias adquiridas: \n"  + CriaDados_TecnologiasAdquiridas()
+                + "\n Tecnologias adquiridas: "  + ((tecnologiasAdquiridas.isEmpty())? "nenhumas \n":"\n" +CriaDados_TecnologiasAdquiridas()) 
                 + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::";
     } 
     

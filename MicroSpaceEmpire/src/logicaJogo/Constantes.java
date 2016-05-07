@@ -1,10 +1,11 @@
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
 
 package logicaJogo;
 
-/**
- *
- * @author Dmytro Yaremyshyn
- */
+
 public interface Constantes {
 
     public static final int LIM_C_TEC = 5;

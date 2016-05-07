@@ -1,11 +1,13 @@
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
+
 
 package logicaJogo.States;
 import logicaJogo.JogoDados;
 import java.io.Serializable;
-/**
- *
- * @author Dmytro Yaremyshyn
- */
+
 public abstract class StateAdapter implements IStates , Serializable 
 {
     

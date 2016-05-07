@@ -1,12 +1,14 @@
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
+
 
 package logicaJogo.States;
 
 import logicaJogo.JogoDados;
 
-/**
- *
- * @author Dmytro Yaremyshyn
- */
+
 public class ExplorarAtacar_Conquistar_Passar extends StateAdapter
 {
     
@@ -24,7 +26,7 @@ public class ExplorarAtacar_Conquistar_Passar extends StateAdapter
     @Override
     public IStates EscolheExplorar_atacar()
     {
-        return new EscolheNearOuUnalignedSystem(getJogo());
+        return new EscolheNearOuDistantSystem(getJogo());
     }
 
     @Override
