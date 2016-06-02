@@ -24,6 +24,13 @@ public class Jogo implements Serializable
     public IStates getStates() {
         return estado;
     }
+    
+    public JogoDados getJogoDados(){
+        return dados;
+    }
+    public void setJogoDados(JogoDados jd){
+        dados=jd;
+    }
 
     private void setStates(IStates estado) {
         this.estado = estado;
