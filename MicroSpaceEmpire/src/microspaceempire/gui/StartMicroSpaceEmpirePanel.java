@@ -24,9 +24,9 @@ import logicaJogo.States.AguardaInicio;
 
 /**
  *
- * @author Dmytro Yaremyshyn
+ * @author Dmytro Yaremyshyn & Sergio Cruz
  */
-public class StartInterface extends JPanel implements Observer{
+public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
     JButton start=new JButton("Start Game");
     JogoDados jogoDados;
     Jogo game;
@@ -45,7 +45,7 @@ public class StartInterface extends JPanel implements Observer{
     }
     
     
-    public StartInterface(Jogo jogo) {
+    public StartMicroSpaceEmpirePanel(Jogo jogo) {
         game=jogo;
         
         setupLayout();
