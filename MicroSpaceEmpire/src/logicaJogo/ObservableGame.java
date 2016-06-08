@@ -43,61 +43,11 @@ public class ObservableGame extends Observable {
         
     
     // Methods retrieve data from the game
-    
-    
-    // FALTA COMPLETAR 
-    //....
+    // funcoes de consulta dos dados
     
     
     // Methods that are intended to be used by the user interfaces and that are delegated in the current state of the finite state machine 
-    
-    public void setNumberPlayers(int num)
-    {
-        gameModel.setNumberPlayers(num);
-        
-        setChanged();
-        notifyObservers();
-    }
-
-    public void setPlayerName(int num, String name) 
-    {
-        gameModel.setPlayerName(num, name);
-        
-        setChanged();
-        notifyObservers();
-    }
-
-    public void startGame()
-    {
-        gameModel.startGame();
-        
-        setChanged();
-        notifyObservers();
-    }
-
-    public void placeToken(int line, int column)
-    {
-        gameModel.placeToken(line, column);
-        
-        setChanged();
-        notifyObservers();
-    }
-
-    public void returnToken(int line, int column)
-    {
-        gameModel.returnToken(line, column);
-        
-        setChanged();
-        notifyObservers();
-    }
-
-    public void quit()
-    {
-        gameModel.quit();
-        
-        setChanged();
-        notifyObservers();
-    }
+    // funcoes delegadas no estado corrente 
     
     
     
