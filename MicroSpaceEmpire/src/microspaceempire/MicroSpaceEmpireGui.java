@@ -5,10 +5,17 @@
  */
 package microspaceempire;
 
+import logicaJogo.ObservableGame;
+import microspaceempire.gui.MicroSpaceEmpireView;
+
 /**
  *
  * @author Sergio
  */
 public class MicroSpaceEmpireGui {
     
+    public static void main(String[] args)
+    {                
+        MicroSpaceEmpireView GUI = new MicroSpaceEmpireView(new ObservableGame());
+    }
 }
