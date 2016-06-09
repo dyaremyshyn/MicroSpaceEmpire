@@ -18,7 +18,10 @@ public class MicroSpaceEmpirePanel extends JPanel {
     
     ObservableGame game;
     StartMicroSpaceEmpirePanel startPainel;
+    NearSystemPanel cartaNear;
+    
 
+    
     public MicroSpaceEmpirePanel(ObservableGame game)
     {
         this.game=game;               
