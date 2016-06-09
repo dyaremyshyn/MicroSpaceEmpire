@@ -31,8 +31,9 @@ import logicaJogo.States.AguardaInicio;
  */
 
 public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
-    JButton start;
-    JLabel title;
+    JButton start ;
+    JLabel title; 
+    
     JogoDados jogoDados;
     ObservableGame observableGame;
     static private BufferedImage fundo = null;
@@ -51,32 +52,41 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
     
     
     public StartMicroSpaceEmpirePanel(ObservableGame jogo) {
+       
         observableGame=jogo;
-        
+        observableGame.addObserver(this);
+        setupComponents();
         setupLayout();
         
         setVisible(observableGame.getStates() instanceof AguardaInicio);
     }
     
     
-    private void setupComponents(){        
-        
+    private void setupComponents()
+    {  
         start = new JButton("Start Game");
+        title = new JLabel("Micro Space Empire"); 
         
-        title = new JLabel("Micro Space Empire");       
-        title.setFont(new Font("Arial", Font.ITALIC, 12));
-        title.setAlignmentX(Component.CENTER_ALIGNMENT);             
-        
+        start.addActionListener(new ActionListener(){        
+            @Override
+            public void actionPerformed(ActionEvent ev){
+          
+                observableGame.PrepararJogo();
+
+            }
+        });
+   
     }
     
     
      private void setupLayout()
     {
-        setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+        title.setFont(new Font("Arial", Font.ITALIC, 12));
+        title.setAlignmentX(Component.CENTER_ALIGNMENT); 
 
-        start.setAlignmentX(Component.CENTER_ALIGNMENT); 
-        
+        start.setAlignmentX(Component.CENTER_ALIGNMENT);      
         add(start);
+        add(title);
         
         validate();
     }

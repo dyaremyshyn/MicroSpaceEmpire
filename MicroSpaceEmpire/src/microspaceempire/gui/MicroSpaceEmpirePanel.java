@@ -18,8 +18,6 @@ public class MicroSpaceEmpirePanel extends JPanel {
     
     ObservableGame game;
     StartMicroSpaceEmpirePanel optionPainel;
-    //GameGrid theGrid;
-   // PlayerData pd1,pd2;
 
     public MicroSpaceEmpirePanel(ObservableGame game)
     {
@@ -30,11 +28,7 @@ public class MicroSpaceEmpirePanel extends JPanel {
 
     private void setupComponents()
     {
-      // optionPanel=new StartOptionPanel(game);
-     //   theGrid=new GameGrid(game);
-     //   pd1=new PlayerData(game,1);
-     //   pd2=new PlayerData(game,2);
-   
+       optionPainel = new  StartMicroSpaceEmpirePanel (game);  
     }
 
     private void setupLayout()
