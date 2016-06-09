@@ -37,7 +37,7 @@ public class ObservableGame extends Observable {
         return jogo.getJogoDados();
     }
     
-    public IStates getState(){
+    public IStates getStates(){
         return jogo.getStates();
     }
         

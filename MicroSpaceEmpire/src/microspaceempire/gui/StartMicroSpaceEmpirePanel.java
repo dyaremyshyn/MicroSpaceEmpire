@@ -20,6 +20,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import logicaJogo.Jogo;
 import logicaJogo.JogoDados;
+import logicaJogo.ObservableGame;
 import logicaJogo.States.AguardaInicio;
 
 /**
@@ -29,7 +30,7 @@ import logicaJogo.States.AguardaInicio;
 public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
     JButton start=new JButton("Start Game");
     JogoDados jogoDados;
-    Jogo game;
+    ObservableGame observableGame;
     static private BufferedImage fundo = null;
     
     public static BufferedImage getFundoInicio() {
@@ -45,12 +46,12 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
     }
     
     
-    public StartMicroSpaceEmpirePanel(Jogo jogo) {
-        game=jogo;
+    public StartMicroSpaceEmpirePanel(ObservableGame jogo) {
+        observableGame=jogo;
         
         setupLayout();
         
-        setVisible(game.getStates() instanceof AguardaInicio);
+        setVisible(observableGame.getStates() instanceof AguardaInicio);
     }
     
      private void setupLayout()
@@ -75,7 +76,7 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
     @Override
     public void update(Observable o, Object arg)
     {
-        setVisible(game.getStates() instanceof AguardaInicio);
+        setVisible(observableGame.getStates() instanceof AguardaInicio);
     }
     
     
