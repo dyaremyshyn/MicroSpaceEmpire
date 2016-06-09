@@ -25,7 +25,7 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
         this( j, 200,100, DIM_X_FRAME, DIM_Y_FRAME);
     }
     
-    public MicroSpaceEmpireFrame( ObservableGame j, int x, int y ) {
+    public MicroSpaceEmpireFrame( ObservableGame j, int x, int y ) { //?
         this( j, x,y, DIM_X_FRAME, DIM_Y_FRAME);
     }
     

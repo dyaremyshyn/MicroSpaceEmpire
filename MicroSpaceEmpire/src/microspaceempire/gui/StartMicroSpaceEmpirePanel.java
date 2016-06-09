@@ -29,15 +29,10 @@ import logicaJogo.States.AguardaInicio;
  *
  * @author Dmytro Yaremyshyn & Sergio Cruz
  */
-<<<<<<< HEAD
-public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{ 
-   
-    JButton start=new JButton("Start Game");
-=======
+
 public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
     JButton start;
     JLabel title;
->>>>>>> origin/master
     JogoDados jogoDados;
     ObservableGame observableGame;
     static private BufferedImage fundo = null;
