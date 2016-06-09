@@ -24,11 +24,11 @@ public interface Constantes {
     static final int DIM_Y_SOUTH_PANEL = 260;
     
     
-    String CONOPUS = "Distant_Conopus";
-    String PATH_IMG_CONOPUS = "images/Distant_Conopus.png";
+    String CANOPUS = "Distant_Canopus";
+    String PATH_IMG_CANOPUS = "images/Distant_Canopus.png";
     
-    String GALAYEDGE = "Distant_GalaxyEdge";
-    String PATH_IMG_GALAYEDGE = "images/Distant_GalaxyEdge.png";
+    String GALAXYEDGE = "Distant_GalaxyEdge";
+    String PATH_IMG_GALAXYEDGE = "images/Distant_GalaxyEdge.png";
     
     String POLARIS = "Distant_Polaris";
     String PATH_IMG_POLARIS = "images/Distant_Polaris.png";
@@ -37,7 +37,7 @@ public interface Constantes {
     String PATH_IMG_EVENT = "images/Event.png";
         
     String ASTEROID = "Event_Asteroid";
-    String PATH_IMG_MAGGIE = "images/Event_Asteroid.png";
+    String PATH_IMG_ASTEROID = "images/Event_Asteroid.png";
     
     String DERELICTSHIP = "Event_DerelictShip";
     String PATH_IMG_DERELICTSHIP = "images/Event_DerelictShip.png";
@@ -73,7 +73,7 @@ public interface Constantes {
     String PATH_IMG_EPSILONERIDANI = "images/Near_EpsilonEridani.png";
         
     String PROCYON = "Near_Procyon";
-    String PATH_IMG_ = "images/Near_.png";
+    String PATH_IMG_PROCYON = "images/Near_Procyon.png";
     
     
     String PROXIMA = "Near_Proxima";
