@@ -3,6 +3,7 @@ package microspaceempire.gui;
 
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -17,20 +18,28 @@ import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import logicaJogo.Jogo;
 import logicaJogo.JogoDados;
+import logicaJogo.ObservableGame;
 import logicaJogo.States.AguardaInicio;
 
 /**
  *
  * @author Dmytro Yaremyshyn & Sergio Cruz
  */
+<<<<<<< HEAD
 public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{ 
    
     JButton start=new JButton("Start Game");
+=======
+public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
+    JButton start;
+    JLabel title;
+>>>>>>> origin/master
     JogoDados jogoDados;
-    Jogo game;
+    ObservableGame observableGame;
     static private BufferedImage fundo = null;
     
     public static BufferedImage getFundoInicio() {
@@ -46,13 +55,25 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
     }
     
     
-    public StartMicroSpaceEmpirePanel(Jogo jogo) {
-        game=jogo;
+    public StartMicroSpaceEmpirePanel(ObservableGame jogo) {
+        observableGame=jogo;
         
         setupLayout();
         
-        setVisible(game.getStates() instanceof AguardaInicio);
+        setVisible(observableGame.getStates() instanceof AguardaInicio);
     }
+    
+    
+    private void setupComponents(){        
+        
+        start = new JButton("Start Game");
+        
+        title = new JLabel("Micro Space Empire");       
+        title.setFont(new Font("Arial", Font.ITALIC, 12));
+        title.setAlignmentX(Component.CENTER_ALIGNMENT);             
+        
+    }
+    
     
      private void setupLayout()
     {
@@ -76,7 +97,7 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
     @Override
     public void update(Observable o, Object arg)
     {
-        setVisible(game.getStates() instanceof AguardaInicio);
+        setVisible(observableGame.getStates() instanceof AguardaInicio);
     }
     
     
