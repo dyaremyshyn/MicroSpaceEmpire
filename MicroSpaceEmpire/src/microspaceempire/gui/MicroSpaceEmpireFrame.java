@@ -31,7 +31,7 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
     
     public MicroSpaceEmpireFrame( ObservableGame j, int x, int y, int width, int height) {
         
-        super("black & white"); 
+        super("Micro Space Empire"); 
 
         observableGame = j;
         j.addObserver(this);
