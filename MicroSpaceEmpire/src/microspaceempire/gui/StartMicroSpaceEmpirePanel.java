@@ -1,6 +1,7 @@
 
 package microspaceempire.gui;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -25,12 +26,13 @@ import logicaJogo.JogoDados;
 import logicaJogo.ObservableGame;
 import logicaJogo.States.AguardaInicio;
 
+
 /**
  *
  * @author Dmytro Yaremyshyn & Sergio Cruz
  */
 
-public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
+public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Constantes{
     JButton start ;
     JLabel title; 
     
@@ -58,6 +60,9 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
         setupComponents();
         setupLayout();
         
+        
+        
+        
         setVisible(observableGame.getStates() instanceof AguardaInicio);
     }
     
@@ -81,8 +86,9 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
     
      private void setupLayout()
     {
-        title.setFont(new Font("Arial", Font.ITALIC, 12));
-        title.setAlignmentX(Component.CENTER_ALIGNMENT); 
+        title.setFont(new Font("Arial", Font.ITALIC, 47));
+        title.setForeground(Color.WHITE);
+        title.setAlignmentX(Component.TOP_ALIGNMENT); 
 
         start.setAlignmentX(Component.CENTER_ALIGNMENT);      
         add(start);
@@ -96,7 +102,8 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer{
     {
         super.paintComponent(g);
         
-        g.drawImage(getFundoInicio(), WIDTH, WIDTH, this);
+        g.drawImage(getFundoInicio(), DIM_X_FRAME, DIM_Y_FRAME, this);
+        
     }
 
     @Override

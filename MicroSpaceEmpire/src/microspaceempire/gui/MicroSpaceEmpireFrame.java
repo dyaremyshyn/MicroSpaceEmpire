@@ -55,8 +55,8 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
      private void addComponents()
     {      
          Container cp = getContentPane(); 
-        cp.setLayout(new BorderLayout());//
-        cp.add(MicroSpaceEmpirePanel, BorderLayout.CENTER);
+        //cp.setLayout(new BorderLayout());//
+        cp.add(MicroSpaceEmpirePanel);
     }
     
     @Override

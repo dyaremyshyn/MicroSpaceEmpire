@@ -17,7 +17,7 @@ import logicaJogo.ObservableGame;
 public class MicroSpaceEmpirePanel extends JPanel {
     
     ObservableGame game;
-    StartMicroSpaceEmpirePanel optionPainel;
+    StartMicroSpaceEmpirePanel startPainel;
 
     public MicroSpaceEmpirePanel(ObservableGame game)
     {
@@ -28,32 +28,13 @@ public class MicroSpaceEmpirePanel extends JPanel {
 
     private void setupComponents()
     {
-       optionPainel = new  StartMicroSpaceEmpirePanel (game);  
+       startPainel = new  StartMicroSpaceEmpirePanel (game);  
     }
 
     private void setupLayout()
     {
-        JPanel pCenter, pSouth;
-
-        setLayout(new BorderLayout());
-
-        pCenter=new JPanel();
-        pCenter.setLayout(new BorderLayout());
-      //  pCenter.add(theGrid,BorderLayout.NORTH);
-        
-        pSouth=new JPanel();
-     //   pSouth.add(pd1);
-     //   pSouth.add(pd2);
-        pCenter.add(pSouth,BorderLayout.SOUTH);
- 
-                       
-        add(pCenter,BorderLayout.CENTER);
-        
-        add(optionPainel,BorderLayout.EAST);        
+        add(startPainel);        
         
         validate();
-    }
-    
-    
-    
+    } 
 }
