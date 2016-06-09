@@ -20,13 +20,13 @@ import logicaJogo.ObservableGame;
 public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constantes{
    
     private ObservableGame observableGame;
-    private MicroSpaceEmpirePanel MicroSpaceEmpirePanel;
+    private MicroSpacePrincipalPanel painelPrincipal;
     
     public MicroSpaceEmpireFrame( ObservableGame j) {
         this( j, 200,100, DIM_X_FRAME, DIM_Y_FRAME);
     }
     
-    public MicroSpaceEmpireFrame( ObservableGame j, int x, int y ) { //?
+    public MicroSpaceEmpireFrame( ObservableGame j, int x, int y ) { 
         this( j, x,y, DIM_X_FRAME, DIM_Y_FRAME);
     }
     
@@ -37,7 +37,7 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
         observableGame = j;
         observableGame.addObserver(this);
              
-        MicroSpaceEmpirePanel = new MicroSpaceEmpirePanel(observableGame);
+        painelPrincipal = new MicroSpacePrincipalPanel(observableGame);
         
          addComponents();
         
@@ -56,7 +56,7 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
     {      
          Container cp = getContentPane(); 
         //cp.setLayout(new BorderLayout());//
-        cp.add(MicroSpaceEmpirePanel);
+        cp.add(painelPrincipal);
     }
     
     @Override

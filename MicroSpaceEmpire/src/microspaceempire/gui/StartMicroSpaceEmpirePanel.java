@@ -1,6 +1,7 @@
 
 package microspaceempire.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -38,6 +39,8 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
     
     JogoDados jogoDados;
     ObservableGame observableGame;
+    
+    
     static private BufferedImage fundo = null;
     
     public static BufferedImage getFundoInicio() {
@@ -59,9 +62,6 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
         observableGame.addObserver(this);
         setupComponents();
         setupLayout();
-        
-        
-        
         
         setVisible(observableGame.getStates() instanceof AguardaInicio);
     }
@@ -86,13 +86,19 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
     
      private void setupLayout()
     {
+         JPanel painel;
+
+        
+
+       painel = new JPanel();
+        
         title.setFont(new Font("Arial", Font.ITALIC, 47));
         title.setForeground(Color.WHITE);
         title.setAlignmentX(Component.TOP_ALIGNMENT); 
 
         start.setAlignmentX(Component.CENTER_ALIGNMENT);      
-        add(start);
-        add(title);
+        painel.add(start);
+        painel.add(title);
         
         validate();
     }
