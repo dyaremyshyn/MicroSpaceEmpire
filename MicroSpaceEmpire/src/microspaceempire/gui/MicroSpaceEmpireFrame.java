@@ -38,7 +38,6 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
         observableGame.addObserver(this);
              
         gamePanel = new MicroSpaceEmpirePanel(observableGame);
-        gamePanel.setSize(DIM_X_FRAME, DIM_Y_FRAME);
         addComponents();
         
                
