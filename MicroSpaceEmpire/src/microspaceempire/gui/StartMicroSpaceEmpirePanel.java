@@ -108,7 +108,7 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
     {
         super.paintComponent(g);
         
-        g.drawImage(getFundoInicio(), DIM_X_FRAME, DIM_Y_FRAME, this);
+        g.drawImage(getFundoInicio(), WIDTH, HEIGHT, this);
         
     }
 
