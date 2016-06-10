@@ -306,7 +306,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         
         IStates estado = game.getStates();
       
-        nearPanel = new NearSystemPanel(game);
+     nearPanel = new NearSystemPanel(game);
      distantPanel = new DistantSystemPanel(game);
      imperio = new ImpirePanel(game);
      porConquistar = new UnalignedPanel(game);

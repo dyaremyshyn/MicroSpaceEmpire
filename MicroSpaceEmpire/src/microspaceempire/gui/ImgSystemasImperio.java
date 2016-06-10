@@ -27,11 +27,12 @@ public class ImgSystemasImperio  extends JPanel implements Constantes {
     public void paintComponent( Graphics g)
     {
         super.paintComponent( g);
-        
+        int i=0;
                 imagemSystem = MicroSpaceEmpirePanel.getSystemImg(nomeSystema);
         
         if(imagemSystem!=null){
-            g.drawImage(imagemSystem,0, 0, DIM_X_CARTA, DIM_Y_CARTA, this);
+            g.drawImage(imagemSystem,0, DIM_X_CARTA*i, DIM_X_CARTA, DIM_Y_CARTA, this);
+            i++;
     }
     }
 }

@@ -26,35 +26,33 @@ public class ImpirePanel extends JPanel implements Constantes  {
   public ImpirePanel(ObservableGame observableGame)
   {
     this.observableGame = observableGame;
-    imperio = observableGame.getImperio();
-
+    imperio = observableGame.getImperio(); 
     
+    setMaximumSize(new Dimension(DIM_X_CARTA*imperio.size(), DIM_Y_CARTA));
+    setPreferredSize(new Dimension(DIM_X_CARTA*imperio.size(), DIM_Y_CARTA));
+    setMinimumSize(new Dimension(DIM_X_CARTA*imperio.size(), DIM_Y_CARTA));     
+    
+    setLayout(new GridLayout(1,imperio.size(),0,0));
+        
+        
+         for(Carta p:imperio) {
+
+           add(new ImgSystemasImperio(p.getNome()));
+      };   
     
     
   }
 
  
-  
-  public void paintComponent(Graphics g)
-  {
-    super.paintComponent(g);
-                
-        setLayout(new GridLayout(1,imperio.size(),0,0));
-       
-        setMaximumSize(new Dimension(DIM_X_CARTA*imperio.size(), DIM_Y_CARTA));
-        setPreferredSize(new Dimension(DIM_X_CARTA*imperio.size(), DIM_Y_CARTA));
-        setMinimumSize(new Dimension(DIM_X_CARTA*imperio.size(), DIM_Y_CARTA));
-        
-        
-        
-        imperio.stream().forEach((p) -> {
-
-           add(new ImgSystemasImperio(p.getNome()));
-      });               
-    
-    
-    
-  }
+//  
+//  public void paintComponent(Graphics g)
+//  {
+//    super.paintComponent(g);
+//                
+//      
+//    
+//    
+//  }
 
     
     
