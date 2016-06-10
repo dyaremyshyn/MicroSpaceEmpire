@@ -16,8 +16,14 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import javax.imageio.ImageIO;
+<<<<<<< HEAD
 import javax.swing.Box;
 import javax.swing.JLabel;
+=======
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+>>>>>>> origin/master
 import javax.swing.JPanel; 
 import javax.swing.border.LineBorder;
 import logicaJogo.ObservableGame;
