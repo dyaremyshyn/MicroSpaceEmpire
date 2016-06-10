@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package microspaceempire.gui;
 
 /**
@@ -17,9 +13,20 @@ public interface Constantes {
     static final int BORDER_X = 10;
     static final int BORDER_Y = 10;
     
+    static final int DIM_X_RecursoImg = 300;
+    static final int DIM_Y_RecursoImg = 200;
     
+    static final int DIM_X_TecnologImg = 500;
+    static final int DIM_Y_TecnologImg = 350;
+    
+    static final int DIM_X_Marcador = 50;
+    static final int DIM_Y_Marcador = 50;
+    
+    static final int DIM_X_MarcadorProd = 35;
+    static final int DIM_Y_MarcadorProd = 35;
+            
     static final int DIM_X_FRAME = 1920;
-    static final int DIM_Y_FRAME = 1080;
+    static final int DIM_Y_FRAME = 1000;
     
     static final int DIM_X_SOUTH_PANEL = DIM_X_FRAME;
     static final int DIM_Y_SOUTH_PANEL = 260;
@@ -106,5 +113,14 @@ public interface Constantes {
     
     String FUNDOPRINCIPAL = "fundoInicio";
     String PATH_IMG_FUNDOPRINCIPAL = "images/fundoInicio.png";
+    
+    String MARCADOR0 = "mercador0";
+    String PATH_IMG_MERCADOR0 = "images/mercador0.png";
+    
+    String MARCADOR1 = "mercador1";
+    String PATH_IMG_MERCADOR1 = "images/mercador1.png";
+    
+    String MARCADOR2 = "mercador2";
+    String PATH_IMG_MERCADOR2 = "images/mercador2.png";
     
 }

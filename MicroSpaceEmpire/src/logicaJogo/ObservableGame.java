@@ -77,6 +77,43 @@ public class ObservableGame extends Observable {
         return jogo.getTecnologiasAdquiridas();
     }
     
+     public int getTurno() {
+        return  jogo.getTurno();
+    }
+
+    public int getCurrentYear() {
+        return  jogo.getCurrentYear();
+    }
+
+    public Evento getCurrentEvento() {
+        return  jogo.getCurrentEvento();
+    }
+
+    public int getPontuacao() {
+        return  jogo.getPontuacao();
+    }
+
+    public int getMetal() {
+        return  jogo.getMetal();
+    }
+
+    public int getRiqueza() {
+        return  jogo.getRiqueza();
+    }
+
+    public int getForcaMilitar() {
+        return  jogo.getForcaMilitar();
+    }
+    
+    public int getProducaoMetal() {
+        return  jogo.getProducaoMetal();
+    }
+
+    public int getProducaoRiq() {
+        return  jogo.getProducaoRiq();
+    }
+
+    
      //funções de verificação
     
     public boolean AdequiriuT_ForwardStarbases()

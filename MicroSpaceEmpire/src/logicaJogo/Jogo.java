@@ -74,6 +74,42 @@ public class Jogo implements Serializable
         return dados.getTecnologiasAdquiridas();
     }
     
+    public int getTurno() {
+        return  dados.getTurno();
+    }
+
+    public int getCurrentYear() {
+        return  dados.getCurrentYear();
+    }
+
+    public Evento getCurrentEvento() {
+        return  dados.getCurrentEvento();
+    }
+    
+    public int getPontuacao() {
+        return  dados.getPontuacao();
+    }
+
+    public int getMetal() {
+        return  dados.getMetal();
+    }
+
+    public int getRiqueza() {
+        return  dados.getRiqueza();
+    }
+
+    public int getForcaMilitar() {
+        return  dados.getForcaMilitar();
+    }
+    
+    public int getProducaoMetal() {
+        return  dados.getProducaoMetal();
+    }
+
+    public int getProducaoRiq() {
+        return  dados.getProducaoRiq();
+    }   
+    
      // funcoes de consulta dos dados
     
     public String Painel_jogo() 

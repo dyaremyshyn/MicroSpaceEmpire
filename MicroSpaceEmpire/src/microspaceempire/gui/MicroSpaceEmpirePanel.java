@@ -5,10 +5,14 @@
 package microspaceempire.gui;
 
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
@@ -18,11 +22,13 @@ import java.util.Observer;
 import javax.imageio.ImageIO;
 
 import javax.swing.Box;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import javax.swing.JPanel; 
 import javax.swing.border.LineBorder;
 import logicaJogo.ObservableGame;
+import logicaJogo.States.ConstruirFM_DescobrirTecnologia;
 import logicaJogo.States.ExplorarAtacar_Conquistar_Passar;
 import logicaJogo.States.IStates;
 import logicaJogo.States.TrocaEntreRecursos;
@@ -30,20 +36,33 @@ import logicaJogo.States.TrocaEntreRecursos;
 public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observer {
    
     ObservableGame game;
+    
     NearSystemPanel nearPanel;
     DistantSystemPanel distantPanel;
     ImpirePanel imperio;
     UnalignedPanel porConquistar;
-    
-    
-     JPanel EscolhaDosSystem;
-     JPanel VisualizacaoDosSystems;
-    
+    MetalPanel recursoMetalPanel;
+    WeathPanel recursoRiquezaPanel;
+    MilitaryStrenghPanel forcaMilitarPanel;
+    TecnologieUpdatePanel tecnologiasPanel;
      
+    
+    JPanel EscolhaDosSystem;
+    JPanel VisualizacaoDosSystems;
+    JPanel ParteDosRecursosEeventos;
+     
+    JButton trocaRiquezaPorMetal;
+    JButton trocaMetalPorRiqueza;
+    JButton Passar;
+    
      
     static private BufferedImage fundo = null;
     static private BufferedImage  SystemParteTras = null;
-    
+    static private BufferedImage  riqueza = null;
+    static private BufferedImage  metal = null;
+    static private BufferedImage  tecnologiasUpdate = null;
+    static private BufferedImage  forcaMilitar = null;
+    static private BufferedImage  marcador1 = null;
     
    
   
@@ -113,6 +132,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
        // setBackground(Color.red);
         update(this.game, null);
         validate();
+        repaint();
     }
 
     private void setupComponents()
@@ -122,24 +142,37 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
      distantPanel = new DistantSystemPanel(game);
      imperio = new ImpirePanel(game);
      porConquistar = new UnalignedPanel(game);
+     recursoMetalPanel = new MetalPanel(game);
+     recursoRiquezaPanel = new  WeathPanel(game);
+     forcaMilitarPanel = new MilitaryStrenghPanel(game);
+     tecnologiasPanel = new TecnologieUpdatePanel(game);
+     
+     //butoes
+     trocaRiquezaPorMetal = new JButton() ;
+     trocaMetalPorRiqueza = new JButton();
+     Passar = new JButton("Passar");
+     Passar.addActionListener(new ActionListener(){        
+            @Override
+            public void actionPerformed(ActionEvent ev){         
+              game.Passar();
+            }
+        });
+     
+     //labels
+     
      
      //jpanels para verificação de estado decorrente
     EscolhaDosSystem = new JPanel(); 
-     VisualizacaoDosSystems = new JPanel();
-     
+    VisualizacaoDosSystems = new JPanel();
+    ParteDosRecursosEeventos = new JPanel(); 
           
-                    
-                
-       
-        
-     
-     
+                   
     }
 
     private void setupLayout()
     {
-       // setLayout(new BorderLayout());
-       //setLayout(new GridLayout(5,1));
+       //setLayout(new BorderLayout());  // a main sera border
+       //setLayout(new GridLayout(4,1));
        
        //GridBagConstraints constraints = new  GridBagConstraints();
        
@@ -147,37 +180,61 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
 //       constraints.ipadx = 0;
 //       constraints.ipady = 0;
       // constraints.fill = GridBagConstraints.VERTICAL;
-      JLabel labSystNear= new JLabel();
-      labSystNear.setText("Near Systems");
-      JLabel labSystDist= new JLabel();
-      labSystDist.setText("Distant Systems");
+     // JLabel labSystNear= new JLabel();
+//      labSystNear.setText("Near Systems");
+//      JLabel labSystDist= new JLabel();
+//      labSystDist.setText("Distant Systems");
     
    
         
         
         
          //escolhe sistema near ou distant
-       EscolhaDosSystem.setLayout(new FlowLayout());
-       EscolhaDosSystem.setBackground(new Color(0,0,0,0));
+       EscolhaDosSystem.setLayout(new FlowLayout()); //tipo float
+       EscolhaDosSystem.setBackground(Color.MAGENTA);
       // EscolhaDosSystem.setSize(200, 100);
        //EscolhaDosSystem.add(Box.createRigidArea(new Dimension(15,0)));
        EscolhaDosSystem.add(nearPanel);
        EscolhaDosSystem.add(distantPanel);
       
+        //visualizar imperio e planetas pro conquistar
+        VisualizacaoDosSystems.setLayout(new GridLayout(2,1)); //tipo grid 
+        VisualizacaoDosSystems.setBackground(Color.BLUE);
         
+        
+        VisualizacaoDosSystems.add(porConquistar);
+        VisualizacaoDosSystems.add(imperio);
+        //VisualizacaoDosSystems.setLayout(new FlowLayout());
       
-       //add(EscolhaDosSystem, BorderLayout.NORTH);
+        //parte de baixo
+        ParteDosRecursosEeventos.setLayout(new FlowLayout());
+        ParteDosRecursosEeventos.setBackground(Color.BLACK);
+          
+        ParteDosRecursosEeventos.add(recursoMetalPanel);
+        ParteDosRecursosEeventos.add(recursoRiquezaPanel);
+        ParteDosRecursosEeventos.add(forcaMilitarPanel);
+        ParteDosRecursosEeventos.add(tecnologiasPanel);
+         
+         
+        
+       add(EscolhaDosSystem);
+       add(VisualizacaoDosSystems);
+       add(ParteDosRecursosEeventos);
+       add(Passar);
+
+//       add(EscolhaDosSystem, BorderLayout.NORTH);
+//       add( VisualizacaoDosSystems,  BorderLayout.CENTER);
+//       add(ParteDosRecursosEeventos, BorderLayout.SOUTH);
+//      
        
-        //visualizar imperio
        // VisualizacaoDosSystems.setBackground(Color.BLUE);
        // VisualizacaoDosSystems.setLayout(new FlowLayout());
         
         
         
          // VisualizacaoDosSystems.setLayout( (new BoxLayout( VisualizacaoDosSystems, BoxLayout.X_AXIS)));
-        add(EscolhaDosSystem);
-        add(porConquistar);
-        add(imperio);  
+        
+          
        
        // add( VisualizacaoDoImperio, CENTER_ALIGNMENT);
       
@@ -185,6 +242,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
 
        validate();
     } 
+    
     
     public static BufferedImage getFundoInicio() {
         return fundo;
@@ -194,11 +252,37 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     {
       return  SystemParteTras;
     }
-			
+
+    public static BufferedImage getRiqueza() {
+        return riqueza;
+    }
+
+    public static BufferedImage getMetal() {
+        return metal;
+    }
+
+    public static BufferedImage getTecnologiasUpdate() {
+        return tecnologiasUpdate;
+    }
+
+    public static BufferedImage getForcaMilitar() {
+        return forcaMilitar;
+    }
+
+    public static BufferedImage getMarcador1() {
+        return marcador1;
+    }
+	
+    
     static {
         try {
             fundo = ImageIO.read(Resources.getResourceFile("images/fundoPrincipal.gif"));
             SystemParteTras = ImageIO.read(Resources.getResourceFile("images/System.png"));
+            riqueza = ImageIO.read(Resources.getResourceFile("images/Wealth.png"));
+            metal = ImageIO.read(Resources.getResourceFile("images/Metal.png"));
+            tecnologiasUpdate = ImageIO.read(Resources.getResourceFile("images/Technology.png"));
+            forcaMilitar = ImageIO.read(Resources.getResourceFile("images/Military.png"));
+            marcador1 =  ImageIO.read(Resources.getResourceFile("images/marcador2.png"));
             
         } catch (IOException e) {
             System.out.println("Error loading images ");
@@ -222,19 +306,71 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         
         IStates estado = game.getStates();
       
+        nearPanel = new NearSystemPanel(game);
+     distantPanel = new DistantSystemPanel(game);
+     imperio = new ImpirePanel(game);
+     porConquistar = new UnalignedPanel(game);
+     recursoMetalPanel = new MetalPanel(game);
+     recursoRiquezaPanel = new  WeathPanel(game);
+     forcaMilitarPanel = new MilitaryStrenghPanel(game);
+     tecnologiasPanel = new TecnologieUpdatePanel(game);
+     
+     //butoes
+     trocaRiquezaPorMetal = new JButton() ;
+     trocaMetalPorRiqueza = new JButton();
+        
+       /* 
         if(estado instanceof ExplorarAtacar_Conquistar_Passar ){
-            EscolhaDosSystem.setBorder( new LineBorder(Color.red,2));
+              tiraContornos();
+             if(game.VerificaSeHaSistemasNear())
+           nearPanel.setBorder( new LineBorder(Color.red,2));
+              if(game.VerificaSeHaSistemasDistant())
+           distantPanel.setBorder( new LineBorder(Color.red,2));
+           if(game.VerificaSeHaSistemasPorConquistar())
+               porConquistar.setBorder( new LineBorder(Color.red,2));
+        
             //falta o conquistar
         }else if(estado instanceof TrocaEntreRecursos)
-        {    //falta repor o conquistar
-             EscolhaDosSystem.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
+        {    //repoe transp
+//            nearPanel.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
+//            distantPanel.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
+//            porConquistar.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
+            tiraContornos();
         //mesmo raciocinio
-        }
+        recursoMetalPanel.setBorder( new LineBorder(Color.YELLOW,2));
+        recursoRiquezaPanel.setBorder( new LineBorder(Color.YELLOW,2));
+         trocaRiquezaPorMetal.setBorder( new LineBorder(Color.YELLOW,2));
+          trocaMetalPorRiqueza.setBorder( new LineBorder(Color.YELLOW,2));
+             
+        }else if(estado instanceof ConstruirFM_DescobrirTecnologia)
+        {    //repoe transp
+//            recursoMetalPanel.setBorder( new LineBorder(new Color(0,0,0,0)));
+//        recursoRiquezaPanel.setBorder( new LineBorder(new Color(0,0,0,0)));
+//         trocaRiquezaPorMetal.setBorder( new LineBorder(new Color(0,0,0,0)));
+//          trocaMetalPorRiqueza.setBorder( new LineBorder(new Color(0,0,0,0)));
+              tiraContornos();
+        //mesmo raciocinio
+        forcaMilitarPanel.setBorder( new LineBorder(Color.YELLOW,2));
+        tecnologiasPanel.setBorder( new LineBorder(Color.YELLOW,2));             
+        }*/
         
         
  
         
         
     }
+    
+    public void tiraContornos()
+    {
+    nearPanel.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
+            distantPanel.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
+            porConquistar.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
+    recursoMetalPanel.setBorder( new LineBorder(new Color(0,0,0,0)));
+        recursoRiquezaPanel.setBorder( new LineBorder(new Color(0,0,0,0)));
+         trocaRiquezaPorMetal.setBorder( new LineBorder(new Color(0,0,0,0)));
+          trocaMetalPorRiqueza.setBorder( new LineBorder(new Color(0,0,0,0)));
+    
+    }
+    
     
 }
