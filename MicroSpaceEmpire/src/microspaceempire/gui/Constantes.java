@@ -32,40 +32,40 @@ public interface Constantes {
     static final int DIM_Y_SOUTH_PANEL = 260;
     
     
-    String CANOPUS = "Distant_Canopus";
+    String CANOPUS = "Canopus";
     String PATH_IMG_CANOPUS = "images/Distant_Canopus.png";
     
-    String GALAXYEDGE = "Distant_GalaxyEdge";
+    String GALAXYEDGE = "Galaxy's Edge";
     String PATH_IMG_GALAXYEDGE = "images/Distant_GalaxyEdge.png";
     
-    String POLARIS = "Distant_Polaris";
+    String POLARIS = "Polaris";
     String PATH_IMG_POLARIS = "images/Distant_Polaris.png";
        
     String EVENT = "Event";
     String PATH_IMG_EVENT = "images/Event.png";
         
-    String ASTEROID = "Event_Asteroid";
+    String ASTEROID = "Asteroid";
     String PATH_IMG_ASTEROID = "images/Event_Asteroid.png";
     
-    String DERELICTSHIP = "Event_DerelictShip";
+    String DERELICTSHIP = "Derelict Ship";
     String PATH_IMG_DERELICTSHIP = "images/Event_DerelictShip.png";
     
-    String LARGEINVASIONFORCE = "Event_LargeInvasionForce";
+    String LARGEINVASIONFORCE = "Large Invasion Force";
     String PATH_IMG_LARGEINVASIONFORCE = "images/Event_LargeInvasionForce.png";
     
-    String PEACEQUIET = "Event_PeaceQuiet";
+    String PEACEQUIET = "Peace & Quiet";
     String PATH_IMG_PEACEQUIET = "images/Distant_Polaris.png";
        
-    String REVOLT = "Event_Revolt";
+    String REVOLT = "Revolt";
     String PATH_IMG_REVOLT = "images/Event_Revolt.png";
     
-    String REVOLT2 = "Event_Revolt1";
+    String REVOLT2 = "Revolt";
     String PATH_IMG_REVOLT2 = "images/Event_Revolt1.png";
     
-    String SMALLINVASIONFORCE = "Event_SmallInvasionForce";
+    String SMALLINVASIONFORCE = "Small Invasion Force";
     String PATH_IMG_SMALLINVASIONFORCE = "images/Event_SmallInvasionForce.png";
     
-    String STRIKE = "Event_Strike";
+    String STRIKE = "Strike";
     String PATH_IMG_STRIKE = "images/Event_Strike.png";
     
     String METAL = "Metal";
@@ -74,26 +74,26 @@ public interface Constantes {
     String MILITARY = "Military";
     String PATH_IMG_MILITARY = "images/Military.png";
     
-    String CYGNUS = "Near_Cygnus";
+    String CYGNUS = "Cygnus";
     String PATH_IMG_CYGNUS = "images/Near_Cygnus.png";
        
-    String EPSILONERIDANI = "Near_EpsilonEridani";
+    String EPSILONERIDANI = "Epsilon Eridani";
     String PATH_IMG_EPSILONERIDANI = "images/Near_EpsilonEridani.png";
         
-    String PROCYON = "Near_Procyon";
+    String PROCYON = "Procyon";
     String PATH_IMG_PROCYON = "images/Near_Procyon.png";
     
     
-    String PROXIMA = "Near_Proxima";
+    String PROXIMA = "Proxima";
     String PATH_IMG_PROXIMA = "images/Near_Proxima.png";
     
-    String SIRIUS = "Near_Sirius";
+    String SIRIUS = "Sirius";
     String PATH_IMG_SIRIUS = "images/Near_Sirius.png";
     
-    String TAUCETI = "Near_TauCeti";
+    String TAUCETI = "Tau Ceti";
     String PATH_IMG_TAUCETI = "images/Near_TauCeti.png";
        
-    String WOLF359 = "Near_Wolf359";
+    String WOLF359 = "Wolf 359";
     String PATH_IMG_WOLF359 = "images/Near_Wolf359.png";
     
     String HOMEWORLD = "Home World";
@@ -114,13 +114,13 @@ public interface Constantes {
     String FUNDOPRINCIPAL = "fundoInicio";
     String PATH_IMG_FUNDOPRINCIPAL = "images/fundoInicio.png";
     
-    String MARCADOR0 = "mercador0";
-    String PATH_IMG_MERCADOR0 = "images/mercador0.png";
+    String MARCADOR0 = "marcador0";
+    String PATH_IMG_MERCADOR0 = "images/marcador0.png";
     
-    String MARCADOR1 = "mercador1";
-    String PATH_IMG_MERCADOR1 = "images/mercador1.png";
+    String MARCADOR1 = "marcador1";
+    String PATH_IMG_MERCADOR1 = "images/marcador1.png";
     
-    String MARCADOR2 = "mercador2";
-    String PATH_IMG_MERCADOR2 = "images/mercador2.png";
+    String MARCADOR2 = "marcador2";
+    String PATH_IMG_MERCADOR2 = "images/marcador2.png";
     
 }
