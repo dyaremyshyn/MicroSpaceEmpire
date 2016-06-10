@@ -44,7 +44,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     MetalPanel recursoMetalPanel;
     WeathPanel recursoRiquezaPanel;
     MilitaryStrenghPanel forcaMilitarPanel;
-    TecnologieUpdatePanel tecnologiasPanel;
+    TechnologyUpdatePanel tecnologiasPanel;
      
     
     JPanel EscolhaDosSystem;
@@ -145,7 +145,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
      recursoMetalPanel = new MetalPanel(game);
      recursoRiquezaPanel = new  WeathPanel(game);
      forcaMilitarPanel = new MilitaryStrenghPanel(game);
-     tecnologiasPanel = new TecnologieUpdatePanel(game);
+     tecnologiasPanel = new TechnologyUpdatePanel(game);
      
      //butoes
      trocaRiquezaPorMetal = new JButton() ;
@@ -171,29 +171,11 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
 
     private void setupLayout()
     {
-       //setLayout(new BorderLayout());  // a main sera border
-       //setLayout(new GridLayout(4,1));
-       
-       //GridBagConstraints constraints = new  GridBagConstraints();
-       
-//       
-//       constraints.ipadx = 0;
-//       constraints.ipady = 0;
-      // constraints.fill = GridBagConstraints.VERTICAL;
-     // JLabel labSystNear= new JLabel();
-//      labSystNear.setText("Near Systems");
-//      JLabel labSystDist= new JLabel();
-//      labSystDist.setText("Distant Systems");
     
-   
-        
-        
-        
-         //escolhe sistema near ou distant
+       //escolhe sistema near ou distant
        EscolhaDosSystem.setLayout(new FlowLayout()); //tipo float
        EscolhaDosSystem.setBackground(Color.MAGENTA);
-      // EscolhaDosSystem.setSize(200, 100);
-       //EscolhaDosSystem.add(Box.createRigidArea(new Dimension(15,0)));
+      
        EscolhaDosSystem.add(nearPanel);
        EscolhaDosSystem.add(distantPanel);
       
@@ -207,38 +189,24 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         //VisualizacaoDosSystems.setLayout(new FlowLayout());
       
         //parte de baixo
+        JPanel pSouth=new JPanel();
+        
+        
         ParteDosRecursosEeventos.setLayout(new FlowLayout());
         ParteDosRecursosEeventos.setBackground(Color.BLACK);
-          
         ParteDosRecursosEeventos.add(recursoMetalPanel);
         ParteDosRecursosEeventos.add(recursoRiquezaPanel);
         ParteDosRecursosEeventos.add(forcaMilitarPanel);
-        ParteDosRecursosEeventos.add(tecnologiasPanel);
+        //ParteDosRecursosEeventos.add(tecnologiasPanel);
          
-         
+        add(pSouth,BorderLayout.SOUTH);
         
        add(EscolhaDosSystem);
        add(VisualizacaoDosSystems);
-       add(ParteDosRecursosEeventos);
-       add(Passar);
+       pSouth.add(ParteDosRecursosEeventos,BorderLayout.WEST);
+       pSouth.add(Passar,BorderLayout.EAST);
+       pSouth.add(tecnologiasPanel,BorderLayout.CENTER);
 
-//       add(EscolhaDosSystem, BorderLayout.NORTH);
-//       add( VisualizacaoDosSystems,  BorderLayout.CENTER);
-//       add(ParteDosRecursosEeventos, BorderLayout.SOUTH);
-//      
-       
-       // VisualizacaoDosSystems.setBackground(Color.BLUE);
-       // VisualizacaoDosSystems.setLayout(new FlowLayout());
-        
-        
-        
-         // VisualizacaoDosSystems.setLayout( (new BoxLayout( VisualizacaoDosSystems, BoxLayout.X_AXIS)));
-        
-          
-       
-       // add( VisualizacaoDoImperio, CENTER_ALIGNMENT);
-      
-      // add(VisualizacaoDosSystems, BorderLayout.CENTER );
 
        validate();
     } 
@@ -313,62 +281,23 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
      recursoMetalPanel = new MetalPanel(game);
      recursoRiquezaPanel = new  WeathPanel(game);
      forcaMilitarPanel = new MilitaryStrenghPanel(game);
-     tecnologiasPanel = new TecnologieUpdatePanel(game);
+     tecnologiasPanel = new TechnologyUpdatePanel(game);
      
      //butoes
      trocaRiquezaPorMetal = new JButton() ;
      trocaMetalPorRiqueza = new JButton();
-        
-       /* 
-        if(estado instanceof ExplorarAtacar_Conquistar_Passar ){
-              tiraContornos();
-             if(game.VerificaSeHaSistemasNear())
-           nearPanel.setBorder( new LineBorder(Color.red,2));
-              if(game.VerificaSeHaSistemasDistant())
-           distantPanel.setBorder( new LineBorder(Color.red,2));
-           if(game.VerificaSeHaSistemasPorConquistar())
-               porConquistar.setBorder( new LineBorder(Color.red,2));
-        
-            //falta o conquistar
-        }else if(estado instanceof TrocaEntreRecursos)
-        {    //repoe transp
-//            nearPanel.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
-//            distantPanel.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
-//            porConquistar.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
-            tiraContornos();
-        //mesmo raciocinio
-        recursoMetalPanel.setBorder( new LineBorder(Color.YELLOW,2));
-        recursoRiquezaPanel.setBorder( new LineBorder(Color.YELLOW,2));
-         trocaRiquezaPorMetal.setBorder( new LineBorder(Color.YELLOW,2));
-          trocaMetalPorRiqueza.setBorder( new LineBorder(Color.YELLOW,2));
-             
-        }else if(estado instanceof ConstruirFM_DescobrirTecnologia)
-        {    //repoe transp
-//            recursoMetalPanel.setBorder( new LineBorder(new Color(0,0,0,0)));
-//        recursoRiquezaPanel.setBorder( new LineBorder(new Color(0,0,0,0)));
-//         trocaRiquezaPorMetal.setBorder( new LineBorder(new Color(0,0,0,0)));
-//          trocaMetalPorRiqueza.setBorder( new LineBorder(new Color(0,0,0,0)));
-              tiraContornos();
-        //mesmo raciocinio
-        forcaMilitarPanel.setBorder( new LineBorder(Color.YELLOW,2));
-        tecnologiasPanel.setBorder( new LineBorder(Color.YELLOW,2));             
-        }*/
-        
-        
- 
-        
-        
+     
     }
     
     public void tiraContornos()
     {
-    nearPanel.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
-            distantPanel.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
-            porConquistar.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
-    recursoMetalPanel.setBorder( new LineBorder(new Color(0,0,0,0)));
+        nearPanel.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
+        distantPanel.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
+        porConquistar.setBorder( new LineBorder(new Color(0,0,0,0))); //mete o anterior a transparente
+        recursoMetalPanel.setBorder( new LineBorder(new Color(0,0,0,0)));
         recursoRiquezaPanel.setBorder( new LineBorder(new Color(0,0,0,0)));
-         trocaRiquezaPorMetal.setBorder( new LineBorder(new Color(0,0,0,0)));
-          trocaMetalPorRiqueza.setBorder( new LineBorder(new Color(0,0,0,0)));
+        trocaRiquezaPorMetal.setBorder( new LineBorder(new Color(0,0,0,0)));
+        trocaMetalPorRiqueza.setBorder( new LineBorder(new Color(0,0,0,0)));
     
     }
     

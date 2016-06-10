@@ -19,10 +19,10 @@ import static microspaceempire.gui.Constantes.DIM_Y_RecursoImg;
  *
  * @author Sergio
  */
-public class TecnologieUpdatePanel extends JPanel implements Constantes{
+public class TechnologyUpdatePanel extends JPanel implements Constantes{
      private ObservableGame observableGame;
 
-  public TecnologieUpdatePanel(ObservableGame observableGame)
+  public TechnologyUpdatePanel(ObservableGame observableGame)
   {
       
     this.observableGame = observableGame;
