@@ -197,15 +197,16 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         ParteDosRecursosEeventos.add(recursoMetalPanel);
         ParteDosRecursosEeventos.add(recursoRiquezaPanel);
         ParteDosRecursosEeventos.add(forcaMilitarPanel);
-        //ParteDosRecursosEeventos.add(tecnologiasPanel);
-         
+        ParteDosRecursosEeventos.add(tecnologiasPanel);
+        pSouth.setBackground(Color.yellow);
+        pSouth.setSize(200, 400);
         add(pSouth,BorderLayout.SOUTH);
         
        add(EscolhaDosSystem);
        add(VisualizacaoDosSystems);
-       pSouth.add(ParteDosRecursosEeventos,BorderLayout.WEST);
-       pSouth.add(Passar,BorderLayout.EAST);
-       pSouth.add(tecnologiasPanel,BorderLayout.CENTER);
+       add(ParteDosRecursosEeventos);
+       add(Passar);
+       add(tecnologiasPanel);
 
 
        validate();
