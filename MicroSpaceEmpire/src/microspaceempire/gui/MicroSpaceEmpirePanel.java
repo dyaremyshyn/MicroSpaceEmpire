@@ -7,6 +7,7 @@ package microspaceempire.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -186,6 +187,13 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
 //      labSystDist.setText("Distant Systems");
     
    
+
+        int nSist = game.getImperio().size();
+
+       
+         imperio.setMaximumSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
+         imperio.setPreferredSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
+         imperio.setMinimumSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
         
         
         

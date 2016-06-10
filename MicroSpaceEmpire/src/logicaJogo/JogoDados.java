@@ -117,8 +117,7 @@ public class JogoDados implements Serializable {
     }
 
     public boolean iniciar(){
-       imperio.add(new HomeWorld());
-     
+       imperio.add(new HomeWorld());     
        iniciaNearSystem();
        iniciaDistantSystem();
        iniciaTecnologia();

@@ -21,38 +21,68 @@ public class ImpirePanel extends JPanel implements Constantes  {
         
   private ObservableGame observableGame;
 
-  private   List<Carta> imperio;
+  
   
   public ImpirePanel(ObservableGame observableGame)
   {
     this.observableGame = observableGame;
-    imperio = observableGame.getImperio(); 
-    
-    setMaximumSize(new Dimension(DIM_X_CARTA*imperio.size(), DIM_Y_CARTA));
-    setPreferredSize(new Dimension(DIM_X_CARTA*imperio.size(), DIM_Y_CARTA));
-    setMinimumSize(new Dimension(DIM_X_CARTA*imperio.size(), DIM_Y_CARTA));     
-    
-    setLayout(new GridLayout(1,imperio.size(),0,0));
-        
-        
-         for(Carta p:imperio) {
-
-           add(new ImgSystemasImperio(p.getNome()));
-      };   
-    
-    
+     
   }
 
  
-//  
-//  public void paintComponent(Graphics g)
-//  {
-//    super.paintComponent(g);
-//                
-//      
+  
+  public void paintComponent(Graphics g)
+  {
+    //super.paintComponent(g);
+//    
+//    imperio = observableGame.getImperio();             
+//    setMaximumSize(new Dimension(DIM_X_CARTA*4, DIM_Y_CARTA));
+//    setPreferredSize(new Dimension(DIM_X_CARTA*4, DIM_Y_CARTA));
+//    setMinimumSize(new Dimension(DIM_X_CARTA*4, DIM_Y_CARTA));     
+//    
+//    setLayout(new GridLayout(1,imperio.size(),0,0));
+//        
+//        Image imagemSystem;
+//         for(Carta p:imperio) {
+//
+//           imagemSystem = MicroSpaceEmpirePanel.getSystemImg(nomeSystema);
+//        
+//        if(imagemSystem!=null){
+//            add(g.drawImage(imagemSystem,0,0, DIM_X_CARTA, DIM_Y_CARTA, this));
+//         
+//    }else{ System.err.println(" imagem == null");}
+//    }
+//      };   
 //    
 //    
-//  }
+       int x,y;
+        
+        super.paintComponent( g);
+
+        List<Carta> Imperio_actual = observableGame.getImperio();
+       
+
+        x = 0; y = 0;
+        
+        for (int i = 0 ; i < Imperio_actual.size() ; i++){
+                      
+            String nome = Imperio_actual.get(i).getNome();
+
+            g.fillRect(x, y, DIM_X_CARTA, DIM_Y_CARTA);
+            Image imagem = MicroSpaceEmpirePanel.getSystemImg(nome);
+            
+            if (imagem != null){
+                g.drawImage( imagem, x , y ,DIM_X_CARTA, DIM_Y_CARTA, this );
+            }else{
+                System.err.println(" imagem == null");
+            }
+            
+            x += DIM_X_CARTA;
+        }
+
+
+
+ }
 
     
     
