@@ -3,29 +3,24 @@ package microspaceempire.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
-import java.awt.image.ImageProducer;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import logicaJogo.Jogo;
+import javax.swing.border.LineBorder;
 import logicaJogo.JogoDados;
 import logicaJogo.ObservableGame;
-import logicaJogo.States.AguardaInicio;
 
 
 /**
@@ -34,10 +29,11 @@ import logicaJogo.States.AguardaInicio;
  */
 
 public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Constantes{
-    JButton start ;
+   
+    JButton start;
     JLabel title; 
     
-    JogoDados jogoDados;
+    //JogoDados jogoDados;
     ObservableGame observableGame;
     
     
@@ -62,8 +58,10 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
         observableGame.addObserver(this);
         setupComponents();
         setupLayout();
-        
-        setVisible(observableGame.getStates() instanceof AguardaInicio);
+      //  setBorder( new LineBorder(Color.blue,2));
+     //   setBackground(Color.blue);
+       // setVisible(observableGame.getStates() instanceof AguardaInicio);
+       // update(observableGame, null);
     }
     
     
@@ -71,6 +69,11 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
     {  
         start = new JButton("Start Game");
         title = new JLabel("Micro Space Empire"); 
+        
+//        setMaximumSize(new Dimension(600, 600));
+//        setMinimumSize(new Dimension(600, 600));
+//        setPreferredSize(new Dimension(600, 600));
+        
         
         start.addActionListener(new ActionListener(){        
             @Override
@@ -86,19 +89,33 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
     
      private void setupLayout()
     {
-         JPanel painel;
-
         
-
-       painel = new JPanel();
+        JPanel parteDeBaixo = new JPanel();
+        JPanel parteDeCima = new JPanel();
+       
         
+        setLayout(new BorderLayout());
+
         title.setFont(new Font("Arial", Font.ITALIC, 47));
         title.setForeground(Color.WHITE);
-        title.setAlignmentX(Component.TOP_ALIGNMENT); 
+        
+        start.setSize(100,100);                
+        
+        add(parteDeCima, BorderLayout.NORTH);
+        add(parteDeBaixo, BorderLayout.SOUTH);
+        
+    
+        parteDeBaixo.add(Box.createRigidArea(new Dimension(0,100)));
+        
+        parteDeBaixo.setBackground(new Color(0,0,0,0)); //torna o fundo transparente
+        parteDeCima.setBackground(new Color(0,0,0,0));
+      
+        
+        parteDeBaixo.add(start);
+        parteDeCima.add(title);
+        
 
-        start.setAlignmentX(Component.CENTER_ALIGNMENT);      
-        painel.add(start);
-        painel.add(title);
+        
         
         validate();
     }
@@ -108,14 +125,14 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
     {
         super.paintComponent(g);
         
-        g.drawImage(getFundoInicio(), WIDTH, HEIGHT, this);
+        g.drawImage(getFundoInicio(), 0, 0, getWidth(), getHeight(), this);
         
     }
 
     @Override
     public void update(Observable o, Object arg)
     {
-        setVisible(observableGame.getStates() instanceof AguardaInicio);
+
     }
     
     

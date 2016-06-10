@@ -7,8 +7,12 @@
 package logicaJogo;
 
 import java.io.Serializable;
+import java.util.List;
+import logicaJogo.Cartas.Carta;
+import logicaJogo.Eventos.Evento;
 import logicaJogo.States.AguardaInicio;
 import logicaJogo.States.IStates;
+import logicaJogo.Tecnologias.Tecnologia;
 
 
 public class Jogo implements Serializable 
@@ -37,6 +41,39 @@ public class Jogo implements Serializable
     }
     
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+    // funçoes get dados para gui
+    public List<Carta> getNearSystem() {
+        return dados.getNearSystem();
+    }
+
+    public List<Carta> getDistantSystem() {
+        return dados.getDistantSystem();
+    }
+
+    public List<Carta> getImperio() {
+        return dados.getImperio();
+    }
+
+    public List<Carta> getPorConquistar() {
+        return dados.getPorConquistar();
+    }
+
+    public List<Evento> getEventos() {
+        return dados.getEventos();
+    }
+
+    public int getLimiteRecursos() {
+        return dados.getLimiteRecursos();
+    }
+
+    public List<Tecnologia> getTecnologias() {
+        return dados.getTecnologias();
+    }
+
+    public List<Tecnologia> getTecnologiasAdquiridas() {
+        return dados.getTecnologiasAdquiridas();
+    }
+    
      // funcoes de consulta dos dados
     
     public String Painel_jogo() 

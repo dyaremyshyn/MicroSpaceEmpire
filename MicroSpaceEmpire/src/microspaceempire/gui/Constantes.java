@@ -11,14 +11,15 @@ package microspaceempire.gui;
  */
 public interface Constantes {
     
-    static final int DIM_X_CARTA = 20;
-    static final int DIM_Y_CARTA = 20;
+    static final int DIM_X_CARTA = 150;
+    static final int DIM_Y_CARTA = 200;
     
     static final int BORDER_X = 10;
     static final int BORDER_Y = 10;
     
-    static final int DIM_X_FRAME = 1280;
-    static final int DIM_Y_FRAME = 800;
+    
+    static final int DIM_X_FRAME = 1920;
+    static final int DIM_Y_FRAME = 1080;
     
     static final int DIM_X_SOUTH_PANEL = DIM_X_FRAME;
     static final int DIM_Y_SOUTH_PANEL = 260;
@@ -88,7 +89,7 @@ public interface Constantes {
     String WOLF359 = "Near_Wolf359";
     String PATH_IMG_WOLF359 = "images/Near_Wolf359.png";
     
-    String HOMEWORLD = "Starting_HomeWorld";
+    String HOMEWORLD = "Home World";
     String PATH_IMG_HOMEWORLD = "images/Starting_HomeWorld.png";
     
     String SYSTEM = "System";

@@ -26,6 +26,40 @@ import logicaJogo.Tecnologias.Tecnologia;
 
 
 public class JogoDados implements Serializable {
+    
+
+    public List<Carta> getNearSystem() {
+        return nearSystem;
+    }
+
+    public List<Carta> getDistantSystem() {
+        return distantSystem;
+    }
+
+    public List<Carta> getImperio() {
+        return imperio;
+    }
+
+    public List<Carta> getPorConquistar() {
+        return porConquistar;
+    }
+
+    public List<Evento> getEventos() {
+        return eventos;
+    }
+
+    public int getLimiteRecursos() {
+        return limiteRecursos;
+    }
+
+    public List<Tecnologia> getTecnologias() {
+        return tecnologias;
+    }
+
+    public List<Tecnologia> getTecnologiasAdquiridas() {
+        return tecnologiasAdquiridas;
+    }
+    
     private List<Carta> nearSystem;
     private List<Carta> distantSystem;
     private List<Carta> imperio;
@@ -77,6 +111,9 @@ public class JogoDados implements Serializable {
        bloqueio_compraDireta = 0;
        bloqueio_AFmilitar = 0;
        bloqueio_DTecnologia = 0;
+       
+       iniciar();
+       
     }
 
     public boolean iniciar(){

@@ -20,7 +20,7 @@ public class AguardaInicio extends StateAdapter
     @Override
     public IStates PrepararJogo() 
     {
-        if(getJogo().iniciar())
+        if(1 == 1)
         {
             return new ExplorarAtacar_Conquistar_Passar(getJogo());
         }

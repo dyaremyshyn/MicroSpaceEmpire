@@ -5,24 +5,22 @@
  */
 package microspaceempire.gui;
 
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.List;
 import javax.swing.JPanel;
 import logicaJogo.ObservableGame;
 
 
-public class NearSystemPanel extends JPanel implements Constantes{
-    
-    
-  private ObservableGame observableGame;
+public class DistantSystemPanel extends JPanel implements Constantes {
+    private ObservableGame observableGame;
   
-  public NearSystemPanel(ObservableGame observableGame)
+  public DistantSystemPanel(ObservableGame observableGame)
   {
-    this.observableGame = observableGame;
+    this.observableGame = observableGame;    
     
     setMaximumSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
     setPreferredSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
@@ -43,7 +41,7 @@ class DestaqueListener extends MouseAdapter
         public void mousePressed( MouseEvent e)
         {
             observableGame.EscolheExplorar_atacar(); //escolhe atacar           
-            observableGame.Explorar_atacar(2); // tipo 1 é near
+            observableGame.Explorar_atacar(2); // tipo 2 é near
         }
     }
 

@@ -1,66 +1,67 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package microspaceempire.gui;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+import java.awt.CardLayout;
+import java.awt.Color;
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 import logicaJogo.ObservableGame;
 import logicaJogo.States.AguardaInicio;
+import logicaJogo.States.IStates;
 
-/**
- *
- * @author Sergio
- */
+
 public class MicroSpacePrincipalPanel extends JPanel implements Observer, Constantes{
      ObservableGame game;
      MicroSpaceEmpirePanel gamePanel;
      StartMicroSpaceEmpirePanel startPanel;
+     
+     
+     CardLayout cardManager = new CardLayout();
    
     
 
     public MicroSpacePrincipalPanel(ObservableGame game)
     {
         this.game=game;
+        this.game.addObserver(this);
               
         setupComponents();
         setupLayout();
+
+        
+        update(this.game, null);
     }
 
     private void setupComponents()
     {
-        startPanel=new StartMicroSpaceEmpirePanel(game);
-    //    gamePanel = new  MicroSpaceEmpirePanel(game);
+        startPanel = new StartMicroSpaceEmpirePanel(game);
+        gamePanel = new  MicroSpaceEmpirePanel(game);
    
     }
 
     private void setupLayout()
     {
-        JPanel pCenter;
-
-        setLayout(new FlowLayout());
-
-        pCenter=new JPanel();
-       
-        pCenter.setLayout(new FlowLayout());
+        setLayout(cardManager);
+        add(startPanel, "start"); 
+        add(gamePanel, "game");  
         
-      
- 
-                       
-        add(pCenter,FlowLayout.CENTER);
-        
-        add(startPanel);        
+//        add(startPanel); 
+//        add(gamePanel);  
         
         validate();
     }
-    
-    public void update(Observable o, Object arg)
-    {
-        setVisible(!(game.getStates() instanceof AguardaInicio));
+
+    @Override
+    public void update(Observable o, Object arg) {
+        IStates estado = game.getStates();
+        if(estado instanceof AguardaInicio ){
+            cardManager.show(this, "start");
+        }else{
+            
+            cardManager.show(this, "game");
+        }
     }
+    
 }

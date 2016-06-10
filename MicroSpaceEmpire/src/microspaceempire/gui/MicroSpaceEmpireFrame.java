@@ -5,9 +5,9 @@
  */
 package microspaceempire.gui;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JFrame;
@@ -38,7 +38,8 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
 
         observableGame = j;
         observableGame.addObserver(this);
-             
+        
+   
 
         painelPrincipal = new MicroSpacePrincipalPanel(observableGame);
         
@@ -46,13 +47,14 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
 
         
                
-        setLocation(x, y); 
+        setLocation(0, 0); 
         setSize(width,height); 
         setMinimumSize(new Dimension(width,height));
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         validate();
     
+        update(observableGame,null);
     }
     
 
@@ -60,7 +62,7 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
     {      
 
          Container cp = getContentPane(); 
-        //cp.setLayout(new BorderLayout());//
+//        cp.setLayout(new FlowLayout());//
         cp.add(painelPrincipal);
 
     }

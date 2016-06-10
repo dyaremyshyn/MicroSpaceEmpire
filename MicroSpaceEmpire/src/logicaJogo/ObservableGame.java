@@ -1,8 +1,12 @@
 
 package logicaJogo;
 
+import java.util.List;
 import java.util.Observable;
+import logicaJogo.Cartas.Carta;
+import logicaJogo.Eventos.Evento;
 import logicaJogo.States.IStates;
+import logicaJogo.Tecnologias.Tecnologia;
 
 /**
  *
@@ -41,12 +45,68 @@ public class ObservableGame extends Observable {
     // Methods retrieve data from the game
     // funcoes de consulta dos dados
     
+    public List<Carta> getNearSystem() {
+        return jogo.getNearSystem();
+    }
+
+    public List<Carta> getDistantSystem() {
+        return jogo.getDistantSystem();
+    }
+
+    public List<Carta> getImperio() {
+        return jogo.getImperio();
+    }
+
+    public List<Carta> getPorConquistar() {
+        return jogo.getPorConquistar();
+    }
+
+    public List<Evento> getEventos() {
+        return jogo.getEventos();
+    }
+
+    public int getLimiteRecursos() {
+        return jogo.getLimiteRecursos();
+    }
+
+    public List<Tecnologia> getTecnologias() {
+        return jogo.getTecnologias();
+    }
+
+    public List<Tecnologia> getTecnologiasAdquiridas() {
+        return jogo.getTecnologiasAdquiridas();
+    }
     
+     //funções de verificação
     
+    public boolean AdequiriuT_ForwardStarbases()
+    {
+    return jogo.AdequiriuT_ForwardStarbases();
+    }
     
+    public boolean AdequiriuT_InterspeciesComerce()
+    {
+    return jogo.AdequiriuT_InterspeciesComerce();
+    }
     
+    public int getBloqueio_compraDireta() {
+        return jogo.getBloqueio_compraDireta();
+    } 
     
+    public boolean VerificaSeHaSistemasPorConquistar()
+    {
+    return jogo.VerificaSeHaSistemasPorConquistar();
+    }
     
+    public boolean VerificaSeHaSistemasNear()
+    {
+    return jogo.VerificaSeHaSistemasNear();
+    }
+    
+    public boolean VerificaSeHaSistemasDistant()
+    {
+    return jogo.VerificaSeHaSistemasDistant();
+    }
     
     // Methods that are intended to be used by the user interfaces and that are delegated in the current state of the finite state machine 
     // funcoes delegadas no estado corrente 
