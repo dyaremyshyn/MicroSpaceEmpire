@@ -175,15 +175,14 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     
 
 //   
-//
-//        int nSist = game.getImperio().size();
-//
-//       
-//         imperio.setMaximumSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
-//         imperio.setPreferredSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
-//         imperio.setMinimumSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
-//        
-//        
+// importante manter esta implementaçao
+        int nSist = game.getImperio().size();
+
+         imperio.setMaximumSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
+         imperio.setPreferredSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
+         imperio.setMinimumSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
+        
+        
 //        
 //         //escolhe sistema near ou distant
 
