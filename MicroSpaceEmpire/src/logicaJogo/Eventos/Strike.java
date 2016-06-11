@@ -6,8 +6,6 @@
 
 package logicaJogo.Eventos;
 
-import logicaJogo.JogoDados;
-
 
 public class Strike extends Evento{
 

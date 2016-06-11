@@ -36,6 +36,7 @@ public class ImpirePanel extends JPanel implements Constantes  {
 
  
   
+  @Override
   public void paintComponent(Graphics g)
   {
     

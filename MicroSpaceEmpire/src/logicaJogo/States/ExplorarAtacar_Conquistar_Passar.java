@@ -19,10 +19,14 @@ public class ExplorarAtacar_Conquistar_Passar extends StateAdapter
 
     @Override
     public IStates Passar() 
-    {
+    {   
+        getJogo().atualizaProducaoRecursos();  
+        getJogo().recolheRecursos();    
+        getJogo().setBloqueio_compraDireta(0); 
+        
         return new TrocaEntreRecursos(getJogo());
     }
-
+    
     @Override
     public IStates EscolheExplorar_atacar()
     {

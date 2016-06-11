@@ -21,8 +21,10 @@ public class EscolheUnalignedSystem extends StateAdapter
     public IStates Conquistar(int alvo) {
         
         getJogo().conquistaSistema(alvo);
+        getJogo().atualizaProducaoRecursos();  
+        getJogo().recolheRecursos();    
+        getJogo().setBloqueio_compraDireta(0); 
+        
         return new TrocaEntreRecursos(getJogo());
     }
-    
-    
 }

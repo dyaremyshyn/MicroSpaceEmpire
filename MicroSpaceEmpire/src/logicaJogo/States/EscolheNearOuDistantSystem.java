@@ -29,6 +29,12 @@ public class EscolheNearOuDistantSystem extends StateAdapter
                 getJogo().viraCartaDistantSystem();
             }
        
+       
+       
+        getJogo().atualizaProducaoRecursos();  
+        getJogo().recolheRecursos();    
+        getJogo().setBloqueio_compraDireta(0); 
+        
        return new TrocaEntreRecursos(getJogo()); 
     }
     

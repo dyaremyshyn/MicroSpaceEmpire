@@ -66,6 +66,7 @@ public class JogoDados implements Serializable {
     private List<Carta> porConquistar;
     private int pontuacao;
     private int metal;
+    private int limiteProducao;
     private int riqueza;
     private int forcaMilitar;
     private int producaoMetal;
@@ -101,6 +102,7 @@ public class JogoDados implements Serializable {
        turno = 1;
        metal=0;
        riqueza=0;
+       limiteProducao = 5;
        forcaMilitar=0;
        producaoMetal=0;
        producaoRiq=0;
@@ -295,6 +297,10 @@ public class JogoDados implements Serializable {
         this.turno = turno;
     }
 
+    public int getLimiteProducao() {
+        return limiteProducao;
+    }
+
     public void setCurrentYear(int currentYear) {
         this.currentYear = currentYear;
     }
@@ -456,6 +462,16 @@ public class JogoDados implements Serializable {
         {  
             r+=imperio.get(i).getRiqueza();
             m+=imperio.get(i).getMetal();
+           
+            if(r > limiteProducao )
+            {
+            r = limiteProducao;
+            }
+            
+            if(m > limiteProducao)
+            {
+            m = limiteProducao;
+            }           
         }
         setProducaoRiq(r);
         setProducaoMetal(m);        
@@ -532,7 +548,7 @@ public class JogoDados implements Serializable {
 //        if(getRiqueza() > limiteRecursos) 
 //        {
 //            setRiqueza(limiteRecursos);
-//        }
+//        }*/    
     } 
     
     public boolean TrocaMetalPorRiqueza()
