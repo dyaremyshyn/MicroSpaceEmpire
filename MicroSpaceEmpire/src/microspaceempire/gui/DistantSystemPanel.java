@@ -6,7 +6,7 @@
 package microspaceempire.gui;
 
 
-import java.awt.Color;
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
@@ -40,8 +40,9 @@ class DestaqueListener extends MouseAdapter
         @Override
         public void mousePressed( MouseEvent e)
         {
-            observableGame.EscolheExplorar_atacar(); //escolhe atacar           
-            observableGame.Explorar_atacar(2); // tipo 2 é near
+            System.out.print("carreguei para explorar distante!");
+            DistantSystemPanel.this.observableGame.EscolheExplorar_atacar(); //escolhe atacar           
+            DistantSystemPanel.this.observableGame.Explorar_atacar(2); // tipo 2 é near
         }
     }
 

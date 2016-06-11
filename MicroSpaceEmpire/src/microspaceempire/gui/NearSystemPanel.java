@@ -42,8 +42,9 @@ class DestaqueListener extends MouseAdapter
         @Override
         public void mousePressed( MouseEvent e)
         {
-            observableGame.EscolheExplorar_atacar(); //escolhe atacar           
-            observableGame.Explorar_atacar(2); // tipo 1 é near
+            System.out.print("carreguei para explorar near!");
+             NearSystemPanel.this.observableGame.EscolheExplorar_atacar(); //escolhe atacar           
+             NearSystemPanel.this.observableGame.Explorar_atacar(1); // tipo 1 é near
         }
     }
 

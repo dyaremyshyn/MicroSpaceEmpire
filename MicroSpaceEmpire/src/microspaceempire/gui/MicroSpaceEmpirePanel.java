@@ -176,12 +176,17 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
 
 //   
 // importante manter esta implementaçao
-        int nSist = game.getImperio().size();
+       /* int nSist = game.getImperio().size();
 
          imperio.setMaximumSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
          imperio.setPreferredSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
          imperio.setMinimumSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
         
+         int nPorConq = game.getPorConquistar().size();
+
+          porConquistar.setMaximumSize(new Dimension(DIM_X_CARTA * nPorConq , DIM_Y_CARTA));
+          porConquistar.setPreferredSize(new Dimension(DIM_X_CARTA * nPorConq , DIM_Y_CARTA));
+          porConquistar.setMinimumSize(new Dimension(DIM_X_CARTA * nPorConq , DIM_Y_CARTA));*/
         
 //        
 //         //escolhe sistema near ou distant
@@ -287,21 +292,21 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
       @Override
     public void update(Observable o, Object arg)
     {
-        
-        IStates estado = game.getStates();
-      
-     nearPanel = new NearSystemPanel(game);
-     distantPanel = new DistantSystemPanel(game);
-     imperio = new ImpirePanel(game);
-     porConquistar = new UnalignedPanel(game);
-     recursoMetalPanel = new MetalPanel(game);
-     recursoRiquezaPanel = new  WeathPanel(game);
-     forcaMilitarPanel = new MilitaryStrenghPanel(game);
-     tecnologiasPanel = new TechnologyUpdatePanel(game);
-     
-     //butoes
-     trocaRiquezaPorMetal = new JButton() ;
-     trocaMetalPorRiqueza = new JButton();
+         
+//        IStates estado = game.getStates();
+//      
+//     nearPanel = new NearSystemPanel(game);
+//     distantPanel = new DistantSystemPanel(game);
+//     imperio = new ImpirePanel(game);
+//     porConquistar = new UnalignedPanel(game);
+//     recursoMetalPanel = new MetalPanel(game);
+//     recursoRiquezaPanel = new  WeathPanel(game);
+//     forcaMilitarPanel = new MilitaryStrenghPanel(game);
+//     tecnologiasPanel = new TechnologyUpdatePanel(game);
+//     
+//     //butoes
+//     trocaRiquezaPorMetal = new JButton() ;
+//     trocaMetalPorRiqueza = new JButton();
      
     }
     
