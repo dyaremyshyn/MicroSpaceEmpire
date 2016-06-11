@@ -47,6 +47,8 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     MilitaryStrenghPanel forcaMilitarPanel;
     TechnologyUpdatePanel tecnologiasPanel;
      
+    JPanel sul, este;
+    
     
     JPanel EscolhaDosSystem;
     JPanel VisualizacaoDosSystems;
@@ -166,7 +168,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     EscolhaDosSystem = new JPanel(); 
     VisualizacaoDosSystems = new JPanel();
     ParteDosRecursosEeventos = new JPanel(); 
-          
+    
                    
     }
 
@@ -201,15 +203,16 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
       
         //visualizar imperio e planetas pro conquistar
         VisualizacaoDosSystems.setLayout(new GridLayout(2,1)); //tipo grid 
-        VisualizacaoDosSystems.setBackground(Color.BLUE);
-        
-        
+        //VisualizacaoDosSystems.setBackground(Color.BLUE);
+        VisualizacaoDosSystems.setBackground(new Color(0,0,0,0));
+        imperio.setToolTipText("O nosso império!");
+        porConquistar.setToolTipText("Sistemas que foram explorados mas NÃO conquistados!");
         VisualizacaoDosSystems.add(porConquistar);
         VisualizacaoDosSystems.add(imperio);
         //VisualizacaoDosSystems.setLayout(new FlowLayout());
       
         //parte de baixo
-        JPanel pSouth=new JPanel();
+        //JPanel pSouth=new JPanel();
         
         
         ParteDosRecursosEeventos.setLayout(new FlowLayout());
@@ -218,8 +221,8 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         ParteDosRecursosEeventos.add(recursoRiquezaPanel);
         ParteDosRecursosEeventos.add(forcaMilitarPanel);
         //ParteDosRecursosEeventos.add(tecnologiasPanel);
-        pSouth.setBackground(Color.yellow);
-        pSouth.setSize(200, 400);
+        //pSouth.setBackground(Color.yellow);
+        //pSouth.setSize(200, 400);
         //add(pSouth,BorderLayout.SOUTH);
         
        add(EscolhaDosSystem);
@@ -227,12 +230,11 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
        add(ParteDosRecursosEeventos);
        add(Passar);
        add(tecnologiasPanel);
-       add(pSouth,BorderLayout.SOUTH);
+       //add(pSouth,BorderLayout.SOUTH);
 
 
        validate();
     } 
-    
     
     public static BufferedImage getFundoInicio() {
         return fundo;
