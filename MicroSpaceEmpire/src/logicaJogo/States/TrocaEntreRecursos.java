@@ -14,11 +14,17 @@ public class TrocaEntreRecursos extends StateAdapter
     
     public TrocaEntreRecursos(JogoDados j) 
     {
-        super(j);
-        getJogo().recolheRecursos();
-        getJogo().atualizaProducaoRecursos();
-        getJogo().setBloqueio_compraDireta(0); //
+        super(j);      
+        actualiza();
     }
+    
+    private void actualiza()
+    {
+        getJogo().atualizaProducaoRecursos();
+        getJogo().recolheRecursos();
+        getJogo().setBloqueio_compraDireta(0); 
+    }
+    
 
     @Override
     public IStates Trocar_recursos(int TipoDeTroca) 

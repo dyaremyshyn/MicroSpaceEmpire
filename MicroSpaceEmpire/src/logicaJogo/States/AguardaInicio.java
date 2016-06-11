@@ -28,7 +28,4 @@ public class AguardaInicio extends StateAdapter
     return this;
     }
 
-   
-
-   
 }

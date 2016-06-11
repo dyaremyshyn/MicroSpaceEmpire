@@ -469,45 +469,70 @@ public class JogoDados implements Serializable {
         {
             if(AdequiriuT_RobotWorkers()) // caso adquiriu esta tecnologia recebe metade
             {
-            metal+=producaoMetal*0.5;
+                if((metal + getProducaoMetal()*0.5) < limiteRecursos){
+                    metal = limiteRecursos;
+                }else
+                {
+                setMetal((int) (metal + getProducaoMetal()*0.5)); 
+                }
+
+                if((getRiqueza()+ getProducaoRiq()*0.5) < limiteRecursos){
+                    setRiqueza(limiteRecursos);
+                }else
+                {
+                setRiqueza((int) (getRiqueza()+getProducaoRiq()*0.5)); 
+                }
             }
             
             //se nao adquiriu a tecnologia nao recebe recursos
             
         }else{ //recolhe os recursos completos
             
-                if(limiteRecursos > getMetal()) 
+                if(limiteRecursos > (metal + producaoMetal)) 
                 {
-                setMetal(getMetal() + producaoMetal);                    
+                metal += producaoMetal;                    
+                }else
+                {
+                metal = limiteRecursos;
                 }
 
-                if(limiteRecursos > getRiqueza())
+                if(limiteRecursos > (riqueza + producaoRiq))
                 {
-                setRiqueza(getRiqueza() + producaoRiq);
+                riqueza += producaoRiq;
+                }else
+                {
+                riqueza = limiteRecursos;
                 }
              }
         }catch (Exception e)
                             {  
 
-                                    if(limiteRecursos > getMetal()) 
-                                    {
-                                    setMetal(getMetal() + producaoMetal);                    
-                                    }
+                                         if(limiteRecursos > (metal + producaoMetal)) 
+                                        {
+                                        metal += producaoMetal;                    
+                                        }else
+                                        {
+                                        metal = limiteRecursos;
+                                        }
 
-                                    if(limiteRecursos > getRiqueza())
-                                    {
-                                    setRiqueza(getRiqueza() + producaoRiq);
-                                    }                    
+                                        if(limiteRecursos > (riqueza + producaoRiq))
+                                        {
+                                        riqueza += producaoRiq;
+                                        }else
+                                        {
+                                        riqueza = limiteRecursos;
+                                        }    
                             }
+        
         //caso preencha para la do limite repoe o recurso no seu maximo pré estabelecido pelo limite de recuros corrente
-        if(metal > limiteRecursos) 
-        {
-        metal = limiteRecursos;
-        }
-        if(getRiqueza() > limiteRecursos) 
-        {
-        riqueza = limiteRecursos;
-        }
+//        if(getMetal() > limiteRecursos) 
+//        {
+//            setMetal(limiteRecursos);
+//        }
+//        if(getRiqueza() > limiteRecursos) 
+//        {
+//            setRiqueza(limiteRecursos);
+//        }
     } 
     
     public boolean TrocaMetalPorRiqueza()
