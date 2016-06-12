@@ -5,6 +5,7 @@
 package microspaceempire.gui;
 
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.FlowLayout;
@@ -206,7 +207,10 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         porConquistarLabel.setAlignmentX(Component.TOP_ALIGNMENT);
         porConquistarLabel.setForeground(Color.ORANGE);
         
-        
+        currentState = new JLabel("Estado Atual: ");
+        currentState.setFont(new Font("Arial", Font.BOLD, 11));
+        currentState.setAlignmentX(Component.CENTER_ALIGNMENT);
+        currentState.setForeground(Color.ORANGE);
         
         //jpanels para verificação de estado decorrente
         EscolhaDosSystem = new JPanel(); 
@@ -227,7 +231,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
       
 
         EscolhaDosSystem.setLayout(new BoxLayout(EscolhaDosSystem, BoxLayout.Y_AXIS)); //tipo float
-        //EscolhaDosSystem.setBackground(Color.MAGENTA);
+        
         nearPanel.add(nearSystemLabel,BOTTOM_ALIGNMENT);
         distantPanel.add(distantSystemLabel,BOTTOM_ALIGNMENT);
         
@@ -252,6 +256,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         //ParteDosRecursosEeventos.setLayout(new BoxLayout(ParteDosRecursosEeventos, WIDTH));
         ParteDosRecursosEeventos.setLayout(new FlowLayout());
         //ParteDosRecursosEeventos.setBackground(Color.BLACK);
+        ParteDosRecursosEeventos.add(CurrentEvent);
         ParteDosRecursosEeventos.add(recursoMetalPanel);
         ParteDosRecursosEeventos.add(recursoRiquezaPanel);
         ParteDosRecursosEeventos.add(forcaMilitarPanel);
@@ -261,47 +266,46 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         CurrentEvent.setLayout(new BoxLayout(CurrentEvent,BoxLayout.Y_AXIS));
         CurrentEvent.add(EventosPanel);
         
-        Box principal = Box.createHorizontalBox();
-        Box vertical = Box.createVerticalBox();
+        Box principal = Box.createVerticalBox();
+        Box h = Box.createHorizontalBox();
         Box horizontal = Box.createHorizontalBox();
         
         principal.setBorder(new LineBorder(Color.blue));
-        vertical.setBorder(new LineBorder(Color.GREEN));
-        
+        h.setBorder(new LineBorder(Color.GREEN));
         
         principal.add(ParteDosRecursosEeventos);
         principal.add(Box.createHorizontalGlue());
         
         horizontal.add(Box.createHorizontalGlue());
         horizontal.add(Passar);
+        horizontal.add(Box.createHorizontalGlue());
         horizontal.add(trocaRiquezaPorMetal);
         horizontal.add(trocaMetalPorRiqueza);
+        horizontal.add(Box.createHorizontalGlue());
+        horizontal.setAlignmentX(Component.CENTER_ALIGNMENT);
         horizontal.setBorder(new LineBorder(Color.pink));
-        //vertical.add(horizontal,Component.LEFT_ALIGNMENT);
-        vertical.add(Box.createVerticalGlue());
-        vertical.setAlignmentY(Component.BOTTOM_ALIGNMENT);
         
-        //vertical.add(CurrentEvent);
-        
-        principal.add(vertical);
+        h.add(Box.createHorizontalGlue());
+        h.add(currentState);
+        h.add(Box.createHorizontalGlue());
+       
         principal.add(Box.createVerticalGlue());
         principal.setAlignmentY(Component.LEFT_ALIGNMENT);
         principal.add(Box.createHorizontalGlue());
-        principal.add(Box.createHorizontalGlue());
-        principal.add(Box.createHorizontalGlue());
-        principal.add(Box.createHorizontalGlue());
-        
+              
         principal.add(horizontal);
-        
+        principal.add(h);
        add(EscolhaDosSystem);
        add(VisualizacaoDosSystems);
-       add(CurrentEvent);
+       //add(CurrentEvent);
+       
        //add(ParteDosRecursosEeventos);
        //add(Passar);
        //add(tecnologiasPanel);
        //add(pSouth,BorderLayout.SOUTH);
        
-       add(principal);
+       add(principal,BorderLayout.SOUTH);
+       
        add(Box.createHorizontalGlue());
 
        validate();
