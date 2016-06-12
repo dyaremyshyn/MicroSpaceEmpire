@@ -68,7 +68,7 @@ public interface Constantes {
     String PATH_IMG_LARGEINVASIONFORCE = "images/Event_LargeInvasionForce.png";
     
     String PEACEQUIET = "Peace & Quiet";
-    String PATH_IMG_PEACEQUIET = "images/Distant_Polaris.png";
+    String PATH_IMG_PEACEQUIET = "images/Event_PeaceQuiet.png";
        
     String REVOLT = "Revolt";
     String PATH_IMG_REVOLT = "images/Event_Revolt.png";

@@ -5,10 +5,8 @@
 package microspaceempire.gui;
 
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -31,12 +29,8 @@ import javax.swing.JLabel;
 
 import javax.swing.JPanel; 
 import javax.swing.border.LineBorder;
-import javax.swing.text.AbstractDocument;
 import logicaJogo.ObservableGame;
-import logicaJogo.States.ConstruirFM_DescobrirTecnologia;
-import logicaJogo.States.ExplorarAtacar_Conquistar_Passar;
-import logicaJogo.States.IStates;
-import logicaJogo.States.TrocaEntreRecursos;
+
 
 public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observer {
    
@@ -80,7 +74,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     static private BufferedImage  tecnologiasUpdate = null;
     static private BufferedImage  forcaMilitar = null;
     static private BufferedImage  marcador1 = null;
-    static private BufferedImage evento = null;
+   // static private BufferedImage evento = null;
    
     static Map<String, Image> Systems;
     static Map<String, Image> eventos;    
@@ -152,6 +146,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     private void setupComponents()
     {
         //panel com info e os listeners
+        
         EventosPanel=new EventPanel(game);
         
         nearPanel = new NearSystemPanel(game);
@@ -205,6 +200,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         EscolhaDosSystem = new JPanel(); 
         VisualizacaoDosSystems = new JPanel();
         ParteDosRecursosEeventos = new JPanel(); 
+        CurrentEvent = new JPanel();
     
                    
     }
@@ -264,8 +260,8 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         ParteDosRecursosEeventos.add(tecnologiasPanel);
         ParteDosRecursosEeventos.setBackground(new Color(0,0,0,0));
         
-        //CurrentEvent.setLayout(new BoxLayout(CurrentEvent,BoxLayout.Y_AXIS));
-        //CurrentEvent.add(EventosPanel);
+        CurrentEvent.setLayout(new BoxLayout(CurrentEvent,BoxLayout.Y_AXIS));
+        CurrentEvent.add(EventosPanel);
         
         Box principal = Box.createHorizontalBox();
         Box vertical = Box.createVerticalBox();
@@ -301,6 +297,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         
        add(EscolhaDosSystem);
        add(VisualizacaoDosSystems);
+       add(CurrentEvent);
        //add(ParteDosRecursosEeventos);
        //add(Passar);
        //add(tecnologiasPanel);
