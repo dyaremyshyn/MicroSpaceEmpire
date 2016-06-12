@@ -90,6 +90,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
             eventos.put(REVOLT2, ImageIO.read(Resources.getResourceFile(PATH_IMG_REVOLT2)));
             eventos.put(SMALLINVASIONFORCE, ImageIO.read(Resources.getResourceFile(PATH_IMG_SMALLINVASIONFORCE)));
             eventos.put(STRIKE, ImageIO.read(Resources.getResourceFile(PATH_IMG_STRIKE)));
+            eventos.put(EVENT, ImageIO.read(Resources.getResourceFile(PATH_IMG_EVENT)));            
         } catch (IOException e) {
         }
     }

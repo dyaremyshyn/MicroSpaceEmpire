@@ -41,18 +41,20 @@ public class EventPanel extends JPanel implements Constantes{
             String nome = eventoAtual.getNome();
         
         
-        System.out.println(" o nome da imagem é :"+eventoAtual.getNome());
+        //System.out.println(" o nome da imagem é :"+eventoAtual.getNome());
         
             
             Image imagem = MicroSpaceEmpirePanel.getEventImg(nome);
             
             if (imagem != null){
-                 System.out.println("vou pintar a imagem");
+                // System.out.println("vou pintar a imagem");
                 g.drawImage( imagem, x , y ,DIM_X_CARTA, DIM_Y_CARTA, this );
             }else{
                 System.err.println(" imagem == null");
             }
-        }  
+        }  else{
+         g.drawImage( MicroSpaceEmpirePanel.getEventImg(EVENT), x , y ,DIM_X_CARTA, DIM_Y_CARTA, this );
+        }
     
     }
 
