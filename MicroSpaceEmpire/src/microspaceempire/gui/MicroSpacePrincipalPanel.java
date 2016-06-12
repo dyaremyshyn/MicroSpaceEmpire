@@ -1,6 +1,7 @@
 
 package microspaceempire.gui;
 
+import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.util.Observable;
@@ -13,12 +14,12 @@ import logicaJogo.States.IStates;
 
 
 public class MicroSpacePrincipalPanel extends JPanel implements Observer, Constantes{
-     ObservableGame game;
-     MicroSpaceEmpirePanel gamePanel;
-     StartMicroSpaceEmpirePanel startPanel;
+    ObservableGame game;
+    MicroSpaceEmpirePanel gamePanel;
+    StartMicroSpaceEmpirePanel startPanel;
      
      
-     CardLayout cardManager = new CardLayout();
+    CardLayout cardManager = new CardLayout();
    
     
 
@@ -44,8 +45,10 @@ public class MicroSpacePrincipalPanel extends JPanel implements Observer, Consta
     private void setupLayout()
     {
         setLayout(cardManager);
+        
         add(startPanel, "start"); 
         add(gamePanel, "game");  
+        
         
 //        add(startPanel); 
 //        add(gamePanel);  

@@ -33,7 +33,6 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
     JButton start;
     JLabel title; 
     
-    //JogoDados jogoDados;
     ObservableGame observableGame;
     
     

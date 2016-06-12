@@ -5,6 +5,7 @@
  */
 package microspaceempire.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 
@@ -15,12 +16,11 @@ import logicaJogo.ObservableGame;
 
 /**
  *
- * @author Dmytro Yaremyshyn
+ * @author Dmytro Yaremyshyn & Sérgio Cruz
  */
 public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constantes{
    
     private ObservableGame observableGame;
-
     private MicroSpacePrincipalPanel painelPrincipal;
 
     
@@ -39,14 +39,9 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
         observableGame = j;
         observableGame.addObserver(this);
         
-   
-
         painelPrincipal = new MicroSpacePrincipalPanel(observableGame);
+        addComponents();
         
-         addComponents();
-
-        
-               
         setLocation(0, 0); 
         setSize(width,height); 
         setMinimumSize(new Dimension(width,height));
@@ -60,11 +55,9 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
 
      private void addComponents()
     {      
-
-         Container cp = getContentPane(); 
-//        cp.setLayout(new FlowLayout());//
-        cp.add(painelPrincipal);
-
+        Container cp = getContentPane(); 
+        cp.setLayout(new BorderLayout());//
+        cp.add(painelPrincipal,BorderLayout.CENTER);
     }
     
     @Override
