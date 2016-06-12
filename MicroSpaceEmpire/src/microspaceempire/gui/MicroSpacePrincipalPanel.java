@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import logicaJogo.ObservableGame;
 import logicaJogo.States.AguardaInicio;
+import logicaJogo.States.Fim;
 import logicaJogo.States.IStates;
 
 
@@ -17,6 +18,7 @@ public class MicroSpacePrincipalPanel extends JPanel implements Observer, Consta
     ObservableGame game;
     MicroSpaceEmpirePanel gamePanel;
     StartMicroSpaceEmpirePanel startPanel;
+    EndMicroSpaceEmpirePanel endPanel;
      
      
     CardLayout cardManager = new CardLayout();
@@ -39,7 +41,7 @@ public class MicroSpacePrincipalPanel extends JPanel implements Observer, Consta
     {
         startPanel = new StartMicroSpaceEmpirePanel(game);
         gamePanel = new  MicroSpaceEmpirePanel(game);
-   
+        endPanel = new EndMicroSpaceEmpirePanel(game);
     }
 
     private void setupLayout()
@@ -47,11 +49,10 @@ public class MicroSpacePrincipalPanel extends JPanel implements Observer, Consta
         setLayout(cardManager);
         
         add(startPanel, "start"); 
-        add(gamePanel, "game");  
+        add(gamePanel, "game"); 
+        add(endPanel, "end");
         
-        
-//        add(startPanel); 
-//        add(gamePanel);  
+  
         
         validate();
     }
@@ -59,11 +60,13 @@ public class MicroSpacePrincipalPanel extends JPanel implements Observer, Consta
     @Override
     public void update(Observable o, Object arg) {
         IStates estado = game.getStates();
+       
         if(estado instanceof AguardaInicio ){
             cardManager.show(this, "start");
+        }else if(estado instanceof Fim){           
+            cardManager.show(this, "end");
         }else{
-            
-            cardManager.show(this, "game");
+           cardManager.show(this, "game");
         }
     }
     
