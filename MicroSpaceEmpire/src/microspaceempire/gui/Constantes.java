@@ -19,8 +19,8 @@ public interface Constantes {
     static final int DIM_X_TecnologImg = 500;
     static final int DIM_Y_TecnologImg = 350;
     
-    static final int DIM_X_Marcador = 50;
-    static final int DIM_Y_Marcador = 50;
+    static final int DIM_X_Marcador = 49;
+    static final int DIM_Y_Marcador = 44;
     
     static final int DIM_X_MarcadorProd = 35;
     static final int DIM_Y_MarcadorProd = 35;
@@ -31,6 +31,20 @@ public interface Constantes {
     static final int DIM_X_SOUTH_PANEL = DIM_X_FRAME;
     static final int DIM_Y_SOUTH_PANEL = 260;
     
+    
+    //nome das tecnologias
+    //1 geraçao
+    String CAPIT = "Capital Ships";
+    String ROBOT = "Robot Workers";                  
+    String HYPER = "Hyper Television";
+    String INTERSPE = "Interspecies Commerce";
+    
+    //2 geraçao
+    String FORWARD = "Forward Starbases";
+    String PLANETARY = "Planetary Defenses";                  
+    String INTERDIPLO = "Interstellar Diplomacy";
+    String INTERBANK = "Interstellar Banking";
+                        
     
     String CANOPUS = "Canopus";
     String PATH_IMG_CANOPUS = "images/Distant_Canopus.png";

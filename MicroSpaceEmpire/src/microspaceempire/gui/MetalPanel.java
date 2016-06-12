@@ -73,8 +73,7 @@ public void colocaMarcador_stockMetal(Graphics g)
        
      
        if(flag == 0){
-       g.drawImage(MicroSpaceEmpirePanel.getMarcador1(),x, y, DIM_X_Marcador, DIM_Y_Marcador, this); //mercador de quantidade em stok
-       System.out.println("Metal mostro :q: "+observableGame.getMetal()+"  x = "+x+"  y = "+ y);
+       g.drawImage(MicroSpaceEmpirePanel.getMarcador1(),x, y, DIM_X_Marcador, DIM_Y_Marcador, this); //mercador de quantidade em stok     
        }
     }
     

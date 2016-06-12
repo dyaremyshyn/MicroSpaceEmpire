@@ -75,7 +75,6 @@ public class WeathPanel extends JPanel implements Constantes{
      
        if(flag == 0){
        g.drawImage(MicroSpaceEmpirePanel.getMarcador1(),x, y, DIM_X_Marcador, DIM_Y_Marcador, this); //mercador de quantidade em stok
-       System.out.println("Wealth mostro :q: "+observableGame.getRiqueza()+"  x = "+x+"  y = "+ y);
        }
     }
     

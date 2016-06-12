@@ -44,6 +44,10 @@ public class ObservableGame extends Observable {
     
     // Methods retrieve data from the game
     // funcoes de consulta dos dados
+    public int DevolveTecnologiaAlvo(String nome){
+    return jogo.DevolveTecnologiaAlvo(nome);
+    }
+    
     
     public List<Carta> getNearSystem() {
         return jogo.getNearSystem();

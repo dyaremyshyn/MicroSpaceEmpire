@@ -599,6 +599,19 @@ public class JogoDados implements Serializable {
     return false;
     }
 
+    public int DevolveTecnologiaAlvo(String nome)
+    {   int alvo= -1;
+        for(int i= 0; i< tecnologias.size();i++)
+        {
+            if(tecnologias.get(i).getNome().equals(nome)){
+            alvo= i;}
+        }
+
+        return alvo;
+    }
+    
+    
+    
     public boolean DescobrirTecnologia(int x)
     {
         if(x <= tecnologias.size())//caso o numero indicado nao seja indicativo de uma tecnologia , nao fazer nada()

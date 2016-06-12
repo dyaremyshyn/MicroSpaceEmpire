@@ -93,7 +93,7 @@ public class MilitaryStrenghPanel extends JPanel implements Constantes{
             int x = e.getX(); //get x do mouse
             int y = e.getY(); //get y do mouse
             
-            System.out.println("x = " + x + "y = " + y);
+           // System.out.println("x = " + x + "y = " + y);
      
             trataclique( x, y);
             

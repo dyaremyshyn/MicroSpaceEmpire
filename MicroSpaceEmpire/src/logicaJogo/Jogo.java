@@ -42,6 +42,11 @@ public class Jogo implements Serializable
     
     //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
     // funçoes get dados para gui
+    public int DevolveTecnologiaAlvo(String nome)
+    {
+    return dados.DevolveTecnologiaAlvo(nome);
+    }
+    
     public List<Carta> getNearSystem() {
         return dados.getNearSystem();
     }
