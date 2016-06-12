@@ -86,7 +86,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     static private BufferedImage  tecnologiasUpdate = null;
     static private BufferedImage  forcaMilitar = null;
     static private BufferedImage  marcador1 = null;
-   // static private BufferedImage evento = null;
+    static private BufferedImage marcador_tecnologias = null;
    
     static Map<String, Image> Systems;
     static Map<String, Image> eventos;    
@@ -340,6 +340,9 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         return marcador1;
     }
 	
+    public static BufferedImage getMarcador_Tecnologias() {
+        return marcador_tecnologias;
+    }
     
     static {
         try {
@@ -350,7 +353,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
             tecnologiasUpdate = ImageIO.read(Resources.getResourceFile("images/Technology.png"));
             forcaMilitar = ImageIO.read(Resources.getResourceFile("images/Military.png"));
             marcador1 =  ImageIO.read(Resources.getResourceFile("images/marcador2.png"));
-            
+            marcador_tecnologias = ImageIO.read(Resources.getResourceFile("images/check.png"));
         } catch (IOException e) {
             System.out.println("Error loading images ");
         }

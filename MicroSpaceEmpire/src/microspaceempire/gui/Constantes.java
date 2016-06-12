@@ -24,6 +24,9 @@ public interface Constantes {
     
     static final int DIM_X_MARCADORPRO = 35;
     static final int DIM_Y_MARCADORPRO = 35;
+    
+    static final int DIM_X_MARCADORTEC = 20;
+    static final int DIM_Y_MARCADORTEC = 20;
             
     static final int DIM_X_FRAME = 1920;
     static final int DIM_Y_FRAME = 1000;

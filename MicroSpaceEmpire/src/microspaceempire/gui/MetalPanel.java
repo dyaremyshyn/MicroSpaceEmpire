@@ -7,6 +7,8 @@ package microspaceempire.gui;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 import logicaJogo.ObservableGame;
 
@@ -19,13 +21,16 @@ private ObservableGame observableGame;
   {
       
     this.observableGame = observableGame;
+    settamanho();
     
-    setMaximumSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));
-    setPreferredSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));
-    setMinimumSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));    
   }
 
- 
+ public final void settamanho(){
+    setMaximumSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));
+    setPreferredSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));
+    setMinimumSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG)); 
+    // addMouseListener( new MetalPanel.DestaqueListener());
+ }
   
 @Override
   public void paintComponent(Graphics g)
@@ -38,6 +43,21 @@ private ObservableGame observableGame;
     colocaMarcador_ProduMetal(g);
   }
     
+//  class DestaqueListener extends MouseAdapter 
+//    {
+//        @Override
+//        public void mousePressed( MouseEvent e)
+//        {
+//            int x = e.getX(); //get x do mouse
+//            int y = e.getY(); //get y do mouse
+//            
+//           System.out.println("x = " + x + "y = " + y);
+//     
+//         
+//            
+//        }
+//    }
+  
 public void colocaMarcador_stockMetal(Graphics g)
     {
         int x = 0 ,y = 0;
@@ -62,12 +82,12 @@ public void colocaMarcador_stockMetal(Graphics g)
                  y = 75;
                break;
            case 4:
-                 x = 179;
-                 y = 161;
+                 x = 180;
+                 y = 125;
                break;
            case 5 :
                  x = 233;
-                 y = 161;
+                 y = 125;
                break;
                
            default:

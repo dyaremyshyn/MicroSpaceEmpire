@@ -55,7 +55,7 @@ public class WeathPanel extends JPanel implements Constantes{
                  y = 75;
                break;
            case 2:
-                 x = 179 ;
+                 x = 180 ;
                  y = 75;
                break;
            case 3:
@@ -63,12 +63,12 @@ public class WeathPanel extends JPanel implements Constantes{
                  y = 75;
                break;
            case 4:
-                 x = 179 ;
-                 y = 161;
+                 x = 180 ;
+                 y = 125;
                break;
            case 5 :
                  x = 233;
-                 y = 161;
+                 y = 125;
                break;
                
            default:

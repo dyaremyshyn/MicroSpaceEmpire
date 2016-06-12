@@ -33,12 +33,65 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
   public void paintComponent(Graphics g)
   {
     super.paintComponent(g);
-                
-     
+                   
        g.drawImage(MicroSpaceEmpirePanel.getTecnologiasUpdate(),0, 0, DIM_X_TECNOLOG_IMG, DIM_Y_TECNOLOG_IMG, this);                     
-    
+       pinta_marcadores(g);    
   }
     
+    public void pinta_marcadores(Graphics g)
+    {
+      
+     
+    int x_1= 35;
+    int x_2= 285;
+    int y_1= 105;
+    int y_2= 165;
+    int y_3= 225;
+    int y_4= 275;
+      
+           
+           
+          //pinta mercadores de aquisiçao
+        //1 geraçao
+        if(observableGame.AdequiriuT_RobotWorkers())
+        {         
+        
+        g.drawImage(MicroSpaceEmpirePanel.getMarcador_Tecnologias(),x_1, y_2, DIM_X_MARCADORTEC, DIM_Y_MARCADORTEC, this);
+        }
+        if(observableGame.AdequiriuT_InterspeciesComerce())
+        {
+        g.drawImage(MicroSpaceEmpirePanel.getMarcador_Tecnologias(),x_1, y_4, DIM_X_MARCADORTEC, DIM_Y_MARCADORTEC, this);
+        }
+        if(observableGame.AdequiriuT_CapitalShips())
+        {
+        g.drawImage(MicroSpaceEmpirePanel.getMarcador_Tecnologias(),x_1, y_1, DIM_X_MARCADORTEC, DIM_Y_MARCADORTEC, this);
+        }
+        if(observableGame.AdequiriuT_HyperTelevision())
+        {
+        g.drawImage(MicroSpaceEmpirePanel.getMarcador_Tecnologias(),x_1, y_3, DIM_X_MARCADORTEC, DIM_Y_MARCADORTEC, this);
+        }
+        
+        //2 geraçao
+        if(observableGame.AdequiriuT_ForwardStarbases())
+        {
+        g.drawImage(MicroSpaceEmpirePanel.getMarcador_Tecnologias(),x_2, y_1, DIM_X_MARCADORTEC, DIM_Y_MARCADORTEC, this);
+        } 
+        if(observableGame.AdequiriuT_InterstellarBanking())
+        {
+        g.drawImage(MicroSpaceEmpirePanel.getMarcador_Tecnologias(),x_2, y_4, DIM_X_MARCADORTEC, DIM_Y_MARCADORTEC, this);
+        }
+        if(observableGame.AdequiriuT_InterstellarDiplomacy())
+        {
+        g.drawImage(MicroSpaceEmpirePanel.getMarcador_Tecnologias(),x_2, y_3, DIM_X_MARCADORTEC, DIM_Y_MARCADORTEC, this);
+        }
+        if(observableGame.AdequiriuT_PlanetaryDefenses())
+        {
+        g.drawImage(MicroSpaceEmpirePanel.getMarcador_Tecnologias(),x_2, y_2, DIM_X_MARCADORTEC, DIM_Y_MARCADORTEC, this);
+        }  
+    
+    }
+  
+  
     class DestaqueListener extends MouseAdapter 
     {
         @Override
@@ -46,9 +99,7 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
         {
             int x = e.getX(); //get x do mouse
             int y = e.getY(); //get y do mouse
-
-            System.out.println("x = " + x + "y = " + y);
-     
+           // System.out.println("x = " + x + "y = " + y);    
             trataclique( x, y);
         }
     }
@@ -90,6 +141,7 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
             alvo = observableGame.DevolveTecnologiaAlvo(CAPIT);
             observableGame.EscolheDescobrirTecnologia();
             observableGame.Comprar_Tecnologia(alvo);
+            observableGame.Cancelar();
         }
         
         if((x >  x_min_1ger && x < x_max_1ger) && (y > seg__fr_linha_y && y < seg__la_linha_y) )
@@ -97,6 +149,7 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
             alvo = observableGame.DevolveTecnologiaAlvo(ROBOT);
             observableGame.EscolheDescobrirTecnologia();
             observableGame.Comprar_Tecnologia(alvo);
+            observableGame.Cancelar();
         }
         
         if((x >  x_min_1ger && x < x_max_1ger) && (y > ter_fr_linha_y && y < ter_la_linha_y) )
@@ -104,6 +157,7 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
             alvo = observableGame.DevolveTecnologiaAlvo(HYPER);
             observableGame.EscolheDescobrirTecnologia();
             observableGame.Comprar_Tecnologia(alvo);
+            observableGame.Cancelar();
         }
         
         if((x >  x_min_1ger && x < x_max_1ger) && (y > qua_fr_linha_y && y < qua_la_linha_y) )
@@ -111,6 +165,7 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
             alvo = observableGame.DevolveTecnologiaAlvo(INTERSPE);
             observableGame.EscolheDescobrirTecnologia();
             observableGame.Comprar_Tecnologia(alvo);
+            observableGame.Cancelar();
         }
         
         //areas das tecnologias da 2 geração
@@ -119,6 +174,7 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
             alvo = observableGame.DevolveTecnologiaAlvo(FORWARD);
             observableGame.EscolheDescobrirTecnologia();
             observableGame.Comprar_Tecnologia(alvo);
+            observableGame.Cancelar();
         }
         
         if((x >  x_min_2ger && x < x_max_2ger) && (y > seg__fr_linha_y && y < seg__la_linha_y) )
@@ -126,6 +182,7 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
             alvo = observableGame.DevolveTecnologiaAlvo(PLANETARY);
             observableGame.EscolheDescobrirTecnologia();
             observableGame.Comprar_Tecnologia(alvo);
+            observableGame.Cancelar();
         }
         
         if((x >  x_min_2ger && x < x_max_2ger) && (y > ter_fr_linha_y && y < ter_la_linha_y) )
@@ -133,6 +190,7 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
             alvo = observableGame.DevolveTecnologiaAlvo(INTERDIPLO);
             observableGame.EscolheDescobrirTecnologia();
             observableGame.Comprar_Tecnologia(alvo);
+            observableGame.Cancelar();
         }
         
         if((x >  x_min_2ger && x < x_max_2ger) && (y > qua_fr_linha_y && y < qua_la_linha_y) )
@@ -140,16 +198,12 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
             alvo = observableGame.DevolveTecnologiaAlvo(INTERBANK);
             observableGame.EscolheDescobrirTecnologia();
             observableGame.Comprar_Tecnologia(alvo);
+            observableGame.Cancelar();
         }
         
-//        if(alvo == (-1)){
-//        observableGame.Cancelar();
-//         System.out.println("cancelei "+ alvo);   
-//        }
-        System.out.println("o alvo foi "+ alvo);
-        
-        
-        
+
+        //System.out.println("o alvo foi "+ alvo);
+
         return -1;
     }    
 }

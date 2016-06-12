@@ -745,6 +745,27 @@ public class JogoDados implements Serializable {
     return false;
     }
     
+    public boolean AdequiriuT_InterstellarDiplomacy()
+    {
+        for(int i = 0;i < tecnologiasAdquiridas.size();i++)
+        {
+            if("Interstellar Diplomacy".equals(tecnologiasAdquiridas.get(i).getNome()))
+                return true;
+        }
+    return false;
+    }
+    
+    public boolean AdequiriuT_InterstellarBanking()
+    {
+        for(int i = 0;i < tecnologiasAdquiridas.size();i++)
+        {
+            if("Interstellar Banking".equals(tecnologiasAdquiridas.get(i).getNome()))
+                return true;
+        }
+    return false;
+    }
+    
+    
     public boolean verificaPorConquistar(){
         return !porConquistar.isEmpty();
     }

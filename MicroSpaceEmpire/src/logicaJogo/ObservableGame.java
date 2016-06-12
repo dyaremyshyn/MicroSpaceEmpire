@@ -130,6 +130,38 @@ public class ObservableGame extends Observable {
     return jogo.AdequiriuT_InterspeciesComerce();
     }
     
+     public boolean AdequiriuT_RobotWorkers()
+    {
+    return jogo.AdequiriuT_RobotWorkers();
+    }   
+  
+    public boolean AdequiriuT_PlanetaryDefenses()
+    {
+    return jogo.AdequiriuT_PlanetaryDefenses();
+    }
+    
+    public boolean AdequiriuT_CapitalShips()
+    {
+    return jogo.AdequiriuT_CapitalShips();
+    }
+    
+    public boolean AdequiriuT_HyperTelevision()
+    {
+    return jogo.AdequiriuT_HyperTelevision();
+    }
+    
+    public boolean AdequiriuT_InterstellarDiplomacy()
+    {
+      return jogo.AdequiriuT_InterstellarDiplomacy();
+    }
+    
+    public boolean AdequiriuT_InterstellarBanking()
+    {
+      return jogo.AdequiriuT_InterstellarBanking();
+    }
+    
+    
+    
     public int getBloqueio_compraDireta() {
         return jogo.getBloqueio_compraDireta();
     } 
