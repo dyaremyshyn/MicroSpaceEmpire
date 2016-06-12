@@ -157,6 +157,17 @@ public class Jogo implements Serializable
     return dados.Painel_Conquistar();
     }
     
+    //infos GUI
+    public String help()
+    {
+    return dados.help();
+    }
+    
+    public String about()
+    {
+    return dados.about();
+    }
+    
     //funções de verificação
     
     public boolean AdequiriuT_ForwardStarbases()

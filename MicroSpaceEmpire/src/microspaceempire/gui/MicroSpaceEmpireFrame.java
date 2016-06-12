@@ -91,7 +91,7 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
     JMenu Menu_file = new JMenu("File");
     Menu_file.setMnemonic(KeyEvent.VK_G);
     
-    JMenu Menu_help = new JMenu("Help");
+    JMenu Menu_help = new JMenu("More");
     Menu_help.setMnemonic(KeyEvent.VK_H);
     
     
@@ -207,7 +207,7 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
     {
         @Override
         public void actionPerformed(ActionEvent e) {
-          JOptionPane.showMessageDialog(MicroSpaceEmpireFrame.this,"ola\nola\ns","Help",JOptionPane.PLAIN_MESSAGE);
+          JOptionPane.showMessageDialog(MicroSpaceEmpireFrame.this,game.help(),"Help",JOptionPane.PLAIN_MESSAGE);
         }
     }
 
@@ -216,7 +216,7 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
 
         @Override
         public void actionPerformed(ActionEvent e) {
-        JOptionPane.showMessageDialog(MicroSpaceEmpireFrame.this,"ola","About",JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(MicroSpaceEmpireFrame.this,game.about(),"About",JOptionPane.PLAIN_MESSAGE);
         }
     }
     

@@ -995,5 +995,42 @@ public class JogoDados implements Serializable {
                 + "\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::";
     } 
     
+  //mensagens GUI
     
+    public String about()
+    {
+    return      "TP 2015/2016 - Micro Space Empire \n\n"
+                + "Jogo realizado no ambito da disciplina: "                 
+                + "\n- Programação Avançada\n"
+                + "\n=== Criadores ===\n" 
+                + "\n- Dmytro Yaremyshyn nº" 
+                + "\n- Sérgio Cruz nº21230463 ";
+    }
+    
+    public String help()
+    {
+    return      "INFORMAÇÔES SOBRE O JOGO"
+                + "\n\nFluxo do jogo\n"  
+            + "***********************************************************************************************************************************************"
+                + "\n\nO jogo ocorre em dois anos (terminando ao fim do segundo ano), de acordo com a seguinte sequência de etapas:"
+                + "\n\nI. Preparação do jogo" 
+                + "\nII. Turno" 
+                    + "\n\t\t\t 1. Explorar-atacar/Conquistar/Passar" 
+                    + "\n\t\t\t 2. Recolher o Metal e a Riqueza" 
+                    +"\n\t\t\t 3. Construir a Força Militar (Military Strength) e Descobrir Tecnologia" 
+                    +"\n\t\t\t 4. Eventos ; verificar fim de ano" 
+                    +"\n\t\t\t 5. Enquanto não terminar o segundo ano, continuar na fase 1 do turno seguinte"
+                +"\nIII. Fim do jogo – contagem dos pontos"
+            + "\n\nRestrições"   
+            + "\n*********************************************************************************************************************************************"
+            + "\n* Na fase II.2:"
+                    + "\n\t\t\tdepois de adquirida a tecnologia 'Interspecies' comerce é possivel apenas uma vez por turno a troca entre recursos"
+            + "\n* Na fase II.3: "
+                    + "\n\t\t\t Apenas é possivel comprar uma tecnologia da 2 geração se se tiver comprado a tecnologia da 1 geração correspondente"
+                    + "\n\t\t\t Só se pode comprar uma tecnologia por turno "
+                    + "\n\t\t\t Só se pode aumentar a força militar uma vez por turno"
+            +"\n* Na fase II.4: "
+                    +"\n\t\t\t Caso o seu império seja apenas constituído pelo seu Home World, o evento revolta não tem qualquer efeito no primeiro "
+            + "\n\t\t\t ano e leva à perda do jogo no segundo ano pelo facto do seu Home World se revoltar.";
+    }
 }
