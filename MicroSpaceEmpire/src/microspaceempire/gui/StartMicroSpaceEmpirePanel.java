@@ -1,10 +1,12 @@
-
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
 package microspaceempire.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -18,15 +20,7 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
-import logicaJogo.JogoDados;
 import logicaJogo.ObservableGame;
-
-
-/**
- *
- * @author Dmytro Yaremyshyn & Sergio Cruz
- */
 
 public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Constantes{
    

@@ -1,4 +1,7 @@
-
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
 package microspaceempire.gui;
 
 import java.awt.Color;

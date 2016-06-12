@@ -1,3 +1,7 @@
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
 
 package microspaceempire.gui;
 
@@ -8,9 +12,6 @@ import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 import logicaJogo.ObservableGame;
 
-
-
-
 public class TechnologyUpdatePanel extends JPanel implements Constantes{
      private ObservableGame observableGame;
 
@@ -19,9 +20,9 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
       
     this.observableGame = observableGame;
     
-    setMaximumSize(new Dimension(DIM_X_TecnologImg, DIM_Y_TecnologImg));
-    setPreferredSize(new Dimension(DIM_X_TecnologImg, DIM_Y_TecnologImg));
-    setMinimumSize(new Dimension(DIM_X_TecnologImg, DIM_Y_TecnologImg));
+    setMaximumSize(new Dimension(DIM_X_TECNOLOG_IMG, DIM_Y_TECNOLOG_IMG));
+    setPreferredSize(new Dimension(DIM_X_TECNOLOG_IMG, DIM_Y_TECNOLOG_IMG));
+    setMinimumSize(new Dimension(DIM_X_TECNOLOG_IMG, DIM_Y_TECNOLOG_IMG));
     
     addMouseListener( new DestaqueListener());
   }
@@ -34,7 +35,7 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
     super.paintComponent(g);
                 
      
-       g.drawImage(MicroSpaceEmpirePanel.getTecnologiasUpdate(),0, 0, DIM_X_TecnologImg, DIM_Y_TecnologImg, this);                     
+       g.drawImage(MicroSpaceEmpirePanel.getTecnologiasUpdate(),0, 0, DIM_X_TECNOLOG_IMG, DIM_Y_TECNOLOG_IMG, this);                     
     
   }
     
@@ -74,10 +75,10 @@ public class TechnologyUpdatePanel extends JPanel implements Constantes{
         
         int alvo = -1;
         
-        if ( y < 0 || y > DIM_Y_TecnologImg){
+        if ( y < 0 || y > DIM_Y_TECNOLOG_IMG){
             return -1;
         }
-        if ( x < 0 || x > DIM_X_TecnologImg){
+        if ( x < 0 || x > DIM_X_TECNOLOG_IMG){
             return -1;
         }
         

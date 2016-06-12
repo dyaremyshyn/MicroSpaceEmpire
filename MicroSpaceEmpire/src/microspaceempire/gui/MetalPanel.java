@@ -1,4 +1,7 @@
-
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
 package microspaceempire.gui;
 
 
@@ -17,9 +20,9 @@ private ObservableGame observableGame;
       
     this.observableGame = observableGame;
     
-    setMaximumSize(new Dimension(DIM_X_RecursoImg, DIM_Y_RecursoImg));
-    setPreferredSize(new Dimension(DIM_X_RecursoImg, DIM_Y_RecursoImg));
-    setMinimumSize(new Dimension(DIM_X_RecursoImg, DIM_Y_RecursoImg));    
+    setMaximumSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));
+    setPreferredSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));
+    setMinimumSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));    
   }
 
  
@@ -29,7 +32,7 @@ private ObservableGame observableGame;
   {
     super.paintComponent(g); 
      
-    g.drawImage(MicroSpaceEmpirePanel.getMetal(),0, 0, DIM_X_RecursoImg, DIM_Y_RecursoImg, this);   
+    g.drawImage(MicroSpaceEmpirePanel.getMetal(),0, 0, DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG, this);   
     
     colocaMarcador_stockMetal(g);
     colocaMarcador_ProduMetal(g);
@@ -73,7 +76,7 @@ public void colocaMarcador_stockMetal(Graphics g)
        
      
        if(flag == 0){
-       g.drawImage(MicroSpaceEmpirePanel.getMarcador1(),x, y, DIM_X_Marcador, DIM_Y_Marcador, this); //mercador de quantidade em stok     
+       g.drawImage(MicroSpaceEmpirePanel.getMarcador1(),x, y, DIM_X_MARCADOR, DIM_Y_MARCADOR, this); //mercador de quantidade em stok     
        }
     }
     
@@ -113,6 +116,6 @@ public void colocaMarcador_stockMetal(Graphics g)
        
      
        if(flag == 0)
-       g.drawImage(MicroSpaceEmpirePanel.getMarcador1(),x, y, DIM_X_MarcadorProd, DIM_Y_MarcadorProd, this); //mercador de quantidade em stok
+       g.drawImage(MicroSpaceEmpirePanel.getMarcador1(),x, y, DIM_X_MARCADORPRO, DIM_Y_MARCADORPRO, this); //mercador de quantidade em stok
     }           
 }

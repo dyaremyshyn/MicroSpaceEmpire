@@ -14,7 +14,9 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,11 +27,20 @@ import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 import javax.swing.JPanel; 
+import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
+import logicaJogo.Jogo;
 import logicaJogo.ObservableGame;
+import logicaJogo.files.FileUtility;
 
 
 public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observer {
@@ -65,7 +76,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     JLabel porConquistarLabel;
     JLabel currentState;
     
-    
+    JMenuBar menuBar;
      
     static private BufferedImage fundo = null;
     static private BufferedImage  SystemParteTras = null;
@@ -137,12 +148,12 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         
         setupComponents();
         setupLayout();
-    
-        update(this.game, null);
+         
+         update(this.game, null);
         
         validate();
-        repaint();
     }
+      
 
     private void setupComponents()
     {
@@ -210,21 +221,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     {
         //setLayout(new BorderLayout());
 
-//   
-// importante manter esta implementaçao
-       /* int nSist = game.getImperio().size();
 
-         imperio.setMaximumSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
-         imperio.setPreferredSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
-         imperio.setMinimumSize(new Dimension(DIM_X_CARTA * nSist, DIM_Y_CARTA));
-        
-         int nPorConq = game.getPorConquistar().size();
-
-          porConquistar.setMaximumSize(new Dimension(DIM_X_CARTA * nPorConq , DIM_Y_CARTA));
-          porConquistar.setPreferredSize(new Dimension(DIM_X_CARTA * nPorConq , DIM_Y_CARTA));
-          porConquistar.setMinimumSize(new Dimension(DIM_X_CARTA * nPorConq , DIM_Y_CARTA));*/
-        
-//        
 //         //escolhe sistema near ou distant
 
       
@@ -369,7 +366,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
       @Override
     public void update(Observable o, Object arg)
     {
-         
+           
 //        IStates estado = game.getStates();
 //      
 //     nearPanel = new NearSystemPanel(game);

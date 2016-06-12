@@ -142,6 +142,11 @@ public class Jogo implements Serializable
     return dados.Painel_final();
     }
     
+    public String Painel_final_GUI()
+    {
+    return dados.Painel_final_GUI();
+    }
+    
      public String Painel_recurso_riqueza()
     {
     return dados.Painel_recurso_riqueza();

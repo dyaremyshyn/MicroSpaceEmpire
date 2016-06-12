@@ -1,4 +1,7 @@
-
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
 package microspaceempire.gui;
 
 import java.awt.Dimension;
@@ -16,9 +19,9 @@ public class WeathPanel extends JPanel implements Constantes{
       
     this.observableGame = observableGame;
     
-    setMaximumSize(new Dimension(DIM_X_RecursoImg, DIM_Y_RecursoImg));
-    setPreferredSize(new Dimension(DIM_X_RecursoImg, DIM_Y_RecursoImg));
-    setMinimumSize(new Dimension(DIM_X_RecursoImg, DIM_Y_RecursoImg));
+    setMaximumSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));
+    setPreferredSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));
+    setMinimumSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));
   }
     
    
@@ -29,7 +32,7 @@ public class WeathPanel extends JPanel implements Constantes{
     super.paintComponent(g);
             
      
-       g.drawImage(MicroSpaceEmpirePanel.getRiqueza(),0, 0, DIM_X_RecursoImg, DIM_Y_RecursoImg, this);   
+       g.drawImage(MicroSpaceEmpirePanel.getRiqueza(),0, 0, DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG, this);   
       
        colocaMarcador_stockRiq(g);
        colocaMarcador_ProduRiq(g);  
@@ -74,7 +77,7 @@ public class WeathPanel extends JPanel implements Constantes{
        
      
        if(flag == 0){
-       g.drawImage(MicroSpaceEmpirePanel.getMarcador1(),x, y, DIM_X_Marcador, DIM_Y_Marcador, this); //mercador de quantidade em stok
+       g.drawImage(MicroSpaceEmpirePanel.getMarcador1(),x, y, DIM_X_MARCADOR, DIM_Y_MARCADOR, this); //mercador de quantidade em stok
        }
     }
     
@@ -114,6 +117,6 @@ public class WeathPanel extends JPanel implements Constantes{
        
      
        if(flag == 0)
-       g.drawImage(MicroSpaceEmpirePanel.getMarcador1(),x, y, DIM_X_MarcadorProd, DIM_Y_MarcadorProd, this); //mercador de quantidade em stok
+       g.drawImage(MicroSpaceEmpirePanel.getMarcador1(),x, y, DIM_X_MARCADORPRO, DIM_Y_MARCADORPRO, this); //mercador de quantidade em stok
     }      
 }

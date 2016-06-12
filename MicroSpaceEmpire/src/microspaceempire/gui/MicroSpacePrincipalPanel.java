@@ -1,13 +1,17 @@
-
+/**
+ *
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
+ */
 package microspaceempire.gui;
 
-import java.awt.BorderLayout;
+
+import static com.sun.javafx.fxml.expression.Expression.add;
 import java.awt.CardLayout;
-import java.awt.Color;
+
 import java.util.Observable;
 import java.util.Observer;
 import javax.swing.JPanel;
-import javax.swing.border.LineBorder;
+
 import logicaJogo.ObservableGame;
 import logicaJogo.States.AguardaInicio;
 import logicaJogo.States.Fim;
@@ -19,10 +23,10 @@ public class MicroSpacePrincipalPanel extends JPanel implements Observer, Consta
     MicroSpaceEmpirePanel gamePanel;
     StartMicroSpaceEmpirePanel startPanel;
     EndMicroSpaceEmpirePanel endPanel;
-     
-     
+          
     CardLayout cardManager = new CardLayout();
    
+    
     
 
     public MicroSpacePrincipalPanel(ObservableGame game)
@@ -32,26 +36,29 @@ public class MicroSpacePrincipalPanel extends JPanel implements Observer, Consta
               
         setupComponents();
         setupLayout();
-
+     
+       
         
         update(this.game, null);
     }
 
+    
+    
     private void setupComponents()
     {
         startPanel = new StartMicroSpaceEmpirePanel(game);
         gamePanel = new  MicroSpaceEmpirePanel(game);
         endPanel = new EndMicroSpaceEmpirePanel(game);
+        
     }
 
     private void setupLayout()
     {
         setLayout(cardManager);
-        
+      
         add(startPanel, "start"); 
         add(gamePanel, "game"); 
         add(endPanel, "end");
-        
   
         
         validate();
@@ -61,13 +68,25 @@ public class MicroSpacePrincipalPanel extends JPanel implements Observer, Consta
     public void update(Observable o, Object arg) {
         IStates estado = game.getStates();
        
+       
+        
         if(estado instanceof AguardaInicio ){
+            
             cardManager.show(this, "start");
-        }else if(estado instanceof Fim){           
+            
+        }else if(estado instanceof Fim){ 
+           
             cardManager.show(this, "end");
         }else{
+            
            cardManager.show(this, "game");
         }
     }
+
+   
+    
+    
+    
+    
     
 }

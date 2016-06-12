@@ -1,10 +1,10 @@
-
-package microspaceempire.gui;
-
 /**
  *
- * @author Dmytro Yaremyshyn
+ * @authors Dmytro Yaremyshyn and Sérgio Cruz
  */
+package microspaceempire.gui;
+
+
 public interface Constantes {
     
     static final int DIM_X_CARTA = 150;
@@ -13,17 +13,17 @@ public interface Constantes {
     static final int BORDER_X = 10;
     static final int BORDER_Y = 10;
     
-    static final int DIM_X_RecursoImg = 300;
-    static final int DIM_Y_RecursoImg = 200;
+    static final int DIM_X_RECURSO_IMG = 300;
+    static final int DIM_Y_RECURSO_IMG = 200;
     
-    static final int DIM_X_TecnologImg = 500;
-    static final int DIM_Y_TecnologImg = 350;
+    static final int DIM_X_TECNOLOG_IMG = 500;
+    static final int DIM_Y_TECNOLOG_IMG = 350;
     
-    static final int DIM_X_Marcador = 49;
-    static final int DIM_Y_Marcador = 44;
+    static final int DIM_X_MARCADOR = 49;
+    static final int DIM_Y_MARCADOR = 44;
     
-    static final int DIM_X_MarcadorProd = 35;
-    static final int DIM_Y_MarcadorProd = 35;
+    static final int DIM_X_MARCADORPRO = 35;
+    static final int DIM_Y_MARCADORPRO = 35;
             
     static final int DIM_X_FRAME = 1920;
     static final int DIM_Y_FRAME = 1000;
@@ -136,5 +136,8 @@ public interface Constantes {
     
     String MARCADOR2 = "marcador2";
     String PATH_IMG_MERCADOR2 = "images/marcador2.png";
+    
+    String PLACAEND = "placa";
+    String PATH_IMG_PLACA = "images/placa_end.jpg";
     
 }

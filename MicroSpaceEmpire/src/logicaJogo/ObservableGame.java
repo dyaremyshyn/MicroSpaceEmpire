@@ -148,7 +148,12 @@ public class ObservableGame extends Observable {
     {
     return jogo.VerificaSeHaSistemasDistant();
     }
+    //paineis 
     
+    public String Painel_final_GUI()
+    {
+    return jogo.Painel_final_GUI();
+    }
     // Methods that are intended to be used by the user interfaces and that are delegated in the current state of the finite state machine 
     // funcoes delegadas no estado corrente 
     

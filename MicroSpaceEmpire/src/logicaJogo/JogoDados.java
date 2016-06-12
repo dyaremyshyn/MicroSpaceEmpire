@@ -66,7 +66,7 @@ public class JogoDados implements Serializable {
     private List<Carta> porConquistar;
     private int pontuacao;
     private int metal;
-    private int limiteProducao;
+    private final int limiteProducao;
     private int riqueza;
     private int forcaMilitar;
     private int producaoMetal;
@@ -118,7 +118,7 @@ public class JogoDados implements Serializable {
        
     }
 
-    public boolean iniciar(){
+    private boolean iniciar(){
        imperio.add(new HomeWorld());   
        iniciaNearSystem();
        iniciaDistantSystem();
@@ -948,6 +948,26 @@ public class JogoDados implements Serializable {
     
     return estrutura;
     }
+    
+     public String Painel_final_GUI()
+    {
+    String estrutura = "";
+    estrutura+=    "<html><div style='text-align: center;'><br><br><br>              PONTUAÇÃO<br>" 
+                +  "<br>-----------------------------------------------------------------"                
+                + "<br>   Pontos do Imperio: " + SomaPontosImperio()
+                + "<br>   Pontos das Tecnologias: " + SomaPontosTecnologia()
+                + (ForamAdequiridasTodasAsTecnologias()? " <br> (bónus científico)":"")
+                + (ForamViradasTodasCartasSistema()? " <br> (bónus de exploração)":"")
+                + (ForamConquistadasTodasAsCartas()? " <br> (bónus senhor da guerra)":"")
+                + "<br>------------------------------------------------------------------"
+                + "<br>    PONTUAÇÃO TOTAL: " + SomaPontosVitoria()
+                + "<br>------------------------------------------------------------------"
+                + "<br><br><br><br>";
+    
+    return estrutura;
+    }
+    
+     
     
     public String Painel_jogo() 
     {
