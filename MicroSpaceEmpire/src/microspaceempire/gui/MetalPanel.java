@@ -7,8 +7,6 @@ package microspaceempire.gui;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.JPanel;
 import logicaJogo.ObservableGame;
 
@@ -21,15 +19,15 @@ private ObservableGame observableGame;
   {
       
     this.observableGame = observableGame;
-    settamanho();
+    setTamanho();
     
   }
 
- public final void settamanho(){
+ public final void setTamanho(){
     setMaximumSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));
     setPreferredSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG));
     setMinimumSize(new Dimension(DIM_X_RECURSO_IMG, DIM_Y_RECURSO_IMG)); 
-    // addMouseListener( new MetalPanel.DestaqueListener());
+    
  }
   
 @Override
@@ -42,21 +40,7 @@ private ObservableGame observableGame;
     colocaMarcador_stockMetal(g);
     colocaMarcador_ProduMetal(g);
   }
-    
-//  class DestaqueListener extends MouseAdapter 
-//    {
-//        @Override
-//        public void mousePressed( MouseEvent e)
-//        {
-//            int x = e.getX(); //get x do mouse
-//            int y = e.getY(); //get y do mouse
-//            
-//           System.out.println("x = " + x + "y = " + y);
-//     
-//         
-//            
-//        }
-//    }
+
   
 public void colocaMarcador_stockMetal(Graphics g)
     {

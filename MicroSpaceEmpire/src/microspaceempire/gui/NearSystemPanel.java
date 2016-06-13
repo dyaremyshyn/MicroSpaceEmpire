@@ -33,6 +33,7 @@ public class NearSystemPanel extends JPanel implements Constantes
       addMouseListener( new DestaqueListener());
     }
 
+    @Override
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
@@ -51,7 +52,7 @@ public class NearSystemPanel extends JPanel implements Constantes
         {
             if(observableGame.getStates() instanceof ExplorarAtacar_Conquistar_Passar && observableGame.VerificaSeHaSistemasNear())
             {
-             System.out.println("carreguei para explorar sistema near!");
+             //System.out.println("carreguei para explorar sistema near!");
              NearSystemPanel.this.observableGame.EscolheExplorar_atacar(); //escolhe atacar           
              NearSystemPanel.this.observableGame.Explorar_atacar(1); // tipo 1 é near
             }

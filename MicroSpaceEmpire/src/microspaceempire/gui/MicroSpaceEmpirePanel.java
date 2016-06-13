@@ -15,41 +15,26 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 import javax.imageio.ImageIO;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JMenu;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-
 import javax.swing.JPanel; 
-import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
-import logicaJogo.Jogo;
 import logicaJogo.ObservableGame;
 import logicaJogo.States.ConstruirFM_DescobrirTecnologia;
 import logicaJogo.States.ExplorarAtacar_Conquistar_Passar;
 import logicaJogo.States.IStates;
 import logicaJogo.States.TrocaEntreRecursos;
-import logicaJogo.files.FileUtility;
-import sun.audio.*;
+
 
 
 public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observer {
@@ -75,11 +60,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     JButton trocaMetalPorRiqueza;
     JButton Passar;
     JButton AumentarForcaMilitar;
-    
-    //JLabel nearSystemLabel;
-    //JLabel distantSystemLabel;
-    //JLabel imperioLabel;
-    //JLabel porConquistarLabel;
+   
     JLabel currentState;
     
     JLabel anoLabel;
@@ -159,9 +140,9 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         setupComponents();
         setupLayout();
          
-         update(this.game, null);
-        
-        validate();
+       update(this.game, null);
+          
+       validate();
     }
 
 
@@ -191,21 +172,21 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
             }
         });
                 
-        trocaRiquezaPorMetal = new JButton("(2)Metal -> (1)Riq") ;
+
         
-        trocaRiquezaPorMetal = new JButton("Metal -> Riq") ;
-        trocaRiquezaPorMetal.setEnabled(false);
-        trocaRiquezaPorMetal.addActionListener(new ActionListener() {
+        trocaMetalPorRiqueza = new JButton("Metal -> Riq") ;
+        trocaMetalPorRiqueza.setEnabled(false);
+        trocaMetalPorRiqueza.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
-                game.Trocar_recursos(2);
+                game.Trocar_recursos(2);//2 de metal por 1 de riqueza
             }
         });
-        trocaMetalPorRiqueza = new JButton("(2)Riq -> (1)Metal");
-        trocaMetalPorRiqueza = new JButton("Riq -> Metal");
-        trocaMetalPorRiqueza.setEnabled(false);
-        trocaMetalPorRiqueza.addActionListener(new ActionListener() {
+
+        trocaRiquezaPorMetal = new JButton("Riq -> Metal");
+        trocaRiquezaPorMetal.setEnabled(false);
+        trocaRiquezaPorMetal.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -219,28 +200,6 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
               game.Passar();
             }
         });
-     
-        //labels
-//        nearSystemLabel= new JLabel("NEAR");
-//        nearSystemLabel.setFont(new Font("Arial", Font.BOLD, 12));
-//        nearSystemLabel.setAlignmentX(Component.TOP_ALIGNMENT);
-//        nearSystemLabel.setForeground(Color.ORANGE);
-//     
-//        distantSystemLabel= new JLabel("DISTANT");
-//        distantSystemLabel.setFont(new Font("Arial", Font.BOLD, 12));
-//        distantSystemLabel.setAlignmentX(Component.TOP_ALIGNMENT);
-//        distantSystemLabel.setForeground(Color.ORANGE);
-//        
-//        
-//        imperioLabel= new JLabel("Imperio");
-//        imperioLabel.setFont(new Font("Arial", Font.BOLD, 12));
-//        imperioLabel.setAlignmentX(Component.TOP_ALIGNMENT);
-//        imperioLabel.setForeground(Color.ORANGE);
-//        
-//        porConquistarLabel= new JLabel("Unaligned");
-//        porConquistarLabel.setFont(new Font("Arial", Font.BOLD, 12));
-//        porConquistarLabel.setAlignmentX(Component.TOP_ALIGNMENT);
-//        porConquistarLabel.setForeground(Color.ORANGE);
         
         currentState = new JLabel("Estado Atual: ");
         currentState.setFont(new Font("Arial", Font.BOLD, 14));
@@ -440,13 +399,19 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         }else{ 
             AumentarForcaMilitar.setEnabled(false);
         }
+        
         if(estado instanceof TrocaEntreRecursos){
             currentState.setText("Estado Atual: Troca de Recursos");
-            if(game.getTecnologiasAdquiridas().equals("Interspecies Commerce")){
+            if( game.AdequiriuT_InterspeciesComerce()){
                 trocaRiquezaPorMetal.setEnabled(true);
                 trocaMetalPorRiqueza.setEnabled(true);
+                trocaRiquezaPorMetal.setText("(2)Riq -> (1)Metal");
+                trocaMetalPorRiqueza.setText("(2)Metal -> (1)Riq");               
+              
             }
         }else{
+            trocaRiquezaPorMetal.setText("Riq -> Metal");
+            trocaMetalPorRiqueza.setText("Metal -> Riq");
             trocaRiquezaPorMetal.setEnabled(false);
             trocaMetalPorRiqueza.setEnabled(false);
         }

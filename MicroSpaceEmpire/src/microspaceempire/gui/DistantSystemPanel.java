@@ -24,15 +24,19 @@ public class DistantSystemPanel extends JPanel implements Constantes
     public DistantSystemPanel(ObservableGame observableGame)
     {
     this.observableGame = observableGame; 
-    
-    setBackground(new Color(0,0,0,0));
-    setMaximumSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
-    setPreferredSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
-    setMinimumSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
-
-     addMouseListener( new DestaqueListener());
+   
+     setTamanho();
+     addMouseListener( new DestaqueListener());    
     }
 
+     public final void setTamanho(){
+    setMaximumSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
+    setPreferredSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
+    setMinimumSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA)); 
+    setBackground(new Color(0,0,0,0));
+    }
+    
+    @Override
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);

@@ -8,21 +8,23 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 import logicaJogo.Eventos.Evento;
 import logicaJogo.ObservableGame;
 
 
 public class EventPanel extends JPanel implements Constantes{
     private ObservableGame observableGame;
-    //private Border tracejado = BorderFactory.createDashedBorder(Color.red, 2.0f, 3.0f,1.0f, true);
     
     public EventPanel(ObservableGame observableGame)
     {
       this.observableGame = observableGame;
-
+      setTamanho();
+     
+    }
+    
+    private void setTamanho()
+    {
       setBackground(new Color(0,0,0,0));
       setMaximumSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
       setPreferredSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
@@ -43,10 +45,7 @@ public class EventPanel extends JPanel implements Constantes{
        
             String nome = eventoAtual.getNome();
         
-        
-        //System.out.println(" o nome da imagem é :"+eventoAtual.getNome());
-        
-            
+       
             Image imagem = MicroSpaceEmpirePanel.getEventImg(nome);
             
             if (imagem != null){
