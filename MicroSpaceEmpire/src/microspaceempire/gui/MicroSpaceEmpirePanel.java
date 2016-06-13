@@ -241,6 +241,8 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         
         EscolhaDosSystem.add(nearPanel);
         EscolhaDosSystem.add(distantPanel);
+        
+        EscolhaDosSystem.setBackground(new Color(0,0,0,0));
       
         //visualizar imperio e planetas pro conquistar
         VisualizacaoDosSystems.setLayout(new GridLayout(2,1)); //tipo grid 
@@ -356,8 +358,8 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     static {
         try {
             fundo = ImageIO.read(Resources.getResourceFile("images/fundoPrincipal.gif"));            
-            SystemParteTrasNear   = ImageIO.read(Resources.getResourceFile("images/Carta_sistema_parte_de_traz_near.png"));;
-            SystemParteTrasDistant   = ImageIO.read(Resources.getResourceFile("images/Carta_sistema_parte_de_traz_distant.png"));;
+            SystemParteTrasNear = ImageIO.read(Resources.getResourceFile("images/Carta_sistema_parte_de_traz_near.png"));;
+            SystemParteTrasDistant = ImageIO.read(Resources.getResourceFile("images/Carta_sistema_parte_de_traz_distant.png"));;
             riqueza = ImageIO.read(Resources.getResourceFile("images/Wealth.png"));
             metal = ImageIO.read(Resources.getResourceFile("images/Metal.png"));
             tecnologiasUpdate = ImageIO.read(Resources.getResourceFile("images/Technology.png"));

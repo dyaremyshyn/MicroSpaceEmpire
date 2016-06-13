@@ -19,20 +19,23 @@ import logicaJogo.States.ExplorarAtacar_Conquistar_Passar;
 public class NearSystemPanel extends JPanel implements Constantes
 {
     private ObservableGame observableGame;
-    private Border tracejado = BorderFactory.createDashedBorder(Color.red, 2.0f, 3.0f,1.0f, true);
+    private final Border tracejado = BorderFactory.createDashedBorder(Color.red, 2.0f, 3.0f,1.0f, true);
     
     public NearSystemPanel(ObservableGame observableGame)
     {
       this.observableGame = observableGame;
-
-      setBackground(new Color(0,0,0,0));
-      setMaximumSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
-      setPreferredSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
-      setMinimumSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
-
+      
+      setTamanho();
       addMouseListener( new DestaqueListener());
     }
 
+    public final void setTamanho(){
+    setMaximumSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
+    setPreferredSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA));
+    setMinimumSize(new Dimension(DIM_X_CARTA, DIM_Y_CARTA)); 
+    setBackground(new Color(0,0,0,0));
+    }
+    
     @Override
     public void paintComponent(Graphics g)
     {
@@ -42,6 +45,7 @@ public class NearSystemPanel extends JPanel implements Constantes
         g.drawImage(MicroSpaceEmpirePanel.getSystemParteTrasNear(), 0, 0, DIM_X_CARTA, DIM_Y_CARTA, this);  
         }else{
             setBorder(tracejado);
+             setBackground(new Color(0,0,0,0));
         }
     }
 
