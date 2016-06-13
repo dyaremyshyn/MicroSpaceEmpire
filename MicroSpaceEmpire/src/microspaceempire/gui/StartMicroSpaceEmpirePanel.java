@@ -78,7 +78,7 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
         start.addActionListener(new ActionListener(){        
             @Override
             public void actionPerformed(ActionEvent ev){
-                music();
+                //music();
                 observableGame.PrepararJogo();
 
             }
@@ -87,29 +87,7 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
     }
     
     
-    public static void music() 
-    {       
-        AudioPlayer MGP = AudioPlayer.player;
-        AudioStream BGM;
-        AudioData MD;
-
-        ContinuousAudioDataStream loop = null;
-
-        try
-        {
-           BGM = new AudioStream(new FileInputStream("musicGame.wav"));
-           MD = BGM.getData();
-           loop = new ContinuousAudioDataStream(MD);
-        }
-        catch(FileNotFoundException e){
-            System.out.print(e.toString());
-        }
-        catch(IOException error)
-        {
-            System.out.print(error.toString());
-        }
-        MGP.start(loop);
-    }
+    
     
     
      private void setupLayout()
