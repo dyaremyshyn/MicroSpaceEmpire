@@ -41,6 +41,13 @@ public class ConstruirFM_DescobrirTecnologia extends StateAdapter
     return this;  
     }
 
+     @Override
+    public IStates Terminar() 
+    {
+        return new Fim(getJogo());
+    }   
+    
+    
     @Override
     public IStates Passar() 
     {         

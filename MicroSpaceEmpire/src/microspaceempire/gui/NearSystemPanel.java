@@ -38,7 +38,7 @@ public class NearSystemPanel extends JPanel implements Constantes
         super.paintComponent(g);
         if(observableGame.VerificaSeHaSistemasNear())
         {
-        g.drawImage(MicroSpaceEmpirePanel.getSystemPartetras(), 0, 0, DIM_X_CARTA, DIM_Y_CARTA, this);  
+        g.drawImage(MicroSpaceEmpirePanel.getSystemParteTrasNear(), 0, 0, DIM_X_CARTA, DIM_Y_CARTA, this);  
         }else{
             setBorder(tracejado);
         }

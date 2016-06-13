@@ -44,5 +44,9 @@ public class TrocaEntreRecursos extends StateAdapter
         return new ConstruirFM_DescobrirTecnologia(getJogo());
     }
     
-    
+     @Override
+    public IStates Terminar() 
+    {
+        return new Fim(getJogo());
+    }   
 }

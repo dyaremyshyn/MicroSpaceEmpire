@@ -38,7 +38,7 @@ public class DistantSystemPanel extends JPanel implements Constantes
         super.paintComponent(g);
         if(observableGame.VerificaSeHaSistemasDistant())
         {
-        g.drawImage(MicroSpaceEmpirePanel.getSystemPartetras(), 0, 0, DIM_X_CARTA, DIM_Y_CARTA, this);
+        g.drawImage(MicroSpaceEmpirePanel.getSystemParteTrasDistant(), 0, 0, DIM_X_CARTA, DIM_Y_CARTA, this);
         }else{
             this.setBorder(tracejado);
         }

@@ -88,7 +88,8 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     JMenuBar menuBar;
      
     static private BufferedImage fundo = null;
-    static private BufferedImage  SystemParteTras = null;
+    static private BufferedImage  SystemParteTrasNear = null;
+    static private BufferedImage  SystemParteTrasDistant = null;
     static private BufferedImage  riqueza = null;
     static private BufferedImage  metal = null;
     static private BufferedImage  tecnologiasUpdate = null;
@@ -344,11 +345,16 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     public static BufferedImage getFundoInicio() {
         return fundo;
     }
-     
-    public static BufferedImage getSystemPartetras()
-    {
-      return  SystemParteTras;
+
+    public static BufferedImage getSystemParteTrasNear() {
+        return SystemParteTrasNear;
     }
+
+    public static BufferedImage getSystemParteTrasDistant() {
+        return SystemParteTrasDistant;
+    }
+     
+    
 
     public static BufferedImage getRiqueza() {
         return riqueza;
@@ -376,8 +382,9 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     
     static {
         try {
-            fundo = ImageIO.read(Resources.getResourceFile("images/fundoPrincipal.gif"));
-            SystemParteTras = ImageIO.read(Resources.getResourceFile("images/System.png"));
+            fundo = ImageIO.read(Resources.getResourceFile("images/fundoPrincipal.gif"));            
+            SystemParteTrasNear   = ImageIO.read(Resources.getResourceFile("images/Carta_sistema_parte_de_traz_near.png"));;
+            SystemParteTrasDistant   = ImageIO.read(Resources.getResourceFile("images/Carta_sistema_parte_de_traz_distant.png"));;
             riqueza = ImageIO.read(Resources.getResourceFile("images/Wealth.png"));
             metal = ImageIO.read(Resources.getResourceFile("images/Metal.png"));
             tecnologiasUpdate = ImageIO.read(Resources.getResourceFile("images/Technology.png"));
