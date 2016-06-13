@@ -52,10 +52,7 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
         observableGame.addObserver(this);
         setupComponents();
         setupLayout();
-      //  setBorder( new LineBorder(Color.blue,2));
-     //   setBackground(Color.blue);
-       // setVisible(observableGame.getStates() instanceof AguardaInicio);
-       // update(observableGame, null);
+      
     }
     
     
@@ -63,10 +60,7 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
     {  
         start = new JButton("Start Game");
         title = new JLabel("Micro Space Empire"); 
-        
-//        setMaximumSize(new Dimension(600, 600));
-//        setMinimumSize(new Dimension(600, 600));
-//        setPreferredSize(new Dimension(600, 600));
+     
         
         
         start.addActionListener(new ActionListener(){        

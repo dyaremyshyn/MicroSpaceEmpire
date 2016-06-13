@@ -92,10 +92,10 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
     public void playWav(File sound)
     {
         try{
-   Clip clip = AudioSystem.getClip();
-   clip.open(AudioSystem.getAudioInputStream(sound));
-   clip.start();
-  // Thread.sleep(clip.getMicrosecondLength()\1000);
+            Clip clip = AudioSystem.getClip();
+            clip.open(AudioSystem.getAudioInputStream(sound));
+            clip.start();
+            // Thread.sleep(clip.getMicrosecondLength()\1000);
         }catch(Exception e){}    
     }
     
