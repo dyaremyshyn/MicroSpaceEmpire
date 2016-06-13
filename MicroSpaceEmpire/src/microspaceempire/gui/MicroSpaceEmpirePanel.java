@@ -155,7 +155,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     {
         this.game=game;   
         this.game.addObserver(this);
-       
+
         setupComponents();
         setupLayout();
          
@@ -163,7 +163,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         
         validate();
     }
-    
+
 
     private void setupComponents()
     {
