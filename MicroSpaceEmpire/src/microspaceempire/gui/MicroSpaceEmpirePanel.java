@@ -151,7 +151,7 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     {
         this.game=game;   
         this.game.addObserver(this);
-        music();
+
         setupComponents();
         setupLayout();
          
@@ -160,29 +160,6 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         validate();
     }
     
-    public static void music() 
-    {       
-        AudioPlayer MGP = AudioPlayer.player;
-        AudioStream BGM;
-        AudioData MD;
-
-        ContinuousAudioDataStream loop = null;
-
-        try
-        {
-           BGM = new AudioStream(new FileInputStream("musicGame.wav"));
-           MD = BGM.getData();
-           loop = new ContinuousAudioDataStream(MD);
-        }
-        catch(FileNotFoundException e){
-            System.out.print(e.toString());
-        }
-        catch(IOException error)
-        {
-            System.out.print(error.toString());
-        }
-        MGP.start(loop);
-    }
       
 
     private void setupComponents()

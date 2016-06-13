@@ -69,7 +69,7 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
         
          File fl = new File("musicGame.wav");
          playWav(fl);
-        validate();
+         validate();
     
         update(game,null);
     }
