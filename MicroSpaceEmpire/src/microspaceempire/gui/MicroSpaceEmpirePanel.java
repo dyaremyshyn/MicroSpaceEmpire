@@ -18,7 +18,10 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Observable;
@@ -41,11 +44,8 @@ import javax.swing.KeyStroke;
 import javax.swing.border.LineBorder;
 import logicaJogo.Jogo;
 import logicaJogo.ObservableGame;
-import logicaJogo.States.ConstruirFM_DescobrirTecnologia;
-import logicaJogo.States.ExplorarAtacar_Conquistar_Passar;
-import logicaJogo.States.IStates;
-import logicaJogo.States.TrocaEntreRecursos;
 import logicaJogo.files.FileUtility;
+import sun.audio.*;
 
 
 public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observer {
@@ -73,7 +73,6 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     JButton trocaRiquezaPorMetal;
     JButton trocaMetalPorRiqueza;
     JButton Passar;
-    JButton AumentarForcaMilitar;
     
     
     JLabel nearSystemLabel;
@@ -81,9 +80,6 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     JLabel imperioLabel;
     JLabel porConquistarLabel;
     JLabel currentState;
-    
-    JLabel anoLabel;
-    JLabel turnoLabel;
     
     JMenuBar menuBar;
      
@@ -155,13 +151,37 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
     {
         this.game=game;   
         this.game.addObserver(this);
-        
+        music();
         setupComponents();
         setupLayout();
          
          update(this.game, null);
         
         validate();
+    }
+    
+    public static void music() 
+    {       
+        AudioPlayer MGP = AudioPlayer.player;
+        AudioStream BGM;
+        AudioData MD;
+
+        ContinuousAudioDataStream loop = null;
+
+        try
+        {
+           BGM = new AudioStream(new FileInputStream("musicGame.wav"));
+           MD = BGM.getData();
+           loop = new ContinuousAudioDataStream(MD);
+        }
+        catch(FileNotFoundException e){
+            System.out.print(e.toString());
+        }
+        catch(IOException error)
+        {
+            System.out.print(error.toString());
+        }
+        MGP.start(loop);
     }
       
 
@@ -182,33 +202,10 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         tecnologiasPanel = new TechnologyUpdatePanel(game);
      
         //butoes
-        AumentarForcaMilitar = new JButton("+ Força Militar");
-        AumentarForcaMilitar.setEnabled(false);
-        AumentarForcaMilitar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                game.Aumentar_Força_Militar();
-            }
-        });
-                
-        trocaRiquezaPorMetal = new JButton("(2)Metal -> (1)Riq") ;
+        trocaRiquezaPorMetal = new JButton("Metal -> Riq") ;
         trocaRiquezaPorMetal.setEnabled(false);
-        trocaRiquezaPorMetal.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                game.Trocar_recursos(2);
-            }
-        });
-        trocaMetalPorRiqueza = new JButton("(2)Riq -> (1)Metal");
+        trocaMetalPorRiqueza = new JButton("Riq -> Metal");
         trocaMetalPorRiqueza.setEnabled(false);
-        trocaMetalPorRiqueza.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                game.Trocar_recursos(1);
-            }
-        });
         Passar = new JButton("Passar");
         Passar.addActionListener(new ActionListener(){        
             @Override
@@ -240,32 +237,28 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         porConquistarLabel.setForeground(Color.ORANGE);
         
         currentState = new JLabel("Estado Atual: ");
-        currentState.setFont(new Font("Arial", Font.BOLD, 14));
+        currentState.setFont(new Font("Arial", Font.BOLD, 11));
         currentState.setAlignmentX(Component.CENTER_ALIGNMENT);
         currentState.setForeground(Color.ORANGE);
-        
-        anoLabel = new JLabel("Ano: ");
-        anoLabel.setFont(new Font("Arial", Font.BOLD,18));
-        anoLabel.setAlignmentX(TOP_ALIGNMENT);
-        anoLabel.setForeground(Color.orange);
-        
-        turnoLabel = new JLabel("Turno: ");
-        turnoLabel.setFont(new Font("Arial",Font.BOLD,18));
-        turnoLabel.setAlignmentX(TOP_ALIGNMENT);
-        turnoLabel.setForeground(Color.orange);
         
         //jpanels para verificação de estado decorrente
         EscolhaDosSystem = new JPanel(); 
         VisualizacaoDosSystems = new JPanel();
         ParteDosRecursosEeventos = new JPanel(); 
         CurrentEvent = new JPanel();
-        
-        
+    
+                   
     }
 
     private void setupLayout()
     {
-        
+        //setLayout(new BorderLayout());
+
+
+//         //escolhe sistema near ou distant
+
+      
+
         EscolhaDosSystem.setLayout(new BoxLayout(EscolhaDosSystem, BoxLayout.Y_AXIS)); //tipo float
         
         nearPanel.add(nearSystemLabel,BOTTOM_ALIGNMENT);
@@ -285,10 +278,13 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         
         VisualizacaoDosSystems.add(porConquistar);
         VisualizacaoDosSystems.add(imperio);
-        
+        //VisualizacaoDosSystems.setLayout(new FlowLayout());
+      
         //parte de baixo
+       
+        //ParteDosRecursosEeventos.setLayout(new BoxLayout(ParteDosRecursosEeventos, WIDTH));
         ParteDosRecursosEeventos.setLayout(new FlowLayout());
-        
+        //ParteDosRecursosEeventos.setBackground(Color.BLACK);
         ParteDosRecursosEeventos.add(CurrentEvent);
         ParteDosRecursosEeventos.add(recursoMetalPanel);
         ParteDosRecursosEeventos.add(recursoRiquezaPanel);
@@ -312,34 +308,36 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         horizontal.add(Box.createHorizontalGlue());
         horizontal.add(Passar);
         horizontal.add(Box.createHorizontalGlue());
-        horizontal.add(AumentarForcaMilitar);
-        horizontal.add(Box.createHorizontalGlue());
         horizontal.add(trocaRiquezaPorMetal);
         horizontal.add(trocaMetalPorRiqueza);
-        
+        horizontal.add(Box.createHorizontalGlue());
         horizontal.setAlignmentX(Component.CENTER_ALIGNMENT);
         horizontal.setBorder(new LineBorder(Color.pink));
         
-        h.add(anoLabel);
-        h.add(Box.createHorizontalGlue());
-        h.add(turnoLabel);
         h.add(Box.createHorizontalGlue());
         h.add(currentState);
-        
-        
+        h.add(Box.createHorizontalGlue());
+       
         principal.add(Box.createVerticalGlue());
         principal.setAlignmentY(Component.LEFT_ALIGNMENT);
         principal.add(Box.createHorizontalGlue());
               
         principal.add(horizontal);
         principal.add(h);
-        add(EscolhaDosSystem);
-        add(VisualizacaoDosSystems);
-        
-        add(principal,BorderLayout.SOUTH);
-        add(Box.createHorizontalGlue());
-        
-        validate();
+       add(EscolhaDosSystem);
+       add(VisualizacaoDosSystems);
+       //add(CurrentEvent);
+       
+       //add(ParteDosRecursosEeventos);
+       //add(Passar);
+       //add(tecnologiasPanel);
+       //add(pSouth,BorderLayout.SOUTH);
+       
+       add(principal,BorderLayout.SOUTH);
+       
+       add(Box.createHorizontalGlue());
+
+       validate();
     } 
     
     public static BufferedImage getFundoInicio() {
@@ -396,45 +394,36 @@ public class MicroSpaceEmpirePanel extends JPanel implements Constantes, Observe
         }
     }
     
-    @Override
+    
+       @Override
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
         
         g.drawImage(getFundoInicio(), 0, 0, getWidth(), getHeight(), this);
+        
     }
 
     
-    @Override
+      @Override
     public void update(Observable o, Object arg)
     {
-        repaint();   
-        
-        IStates estado = game.getStates();
-        
-        anoLabel.setText("Ano: " + game.getCurrentYear());
-        turnoLabel.setText("Turno: " + game.getTurno());
-        //currentState.setText();
-        if(estado instanceof ExplorarAtacar_Conquistar_Passar)
-            currentState.setText("Estado Atual: Explorar/Atacar - Conquistar/Passar");
-        
-        if(estado instanceof ConstruirFM_DescobrirTecnologia){
-            currentState.setText("Estado Atual: Aumentar FM e Descobre Tecno");
-            AumentarForcaMilitar.setEnabled(true);
-        }else{ 
-            AumentarForcaMilitar.setEnabled(false);
-        }
-        if(estado instanceof TrocaEntreRecursos){
-            currentState.setText("Estado Atual: Troca de Recursos");
-            if(game.getTecnologiasAdquiridas().equals("Interspecies Commerce")){
-                trocaRiquezaPorMetal.setEnabled(true);
-                trocaMetalPorRiqueza.setEnabled(true);
-            }
-        }else{
-            trocaRiquezaPorMetal.setEnabled(false);
-            trocaMetalPorRiqueza.setEnabled(false);
-        }
-        
+           
+//        IStates estado = game.getStates();
+//      
+//     nearPanel = new NearSystemPanel(game);
+//     distantPanel = new DistantSystemPanel(game);
+//     imperio = new ImpirePanel(game);
+//     porConquistar = new UnalignedPanel(game);
+//     recursoMetalPanel = new MetalPanel(game);
+//     recursoRiquezaPanel = new  WeathPanel(game);
+//     forcaMilitarPanel = new MilitaryStrenghPanel(game);
+//     tecnologiasPanel = new TechnologyUpdatePanel(game);
+//     
+//     //butoes
+//     trocaRiquezaPorMetal = new JButton() ;
+//     trocaMetalPorRiqueza = new JButton();
+     
     }
     
     public void tiraContornos()
