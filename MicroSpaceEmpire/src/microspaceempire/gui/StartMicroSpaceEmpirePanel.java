@@ -12,6 +12,8 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
@@ -21,6 +23,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import logicaJogo.ObservableGame;
+import sun.audio.AudioData;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+import sun.audio.ContinuousAudioDataStream;
 
 public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Constantes{
    
@@ -38,6 +44,7 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
 			
     static {
         try {
+            
             fundo = ImageIO.read(Resources.getResourceFile("images/fundoInicio.gif"));
         } catch (IOException e) {
             System.out.println("Error loading images ");
@@ -71,12 +78,37 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
         start.addActionListener(new ActionListener(){        
             @Override
             public void actionPerformed(ActionEvent ev){
-          
+                music();
                 observableGame.PrepararJogo();
 
             }
         });
    
+    }
+    
+    
+    public static void music() 
+    {       
+        AudioPlayer MGP = AudioPlayer.player;
+        AudioStream BGM;
+        AudioData MD;
+
+        ContinuousAudioDataStream loop = null;
+
+        try
+        {
+           BGM = new AudioStream(new FileInputStream("musicGame.wav"));
+           MD = BGM.getData();
+           loop = new ContinuousAudioDataStream(MD);
+        }
+        catch(FileNotFoundException e){
+            System.out.print(e.toString());
+        }
+        catch(IOException error)
+        {
+            System.out.print(error.toString());
+        }
+        MGP.start(loop);
     }
     
     
