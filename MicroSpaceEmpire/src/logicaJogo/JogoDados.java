@@ -1024,7 +1024,7 @@ public class JogoDados implements Serializable {
                 + "Jogo realizado no ambito da disciplina: "                 
                 + "\n- Programação Avançada\n"
                 + "\n=== Criadores ===\n" 
-                + "\n- Dmytro Yaremyshyn nº" 
+                + "\n- Dmytro Yaremyshyn nº21220683" 
                 + "\n- Sérgio Cruz nº21230463 ";
     }
     
