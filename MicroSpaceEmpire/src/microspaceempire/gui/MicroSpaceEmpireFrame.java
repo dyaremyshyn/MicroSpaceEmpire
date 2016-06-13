@@ -5,16 +5,20 @@
 package microspaceempire.gui;
 
 import java.awt.BorderLayout;
+
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
+
 import java.io.IOException;
 
 import java.util.Observable;
 import java.util.Observer;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -62,6 +66,9 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
         setMinimumSize(new Dimension(width,height));
         setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+         File fl = new File("musicGame.wav");
+         playWav(fl);
         validate();
     
         update(game,null);
@@ -81,6 +88,18 @@ public class MicroSpaceEmpireFrame extends JFrame implements Observer, Constante
         menuBar.setVisible( !( (game.getStates() instanceof AguardaInicio) || (game.getStates() instanceof Fim))  );
         repaint();
     }
+    
+    public void playWav(File sound)
+    {
+        try{
+   Clip clip = AudioSystem.getClip();
+   clip.open(AudioSystem.getAudioInputStream(sound));
+   clip.start();
+  // Thread.sleep(clip.getMicrosecondLength()\1000);
+        }catch(Exception e){}    
+    }
+    
+    
     
     private void menus()
     {

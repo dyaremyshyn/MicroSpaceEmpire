@@ -12,8 +12,6 @@ import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
@@ -23,10 +21,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import logicaJogo.ObservableGame;
-import sun.audio.AudioData;
-import sun.audio.AudioPlayer;
-import sun.audio.AudioStream;
-import sun.audio.ContinuousAudioDataStream;
+
 
 public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Constantes{
    
@@ -43,8 +38,7 @@ public class StartMicroSpaceEmpirePanel extends JPanel implements Observer, Cons
     }
 			
     static {
-        try {
-            
+        try {         
             fundo = ImageIO.read(Resources.getResourceFile("images/fundoInicio.gif"));
         } catch (IOException e) {
             System.out.println("Error loading images ");
